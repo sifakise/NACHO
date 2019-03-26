@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>qc_imaging — qc_imaging • NACHO</title>
+<title>Changelog • NACHO</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,10 +30,7 @@
 
 
 
-<meta property="og:title" content="qc_imaging — qc_imaging" />
-
-<meta property="og:description" content="qc_imaging" />
-<meta name="twitter:card" content="summary" />
+<meta property="og:title" content="Changelog" />
 
 
 
@@ -50,7 +47,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -105,47 +102,95 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>qc_imaging</h1>
-    <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/qc_imaging.R'><code>R/qc_imaging.R</code></a></small>
-    <div class="hidden name"><code>qc_imaging.Rd</code></div>
+      <h1>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/mcanouil/NACHO/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div class="ref-description">
-    
-    <p>qc_imaging</p>
-    
-    </div>
-
-    <pre class="usage"><span class='fu'>qc_imaging</span>(<span class='no'>fov_counted</span>, <span class='no'>fov_count</span>)</pre>
-    
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>fov_counted</th>
-      <td><p>[numeric] Values from "lane_FovCounted" in the RCC files.</p></td>
-    </tr>
-    <tr>
-      <th>fov_count</th>
-      <td><p>[numeric] Values from "lane_FovCount" in the RCC files.</p></td>
-    </tr>
-    </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>[numeric]</p>
-    
-
+    <div id="nacho-0-5-0-9000" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-5-0-9000" class="anchor"></a>NACHO 0.5.0.9000</h1>
+<ul>
+<li>Minor changes</li>
+</ul>
+</div>
+    <div id="nacho-0-5-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-5-0" class="anchor"></a>NACHO 0.5.0</h1>
+<ul>
+<li>
+<code><a href="../reference/visualise.html">visualise()</a></code> allows customisation of the quality thresholds</li>
+</ul>
+</div>
+    <div id="nacho-0-4-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-4-0" class="anchor"></a>NACHO 0.4.0</h1>
+<ul>
+<li>Fix major errors, bad behaviour and typos</li>
+</ul>
+</div>
+    <div id="nacho-0-3-1" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-3-1" class="anchor"></a>NACHO 0.3.1</h1>
+<ul>
+<li>Add and fill roxygen documentation</li>
+</ul>
+</div>
+    <div id="nacho-0-3-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-3-0" class="anchor"></a>NACHO 0.3.0</h1>
+<ul>
+<li><p>Code optimisation in <code><a href="../reference/normalise.html">normalise()</a></code> (and internal functions)</p></li>
+<li><p><code><a href="../reference/visualise.html">visualise()</a></code> replaces the Shiny app</p></li>
+</ul>
+</div>
+    <div id="nacho-0-2-2" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-2-2" class="anchor"></a>NACHO 0.2.2</h1>
+<ul>
+<li>Remove S4 class =&gt; Back to list object</li>
+</ul>
+</div>
+    <div id="nacho-0-2-1" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-2-1" class="anchor"></a>NACHO 0.2.1</h1>
+<ul>
+<li>Rewrite GEO dataset</li>
+</ul>
+</div>
+    <div id="nacho-0-2-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-2-0" class="anchor"></a>NACHO 0.2.0</h1>
+<ul>
+<li><p>Complete rewrite of <code><a href="../reference/summarise.html">summarise()</a></code> and <code><a href="../reference/normalise.html">normalise()</a></code> (and all internal functions)</p></li>
+<li><p>Add S4 class object</p></li>
+</ul>
+</div>
+    <div id="nacho-0-1-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-1-0" class="anchor"></a>NACHO 0.1.0</h1>
+<ul>
+<li>First version</li>
+</ul>
+</div>
   </div>
+
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-          </ul>
-
+    <div id="tocnav">
+      <h2>Contents</h2>
+      <ul class="nav nav-pills nav-stacked">
+        <li><a href="#nacho-0-5-0-9000">0.5.0.9000</a></li>
+        <li><a href="#nacho-0-5-0">0.5.0</a></li>
+        <li><a href="#nacho-0-4-0">0.4.0</a></li>
+        <li><a href="#nacho-0-3-1">0.3.1</a></li>
+        <li><a href="#nacho-0-3-0">0.3.0</a></li>
+        <li><a href="#nacho-0-2-2">0.2.2</a></li>
+        <li><a href="#nacho-0-2-1">0.2.1</a></li>
+        <li><a href="#nacho-0-2-0">0.2.0</a></li>
+        <li><a href="#nacho-0-1-0">0.1.0</a></li>
+      </ul>
+    </div>
   </div>
+
 </div>
 
       <footer>
