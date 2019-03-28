@@ -72,7 +72,7 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>NACHO</h1>
-            <h3 class="subtitle">A NanoString Quality-Control Dashboard</h3>
+            <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
             <h4 class="date">March 28, 2019</h4>
@@ -85,6 +85,16 @@
     
     
 <p><img src="nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
+<div id="installation" class="section level1">
+<h1 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install NACHO from CRAN:</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"NACHO"</span>)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Or the the development version from GitHub:</span></a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"mcanouil/NACHO"</span>)</a></code></pre></div>
+</div>
 <div id="overview" class="section level1">
 <h1 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h1>
@@ -103,16 +113,6 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="../reference/normalise.html">normalise()</a></code> function creates a list in which your settings, the raw counts and normalised counts are stored.</li>
 </ul>
 </div>
-<div id="installation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h1>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Install NACHO from CRAN:</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"NACHO"</span>)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Or the the development version from GitHub:</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"mcanouil/NACHO"</span>)</a></code></pre></div>
-</div>
 <div id="an-example" class="section level1">
 <h1 class="hasAnchor">
 <a href="#an-example" class="anchor"></a>An example</h1>
@@ -128,7 +128,7 @@ While calling <code><a href="../reference/normalise.html">normalise()</a></code>
 <a href="#presummarised-data-from-nacho" class="anchor"></a>Presummarised data from <em>NACHO</em>
 </h3>
 <p>This example shows how to use summarised data to call the interactive web application.<br>
-The raw data used in the summarisation is from a study of Liu MC et al. <span class="citation">(Liu et al. <a href="#ref-liu_pam50_2016">2016</a>)</span> and was acquired from the NCBI GEO public database <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.</p>
+The raw data used in the summarisation is from a study of <span class="citation">Liu et al. (<a href="#ref-liu_pam50_2016">2016</a>)</span> and was acquired from the NCBI GEO public database <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(NACHO)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(GSE74821)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
@@ -136,8 +136,8 @@ The raw data used in the summarisation is from a study of Liu MC et al. <span cl
 <div id="raw-data-from-geo" class="section level3">
 <h3 class="hasAnchor">
 <a href="#raw-data-from-geo" class="anchor"></a>Raw data from GEO</h3>
-<p>Numerous NanoString nCounter data sets are available from GEO.<br>
-In this example we use a mRNA dataset from the study of <em>Bruce</em> et al. <span class="citation">(Bruce et al. <a href="#ref-bruce_identification_2015">2015</a>)</span> with the GEO accession number: <strong>GSE70970</strong> <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>. The data is extracted and prepared using the following code.</p>
+<p>Numerous NanoString nCounter data sets are available from GEO <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.<br>
+In this example we use a mRNA dataset from the study of <span class="citation">Bruce et al. (<a href="#ref-bruce_identification_2015">2015</a>)</span> with the GEO accession number: <strong>GSE70970</strong>. The data is extracted and prepared using the following code.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(GEOquery)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Download data</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">gse &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/GEOquery/topics/getGEO">getGEO</a></span>(<span class="st">"GSE70970"</span>)</a>
@@ -281,8 +281,8 @@ In this example <code>"GLM"</code> is used.</p>
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#overview">Overview</a></li>
-      <li><a href="#installation">Installation</a></li>
+<li><a href="#installation">Installation</a></li>
+      <li><a href="#overview">Overview</a></li>
       <li>
 <a href="#an-example">An example</a><ul class="nav nav-pills nav-stacked">
 <li><a href="#get-nanostring-ncounter-data">Get NanoString nCounter data</a></li>
