@@ -75,7 +75,7 @@
             <h3 class="subtitle">A NanoString Quality-Control Dashboard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">March 26, 2019</h4>
+            <h4 class="date">March 28, 2019</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -128,7 +128,7 @@ While calling <code><a href="../reference/normalise.html">normalise()</a></code>
 <a href="#presummarised-data-from-nacho" class="anchor"></a>Presummarised data from <em>NACHO</em>
 </h3>
 <p>This example shows how to use summarised data to call the interactive web application.<br>
-The raw data used in the summarisation is from a study of Liu MC et al. [1] and was acquired from the NCBI GEO public database [2].</p>
+The raw data used in the summarisation is from a study of Liu MC et al. <span class="citation">(Liu et al. <a href="#ref-liu_pam50_2016">2016</a>)</span> and was acquired from the NCBI GEO public database <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(NACHO)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(GSE74821)</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
@@ -137,7 +137,7 @@ The raw data used in the summarisation is from a study of Liu MC et al. [1] and 
 <h3 class="hasAnchor">
 <a href="#raw-data-from-geo" class="anchor"></a>Raw data from GEO</h3>
 <p>Numerous NanoString nCounter data sets are available from GEO.<br>
-In this example we use a mRNA dataset from the study of <em>Bruce</em> et al. [2] with the GEO accession number: <strong>GSE70970</strong>. The data is extracted and prepared using the following code.</p>
+In this example we use a mRNA dataset from the study of <em>Bruce</em> et al. <span class="citation">(Bruce et al. <a href="#ref-bruce_identification_2015">2015</a>)</span> with the GEO accession number: <strong>GSE70970</strong> <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>. The data is extracted and prepared using the following code.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(GEOquery)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Download data</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">gse &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/GEOquery/topics/getGEO">getGEO</a></span>(<span class="st">"GSE70970"</span>)</a>
@@ -259,12 +259,20 @@ In this example <code>"GLM"</code> is used.</p>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/summarise.html">summarise()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 </div>
-<div id="references" class="section level1">
+<div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h1>
-<p>[1] Liu MC, Pitcher BN, Mardis ER, Davies SR, Friedman PN, Snider JE, Vickery TL, Reed JP, DeSchryver K, Singh B, Gradishar WJ, Perez EA, Martino S, Citron ML, Norton L, Winer EP, Hudis CA, Carey LA, Bernard PS, Nielsen TO, Perou CM, Ellis MJ, Barry WT. PAM50 gene signatures and breast cancer prognosis with adjuvant anthracycline- and taxane-based chemotherapy: correlative analysis of C9741 (Alliance). Npj Breast Cancer 2:15023 (2016) <a href="http://dx.doi.org/10.1038/npjbcancer.2015.23" class="uri">http://dx.doi.org/10.1038/npjbcancer.2015.23</a></p>
-<p>[2] Barrett T, Wilhite SE, Ledoux P, Evangelista C, Kim IF, Tomashevsky M, Marshall KA, Phillippy KH, Sherman PM, Holko M, Yefanov A, Lee H, Zhang N, Robertson CL, Serova N, Davis S, Soboleva A. NCBI GEO: archive for functional genomics data sets–update. Nucleic Acids Res. 2013 Jan;41(Database issue):D991-5.</p>
-<p>[3] Bruce JP, Hui AB, Shi W, Perez-Ordonez B et al. Identification of a microRNA signature associated with risk of distant metastasis in nasopharyngeal carcinoma. Oncotarget 2015 Feb 28;6(6):4537-50. PMID: 25738365</p>
+<div id="refs" class="references">
+<div id="ref-barrett_ncbi_2013">
+<p>Barrett, Tanya, Stephen E. Wilhite, Pierre Ledoux, Carlos Evangelista, Irene F. Kim, Maxim Tomashevsky, Kimberly A. Marshall, et al. 2013. “NCBI GEO: Archive for Functional Genomics Data Sets—Update.” <em>Nucleic Acids Research</em> 41 (D1): D991–D995. <a href="https://doi.org/10.1093/nar/gks1193" class="uri">https://doi.org/10.1093/nar/gks1193</a>.</p>
+</div>
+<div id="ref-bruce_identification_2015">
+<p>Bruce, Jeff P., Angela B. Y. Hui, Wei Shi, Bayardo Perez-Ordonez, Ilan Weinreb, Wei Xu, Benjamin Haibe-Kains, et al. 2015. “Identification of a microRNA Signature Associated with Risk of Distant Metastasis in Nasopharyngeal Carcinoma.” <em>Oncotarget</em> 6 (6): 4537–50. <a href="https://doi.org/10.18632/oncotarget.3005" class="uri">https://doi.org/10.18632/oncotarget.3005</a>.</p>
+</div>
+<div id="ref-liu_pam50_2016">
+<p>Liu, Minetta C., Brandelyn N. Pitcher, Elaine R. Mardis, Sherri R. Davies, Paula N. Friedman, Jacqueline E. Snider, Tammi L. Vickery, et al. 2016. “PAM50 Gene Signatures and Breast Cancer Prognosis with Adjuvant Anthracycline- and Taxane-Based Chemotherapy: Correlative Analysis of C9741 (Alliance).” <em>Npj Breast Cancer</em> 2 (January): 15023. <a href="https://doi.org/10.1038/npjbcancer.2015.23" class="uri">https://doi.org/10.1038/npjbcancer.2015.23</a>.</p>
+</div>
+</div>
 </div>
   </div>
 
