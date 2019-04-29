@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.6</span>
       </span>
     </div>
 
@@ -68,7 +68,7 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">April 23, 2019</h4>
+            <h4 class="date">April 29, 2019</h4>
       
       
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -131,6 +131,7 @@ The raw data used in the summarisation is from a study of <span class="citation"
 <a href="#raw-data-from-geo" class="anchor"></a>Raw data from GEO</h3>
 <p>Numerous NanoString nCounter data sets are available from GEO <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.<br>
 In this example we use a mRNA dataset from the study of <span class="citation">Bruce et al. (<a href="#ref-bruce_identification_2015">2015</a>)</span> with the GEO accession number: <strong>GSE70970</strong>. The data is extracted and prepared using the following code.</p>
+<p>Note: <code>GEOquery</code> seems to be currently down. Thus, the following code was not executed.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(GEOquery)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co"># Download data</span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">gse &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/GEOquery/topics/getGEO">getGEO</a></span>(<span class="st">"GSE70970"</span>)</a>
@@ -153,47 +154,15 @@ In this example we use a mRNA dataset from the study of <span class="citation">B
 <p>The first argument requires the path to the directory containing the RCC files, the second argument is the location of samplesheet followed by third argument with the column name containing the exact names of the files.<br>
 The <code>housekeeping_genes</code> and <code>normalisation_method</code> arguments respectively indicate which housekeeping genes and normalisation method should be used.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(NACHO)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">## </a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">## Attaching package: 'NACHO'</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">## The following object is masked from 'package:BiocGenerics':</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">## </a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">##     normalize</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/summarise.html">summarise</a></span>(</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/tempfile">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">)</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">## [NACHO] Importing RCC files.</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">## [NACHO] Performing QC and formatting data.</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb4-22" data-line-number="22">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">##   - hsa-miR-500+hsa-miR-501-5p</a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb4-27" data-line-number="27">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb4-28" data-line-number="28">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
-<a class="sourceLine" id="cb4-29" data-line-number="29">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">##   $ access              : character</a>
-<a class="sourceLine" id="cb4-31" data-line-number="31">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb4-32" data-line-number="32">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb4-34" data-line-number="34">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb4-35" data-line-number="35">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb4-36" data-line-number="36">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb4-38" data-line-number="38">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb4-39" data-line-number="39">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb4-42" data-line-number="42">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb4-2" data-line-number="2">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/summarise.html">summarise</a></span>(</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/tempfile">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">)</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
@@ -207,12 +176,8 @@ The <code>housekeeping_genes</code> and <code>normalisation_method</code> argume
 <a href="#the-normalise-function" class="anchor"></a>The <code><a href="../reference/normalise.html">normalise()</a></code> function</h2>
 <p><em>NACHO</em> is allows the discovery of housekeeping genes within your own dataset. <em>NACHO</em> finds the five best suitable housekeeping genes, however, it is possible that one of these five genes might not be suitable, which is why a subset of these discovered housekeeping genes might work better in some cases. For this example we use the <strong>GSE70970</strong> dataset from the previous example. The discovered housekeeping genes are saved in a global variable named <strong>predicted_housekeeping</strong>.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a></code></pre></div>
-<p>[1] “hsa-miR-103” “hsa-let-7e”<br>
-[3] “hsa-miR-1260” “hsa-miR-500+hsa-miR-501-5p” [5] “hsa-miR-1274b”</p>
-<p>Let’s say <em>hsa-miR-103</em> and <em>hsa-let-7e</em> are not suitable, therefore, you want to exclude these genes from the normalisation process.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
 <a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(my_housekeeping)</a></code></pre></div>
-<p>[1] “hsa-miR-1260” “hsa-miR-500+hsa-miR-501-5p” [3] “hsa-miR-1274b”</p>
 <p>The next step is the actual normalisation. The first argument requires the summary which is created with the <code><a href="../reference/summarise.html">summarise()</a></code> function. The second arugument requires a vector of gene names. In this case it is a subset of the discovered housekeeping genes we just made. With the third argument the user has the choice to remove the outliers. Lastly the normalisation method can be choosed.<br>
 Here the user has a choice between <code>"GLM"</code> or <code>"GEO"</code>. The differences between normalisation methods are nuanced, however, a preference for either method are use case specific.<br>
 In this example <code>"GLM"</code> is used.</p>
@@ -222,33 +187,7 @@ In this example <code>"GLM"</code> is used.</p>
 <a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
 <a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
 <a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">##   - housekeeping_genes = TRUE</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">##   - remove_outliers = TRUE</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18">##   - hsa-miR-16</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">##   $ access              : character</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb8-26" data-line-number="26">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb8-28" data-line-number="28">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb8-29" data-line-number="29">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb8-30" data-line-number="30">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb8-31" data-line-number="31">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb8-32" data-line-number="32">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb8-33" data-line-number="33">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb8-7" data-line-number="7">)</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/summarise.html">summarise()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 </div>
