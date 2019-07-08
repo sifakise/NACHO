@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>render_nacho — render_nacho • NACHO</title>
+<title>print_nacho — print_nacho • NACHO</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="render_nacho — render_nacho" />
+<meta property="og:title" content="print_nacho — print_nacho" />
 
-<meta property="og:description" content="render_nacho" />
+<meta property="og:description" content="print_nacho" />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -105,20 +105,18 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>render_nacho</h1>
+    <h1>print_nacho</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/render_nacho.R'><code>R/render_nacho.R</code></a></small>
-    <div class="hidden name"><code>render_nacho.Rd</code></div>
+    <div class="hidden name"><code>print_nacho.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>render_nacho</p>
+    <p>print_nacho</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>render_nacho</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour_name</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>,
-  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"NACHO_QC.html"</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>keep_rmd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>print_nacho</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour_name</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -133,54 +131,19 @@
 or more generally in <code>nacho_object$nacho</code>.</p></td>
     </tr>
     <tr>
-      <th>output_file</th>
-      <td><p>[character] The name of the output file.
-If using `NULL` then the output filename will be based on filename for the input file.
-If a filename is provided, a path to the output file can also be provided.
-Note that the `output_dir` option allows for specifying the output file path as well,
-however, if also specifying the path, the directory must exist.
-If `output_file` is specified but does not have a file extension,
-an extension will be automatically added according to the output format.
-To avoid the automatic file extension, put the output_file value in `I()`, e.g., I('my-output').</p></td>
-    </tr>
-    <tr>
-      <th>output_dir</th>
-      <td><p>[character] The output directory for the rendered output_file.
-This allows for a choice of an alternate directory to which the output file should be written
-(the default output directory is the working directory).
-If a path is provided with a filename in `output_file` the directory specified here will take precedence.
-Please note that any directory path provided will create any necessary directories if they do not exist.</p></td>
-    </tr>
-    <tr>
       <th>legend</th>
       <td><p>[logical] Boolean to indicate whether the plot legends should
 be plotted (<code>TRUE</code>) or not (<code>FALSE</code>). Default is <code>FALSE</code>.</p></td>
     </tr>
-    <tr>
-      <th>keep_rmd</th>
-      <td><p>[logical] Boolean to indicate whether the Rmd file used to produce the HTML report
-is copied to the directory provided in `output_dir`</p></td>
-    </tr>
     </table>
     
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='co'># NOT RUN {</span>
-<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/library'>library</a></span>(<span class='no'>NACHO</span>)
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>GSE74821</span>)
-
-<span class='fu'>render_nacho</span>(<span class='kw'>nacho_object</span> <span class='kw'>=</span> <span class='no'>GSE74821</span>)
-<span class='co'># }</span><div class='input'>
-</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
-      <li><a href="#examples">Examples</a></li>
-    </ul>
+                </ul>
 
   </div>
 </div>
