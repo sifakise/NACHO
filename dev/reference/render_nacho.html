@@ -116,9 +116,9 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>render_nacho</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour_name</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>,
-  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"NACHO_QC.html"</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>keep_rmd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>render_nacho</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>,
+  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"NACHO_QC.html"</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>(),
+  <span class='kw'>legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>keep_rmd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -128,9 +128,9 @@
       <td><p>[list] List obtained from <code><a href='summarise.html'>summarise</a></code> or <code><a href='normalise.html'>normalise</a></code>.</p></td>
     </tr>
     <tr>
-      <th>colour_name</th>
+      <th>colour</th>
       <td><p>[character] Character string of the column in <code>ssheet_csv</code>
-or more generally in <code>nacho_object$nacho</code>.</p></td>
+or more generally in <code>nacho_object$nacho</code> to be used as grouping colour.</p></td>
     </tr>
     <tr>
       <th>output_file</th>
@@ -147,7 +147,7 @@ To avoid the automatic file extension, put the output_file value in `I()`, e.g.,
       <th>output_dir</th>
       <td><p>[character] The output directory for the rendered output_file.
 This allows for a choice of an alternate directory to which the output file should be written
-(the default output directory is the working directory).
+(the default output directory is the working directory, i.e., `getwd()`).
 If a path is provided with a filename in `output_file` the directory specified here will take precedence.
 Please note that any directory path provided will create any necessary directories if they do not exist.</p></td>
     </tr>
