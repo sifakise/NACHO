@@ -112,11 +112,15 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="reference/summarise.html">summarise()</a></code> function is used to preprocess the data.</li>
 <li>The <code><a href="reference/visualise.html">visualise()</a></code> function initiates a <a href="https://shiny.rstudio.com/">Shiny-based dashboard</a> that visualises all relevant QC plots.</li>
 </ul>
-<p><em>NACHO</em> also includes a function <code><a href="reference/normalise.html">normalise()</a></code>, which calculates sample specific size factors and normalises the data.</p>
+<p><em>NACHO</em> also includes a function <code><a href="reference/normalise.html">normalise()</a></code>, which (re)calculates sample specific size factors and normalises the data.</p>
 <ul>
 <li>The <code><a href="reference/normalise.html">normalise()</a></code> function creates a list in which your settings, the raw counts and normalised counts are stored.</li>
 </ul>
-<p>In addition (since v0.6.0) <strong>NACHO</strong> allows to <code><a href="reference/render.html">render()</a></code> a full quality-control report (html) based on the results of a call to <code><a href="reference/summarise.html">summarise()</a></code> or <code><a href="reference/normalise.html">normalise()</a></code>.</p>
+<p>In addition (since v0.6.0) <strong>NACHO</strong> includes two additional functions:</p>
+<ul>
+<li>The <code><a href="reference/render.html">render()</a></code> function is used to render a full quality-control report (HTML) based on the results of a call to <code><a href="reference/summarise.html">summarise()</a></code> or <code><a href="reference/normalise.html">normalise()</a></code>.</li>
+<li>The <code><a href="reference/plot.html">plot()</a></code> function is used to draw any quality-control metrics from <code><a href="reference/visualise.html">visualise()</a></code> and <code><a href="reference/render.html">render()</a></code>.</li>
+</ul>
 <p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code>.</p>
 </div>
 <div id="getting-help" class="section level2">
