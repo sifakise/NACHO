@@ -166,42 +166,45 @@ The <code>housekeeping_genes</code> and <code>normalisation_method</code> argume
 <a class="sourceLine" id="cb4-4" data-line-number="4">## The following object is masked from 'package:BiocGenerics':</a>
 <a class="sourceLine" id="cb4-5" data-line-number="5">## </a>
 <a class="sourceLine" id="cb4-6" data-line-number="6">##     normalize</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/summarise.html">summarise</a></span>(</a>
-<a class="sourceLine" id="cb4-8" data-line-number="8">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/tempfile">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
-<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15">)</a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">## [NACHO] Importing RCC files.</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17">## [NACHO] Performing QC and formatting data.</a>
-<a class="sourceLine" id="cb4-18" data-line-number="18">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb4-19" data-line-number="19">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb4-22" data-line-number="22">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb4-24" data-line-number="24">##   - hsa-miR-500+hsa-miR-501-5p</a>
-<a class="sourceLine" id="cb4-25" data-line-number="25">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb4-26" data-line-number="26">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb4-27" data-line-number="27">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb4-28" data-line-number="28">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
-<a class="sourceLine" id="cb4-29" data-line-number="29">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb4-30" data-line-number="30">##   $ access              : character</a>
-<a class="sourceLine" id="cb4-31" data-line-number="31">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb4-32" data-line-number="32">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb4-33" data-line-number="33">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb4-34" data-line-number="34">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb4-35" data-line-number="35">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb4-36" data-line-number="36">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb4-37" data-line-number="37">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb4-38" data-line-number="38">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb4-39" data-line-number="39">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb4-40" data-line-number="40">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb4-41" data-line-number="41">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb4-42" data-line-number="42">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb4-7" data-line-number="7">## The following object is masked from 'package:graphics':</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">## </a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">##     plot</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/summarise.html">summarise</a></span>(</a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/paste">paste0</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/tempfile">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">)</a>
+<a class="sourceLine" id="cb4-19" data-line-number="19">## [NACHO] Importing RCC files.</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20">## [NACHO] Performing QC and formatting data.</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21">## [NACHO] Searching for the best housekeeping genes.</a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
+<a class="sourceLine" id="cb4-24" data-line-number="24">##   - hsa-miR-103</a>
+<a class="sourceLine" id="cb4-25" data-line-number="25">##   - hsa-let-7e</a>
+<a class="sourceLine" id="cb4-26" data-line-number="26">##   - hsa-miR-1260</a>
+<a class="sourceLine" id="cb4-27" data-line-number="27">##   - hsa-miR-500+hsa-miR-501-5p</a>
+<a class="sourceLine" id="cb4-28" data-line-number="28">##   - hsa-miR-1274b</a>
+<a class="sourceLine" id="cb4-29" data-line-number="29">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb4-30" data-line-number="30">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb4-31" data-line-number="31">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
+<a class="sourceLine" id="cb4-32" data-line-number="32">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb4-33" data-line-number="33">##   $ access              : character</a>
+<a class="sourceLine" id="cb4-34" data-line-number="34">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb4-35" data-line-number="35">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb4-36" data-line-number="36">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb4-37" data-line-number="37">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb4-38" data-line-number="38">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb4-39" data-line-number="39">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb4-40" data-line-number="40">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb4-41" data-line-number="41">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb4-42" data-line-number="42">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb4-43" data-line-number="43">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb4-44" data-line-number="44">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb4-45" data-line-number="45">##   $ normalised_counts   : data.frame</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
