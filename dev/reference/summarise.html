@@ -126,46 +126,71 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data_directory</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> A character string of the directory where the data are stored.</p></td>
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] A character string of the directory where the data are stored.</p></td>
     </tr>
     <tr>
       <th>ssheet_csv</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> or <a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a> Either a string with the name of the CSV of the samplesheet
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] or [<a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a>] Either a string with the name of the CSV of the samplesheet
 or the samplesheet as a <code>data.frame</code>.
 Should contain a column that matches the file names in the folder.</p></td>
     </tr>
     <tr>
       <th>id_colname</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> Character string of the column in <code>ssheet_csv</code> that matches
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Character string of the column in <code>ssheet_csv</code> that matches
 the file names in <code>data_directory</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_genes</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> A vector of names of the miRNAs/mRNAs
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] A vector of names of the miRNAs/mRNAs
 that should be used as housekeeping genes. Default is <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_predict</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a> Boolean to indicate whether the housekeeping genes
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Boolean to indicate whether the housekeeping genes
 should be predicted (<code>TRUE</code>) or not (<code>FALSE</code>). Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_norm</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a> Boolean to indicate whether the housekeeping normalisation should be performed.
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Boolean to indicate whether the housekeeping normalisation should be performed.
 Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>normalisation_method</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> Either <code>"GEO"</code> or <code>"GLM"</code>.
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Either <code>"GEO"</code> or <code>"GLM"</code>.
 Character string to indicate normalisation using the geometric mean (<code>"GEO"</code>)
 or a generalized linear model (<code>"GLM"</code>). Default is <code>"GEO"</code>.</p></td>
     </tr>
     <tr>
       <th>n_comp</th>
-      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a> Number indicating the number of principal components to compute.
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a>] Number indicating the number of principal components to compute.
 Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>[<a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a>] A list containing parameters and data:</p><dl class='dl-horizontal'>
+<dt><code>access</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Value passed to summarise in <code>id_colname</code>.</p></dd>
+<dt><code>housekeeping_genes</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Value passed to summarise.</p></dd>
+<dt><code>housekeeping_predict</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Value passed to summarise.</p></dd>
+<dt><code>housekeeping_norm</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Value passed to summarise.</p></dd>
+<dt><code>normalisation_method</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Value passed to summarise.</p></dd>
+<dt><code>remove_outliers</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] <code>FALSE</code>.</p></dd>
+<dt><code>n_comp</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a>] Value passed to summarise.</p></dd>
+<dt><code>data_directory</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] Value passed to summarise.</p></dd>
+<dt><code>pc_sum</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a>] A <code>data.frame</code> with <code>n_comp</code> rows and four columns:
+"Standard deviation", "Proportion of Variance", "Cumulative Proportion" and "PC".</p></dd>
+<dt><code>nacho</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a>] A <code>data.frame</code> with all columns from the sample sheet <code>ssheet_csv</code>
+and all computed columns, <em>i.e.</em>, quality-control metrics and counts, with one sample per row.</p></dd>
+<dt><code>outliers_thresholds</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a>] A <code>list</code> of the (default) quality-control thresholds used.</p></dd>
+<dt><code>raw_counts</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a>] Raw counts with probes as rows and samples as columns.
+With <code>"CodeClass"</code> (first column), the type of the probes and
+<code>"Name"</code> (second column), the Name of the probes.</p></dd>
+<dt><code>normalised_counts</code></dt><dd><p>[<a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a>] Normalised counts with probes as rows and samples as columns.
+With <code>"CodeClass"</code> (first column)), the type of the probes and
+<code>"Name"</code> (second column), the name of the probes.</p></dd>
+</dl>
+
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -205,7 +230,9 @@ Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-            
+      
+      <li><a href="#value">Value</a></li>
+      
       <li><a href="#examples">Examples</a></li>
     </ul>
 
