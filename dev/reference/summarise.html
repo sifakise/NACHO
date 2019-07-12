@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>summarise — summarise • NACHO</title>
+<title>summarise data from RCC NanoString files and normalise — summarise • NACHO</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,7 +30,7 @@
 
 
 
-<meta property="og:title" content="summarise — summarise" />
+<meta property="og:title" content="summarise data from RCC NanoString files and normalise — summarise" />
 
 <meta property="og:description" content="This function is used to preprocess the data from NanoString nCounter." />
 <meta name="twitter:card" content="summary" />
@@ -105,7 +105,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>summarise</h1>
+    <h1>summarise data from RCC NanoString files and normalise</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/summarise.R'><code>R/summarise.R</code></a></small>
     <div class="hidden name"><code>summarise.Rd</code></div>
     </div>
@@ -126,71 +126,46 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>data_directory</th>
-      <td><p>[character] A character string of the directory where the data are stored.</p></td>
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> A character string of the directory where the data are stored.</p></td>
     </tr>
     <tr>
       <th>ssheet_csv</th>
-      <td><p>[character/data.frame] Either a string with the name of the CSV of the samplesheet
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> or <a href='https://www.rdocumentation.org/packages/base/topics/data.frame'>data.frame</a> Either a string with the name of the CSV of the samplesheet
 or the samplesheet as a <code>data.frame</code>.
 Should contain a column that matches the file names in the folder.</p></td>
     </tr>
     <tr>
       <th>id_colname</th>
-      <td><p>[character] Character string of the column in <code>ssheet_csv</code> that matches
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> Character string of the column in <code>ssheet_csv</code> that matches
 the file names in <code>data_directory</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_genes</th>
-      <td><p>[vector(character)] A vector of names of the miRNAs/mRNAs
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> A vector of names of the miRNAs/mRNAs
 that should be used as housekeeping genes. Default is <code>NULL</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_predict</th>
-      <td><p>[logical] Boolean to indicate whether the housekeeping genes
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a> Boolean to indicate whether the housekeeping genes
 should be predicted (<code>TRUE</code>) or not (<code>FALSE</code>). Default is <code>FALSE</code>.</p></td>
     </tr>
     <tr>
       <th>housekeeping_norm</th>
-      <td><p>[logical] Boolean to indicate whether the housekeeping normalisation should be performed.
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a> Boolean to indicate whether the housekeeping normalisation should be performed.
 Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>normalisation_method</th>
-      <td><p>[character] Either <code>"GEO"</code> or <code>"GLM"</code>.
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a> Either <code>"GEO"</code> or <code>"GLM"</code>.
 Character string to indicate normalisation using the geometric mean (<code>"GEO"</code>)
 or a generalized linear model (<code>"GLM"</code>). Default is <code>"GEO"</code>.</p></td>
     </tr>
     <tr>
       <th>n_comp</th>
-      <td><p>[numeric] Number indicating the number of principal components to compute.
+      <td><p><a href='https://www.rdocumentation.org/packages/base/topics/numeric'>numeric</a> Number indicating the number of principal components to compute.
 Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
     </tr>
     </table>
-    
-    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
-    <p>[list] A list containing parameters and data:</p><dl class='dl-horizontal'>
-  <dt>access</dt><dd><p>[character] Value passed to <code>summarise</code> in <code>id_colname</code>.</p></dd>
-  <dt>housekeeping_genes</dt><dd><p>[character] Value passed to <code>summarise</code>.</p></dd>
-  <dt>housekeeping_predict</dt><dd><p>[logical] Value passed to <code>summarise</code>.</p></dd>
-  <dt>housekeeping_norm</dt><dd><p>[logical] Value passed to <code>summarise</code>.</p></dd>
-  <dt>normalisation_method</dt><dd><p>[character] Value passed to <code>summarise</code>.</p></dd>
-  <dt>remove_outliers</dt><dd><p>[logical] <code>FALSE</code>.</p></dd>
-  <dt>n_comp</dt><dd><p>[ numeric] Value passed to <code>summarise</code>.</p></dd>
-  <dt>data_directory</dt><dd><p>[character] Value passed to <code>summarise</code>.</p></dd>
-  <dt>pc_sum</dt><dd><p>[data.frame] A <code>data.frame</code> with <code>n_comp</code> rows and four columns:
-   "Standard deviation", "Proportion of Variance", "Cumulative Proportion" and "PC".</p></dd>
-  <dt>nacho</dt><dd><p>[data.frame] A <code>data.frame</code> with all columns from the sample sheet <code>ssheet_csv</code>
-  and all computed columns, i.e., quality-control metrics and counts, with one sample per row.</p></dd>
-  <dt>outliers_thresholds</dt><dd><p>[list] A <code>list</code> of the default quality-control thresholds.</p></dd>
-  <dt>raw_counts</dt><dd><p>[data.frame] Raw counts with probes as rows and samples as columns.
-  With <code>"CodeClass"</code> (first column), the type of the probes and
-  <code>"Name"</code> (second column), the Name of the probes.</p></dd>
-  <dt>normalised_counts</dt><dd><p>[data.frame] Normalised counts with probes as rows and samples as columns.
-  With <code>"CodeClass"</code> (first column)), the type of the probes and
-  <code>"Name"</code> (second column), the name of the probes.</p></dd>
-</dl>
-
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
@@ -230,9 +205,7 @@ Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-      
-      <li><a href="#value">Value</a></li>
-      
+            
       <li><a href="#examples">Examples</a></li>
     </ul>
 
