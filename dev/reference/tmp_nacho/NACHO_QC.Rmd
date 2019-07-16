@@ -1,0 +1,53 @@
+---
+title: "NanoString Quality-Control Report"
+params:
+  nacho_object: NULL
+output:
+  html_document:
+    theme: simplex
+    toc: true
+    toc_depth: 2
+    toc_float:
+      collapsed: false
+    fig_width: 6.3
+    fig_height: 4.7
+    number_sections: true
+    self_contained: true
+    mathjax: default
+    df_print: kable
+---
+
+<center>[![](/home/travis/build/mcanouil/NACHO/man/figures/nacho_hex.png/home/travis/build/mcanouil/NACHO/NACHO.Rcheck/00_pkg_src/NACHO/man/figures/nacho_hex.png/home/travis/build/mcanouil/NACHO/NACHO.Rcheck/NACHO/help/figures/nacho_hex.png){width=150px}](https://mcanouil.github.io/NACHO)</center>
+
+```{r setup, include = FALSE}
+options(stringsAsFactors = FALSE)
+knitr::opts_chunk$set(
+  results = "asis",
+  include = TRUE,
+  echo = FALSE,
+  warning = FALSE,
+  message = FALSE,
+  tidy = FALSE,
+  crop = TRUE,
+  autodep = TRUE,
+  fig.align = "center"
+)
+```
+
+
+```{r nacho_qc}
+print.nacho(
+  x = params[["nacho_object"]],
+  colour = "CartridgeID",
+  size = 0.5,
+  show_legend = TRUE
+)
+```
+
+
+# R session information
+
+```{r session_info, results = "markup"}
+options("width" = 110)
+sessioninfo::session_info()
+```

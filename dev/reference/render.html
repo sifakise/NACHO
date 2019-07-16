@@ -34,10 +34,7 @@
 
 <meta property="og:description" content="This function create a Rmarkdown script and render it as a HTML document.
 The HTML document is a quality-control report using all the metrics from visualise
-based on recommendations from NanoString.
-This function allows to print text and figures from the results of a call to summarise()
-or normalise().
-It is intended to be used in a Rmarkdown chunk." />
+based on recommendations from NanoString." />
 <meta name="twitter:card" content="summary" />
 
 <meta name="robots" content="noindex">
@@ -120,18 +117,12 @@ It is intended to be used in a Rmarkdown chunk." />
     <p>This function create a <code>Rmarkdown</code> script and render it as a HTML document.
 The HTML document is a quality-control report using all the metrics from <a href='visualise.html'>visualise</a>
 based on recommendations from NanoString.</p>
-<p>This function allows to print text and figures from the results of a call to <code><a href='summarise.html'>summarise()</a></code>
-or <code><a href='normalise.html'>normalise()</a></code>.
-It is intended to be used in a <code>Rmarkdown</code> chunk.</p>
     
     </div>
 
     <pre class="usage"><span class='fu'>render</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>,
-  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"NACHO_QC.html"</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd</a></span>(), <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>keep_rmd</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
-
-<span class='fu'>print_nacho</span>(<span class='no'>nacho_object</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>output_file</span> <span class='kw'>=</span> <span class='st'>"NACHO_QC.html"</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>clean</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -160,7 +151,7 @@ To avoid the automatic file extension, put the <code>output_file</code> value in
       <th>output_dir</th>
       <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/character'>character</a>] The output directory for the rendered output_file.
 This allows for a choice of an alternate directory to which the output file should be written
-(the default output directory is the working directory, <em>i.e.</em>, <code><a href='https://www.rdocumentation.org/packages/base/topics/getwd'>getwd()</a></code>).
+(the default output directory is the working directory, <em>i.e.</em>, <code>.</code>).
 If a path is provided with a filename in <code>output_file</code> the directory specified here will take precedence.
 Please note that any directory path provided will create any necessary directories if they do not exist.</p></td>
     </tr>
@@ -175,9 +166,9 @@ or line size (geom_line).</p></td>
 be plotted (<code>TRUE</code>) or not (<code>FALSE</code>). Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
-      <th>keep_rmd</th>
-      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Boolean to indicate whether the Rmd file used to produce the HTML report
-is copied to the directory provided in <code>output_dir</code>. Default is <code>FALSE</code>.</p></td>
+      <th>clean</th>
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/logical'>logical</a>] Boolean to indicate whether the Rmd and Rdata file used to produce the HTML report
+are removed from <code>output_dir</code>. Default is <code>TRUE</code>.</p></td>
     </tr>
     </table>
     
@@ -185,172 +176,7 @@ is copied to the directory provided in <code>output_dir</code>. Default is <code
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>GSE74821</span>)
-<span class='fu'>render</span>(<span class='kw'>nacho_object</span> <span class='kw'>=</span> <span class='no'>GSE74821</span>, <span class='kw'>output_dir</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Transformation introduced infinite values in continuous y-axis</span></div><div class='output co'>#&gt; <span class='error'>Error: pandoc document conversion failed with error 1</span></div><div class='input'>
-
-<span class='fu'><a href='https://www.rdocumentation.org/packages/utils/topics/data'>data</a></span>(<span class='no'>GSE74821</span>)
-<span class='fu'>print_nacho</span>(<span class='no'>GSE74821</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>, <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; # RCC Summary
-#&gt; 
-#&gt;   - Samples: 20 
-#&gt;   - Endogenous: 50
-#&gt;    - Housekeeping: 8
-#&gt;    - Negative: 8
-#&gt;    - Positive: 6
-#&gt; 
-#&gt; 
-#&gt; # Settings
-#&gt; 
-#&gt;   - Predict housekeeping genes: FALSE 
-#&gt;   - Normalise using housekeeping genes: TRUE 
-#&gt;   - Housekeeping genes available: MRPL19, PSMC4, SF3A1, RPLP0, PUM1, ACTB, TFRC and GUSB 
-#&gt;   - Normalise using: GLM 
-#&gt;   - Principal components to compute: 10 
-#&gt;   - Remove outliers: FALSE 
-#&gt; 
-#&gt;      +  Binding Density (BD) &lt; 0.1 
-#&gt;      +  Binding Density (BD) &gt; 2.25 
-#&gt;      +  Imaging (FoV) &lt; 75 
-#&gt;      +  Positive Control Linearity (PC) &lt; 0.95 
-#&gt;      +  Limit of Detection (LoD) &lt; 2 
-#&gt;      +  Positive normalisation factor (Positive_factor) &lt; 0.25 
-#&gt;      +  Positive normalisation factor (Positive_factor) &gt; 4 
-#&gt;      +  Housekeeping normalisation factor (house_factor) &lt; 0.091 
-#&gt;      +  Housekeeping normalisation factor (house_factor) &gt; 11 
-#&gt; 
-#&gt; 
-#&gt; # QC Metrics
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Binding Density 
-#&gt; 
-#&gt; The imaging unit only counts the codes that are unambiguously distinguishable.
-#&gt; It simply will not count codes that overlap within an image.
-#&gt; This provides increased confidence that the molecular counts you receive are from truly recognisable codes.
-#&gt; Under most conditions, forgoing the few barcodes that do overlap will not impact your data.
-#&gt; Too many overlapping codes in the image, however, will create a condition called image saturation in which significant data loss could occur (critical data loss from saturation is uncommon).
-#&gt; 
-#&gt; 
-#&gt; To determine the level of image saturation, the nCounter instrument calculates the number of optical features per square micron for each lane as it processes the images.
-#&gt; This is called the **Binding Density**.
-#&gt; The **Binding Density** is useful for determining whether data collection has been compromised due to image saturation.
-#&gt; The acceptable range for **Binding Density** is:
-#&gt; 
-#&gt; 
-#&gt; * `0.1 - 2.25` for **MAX**/**FLEX** instruments
-#&gt; * `0.1 - 1.8` for **SPRINT** instruments
-#&gt; 
-#&gt; 
-#&gt; Within these ranges, relatively few reporters on the slide surface will overlap, enabling the instrument to accurately tabulate counts for each reporter species.
-#&gt; A **Binding Density** significantly greater than the upper limit in either range is indicative of overlapping reporters on the slide surface.
-#&gt; The counts observed in lanes with a **Binding Density** at this level may have had significant numbers of codes ignored, which could potentially affect quantification and linearity of the assay.
-#&gt; Some of the factors that may contribute to increased **Binding Density** are listed in the Factors affecting **Binding Density** box. </div><div class='img'><img src='render-1.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Field of View (Imaging) 
-#&gt; 
-#&gt; Each individual lane scanned on an nCounter system is divided into a few hundred imaging sections, called Fields of View (**FOV**), the exact number of which will depend on the system being used (*i.e.*, **MAX/FLEX** or **SPRINT**), and the scanner settings selected by the user.
-#&gt; The system images these FOVs separately, and sums the barcode counts of all **FOV**s from a single lane to form the final raw data count for each unique barcode target.
-#&gt; Finally, the system reports the number of **FOV**s successfully imaged as FOV Counted.
-#&gt; 
-#&gt; 
-#&gt; Significant discrepancy between the number of **FOV** for which imaging was attempted (**FOV Count**) and for which imaging was successful (**FOV Counted**) may indicate an issue with imaging performance.
-#&gt; Recommended percentage of registered FOVs (*i.e.*, **FOV Counted** over **FOV Count**) is `75 %`.
-#&gt; Lanes will be flagged if this percentage is lower. </div><div class='img'><img src='render-2.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Positive Control linearity 
-#&gt; 
-#&gt; Six synthetic DNA control targets are included with every nCounter Gene Expression assay.
-#&gt; Their concentrations range linearly from `128 fM` to `0.125 fM`, and they are referred to as **POS_A** to **POS_F**, respectively.
-#&gt; These **Positive Controls** are typically used to measure the efficiency of the hybridization reaction, and their step-wise concentrations also make them useful in checking the linearity performance of the assay.
-#&gt; An R2 value is calculated from the regression between the known concentration of each of the **Positive Controls** and the resulting counts from them (this calculation is performed using log2-transformed values).
-#&gt; 
-#&gt; 
-#&gt; Since the known concentrations of the **Positive Controls** increase in a linear fashion, the resulting counts should, as well.
-#&gt; Therefore, R2 values should be higher than `0.95`.
-#&gt; 
-#&gt; 
-#&gt; Note that because POS_F has a known concentration of `0.125 fM`, which is considered below the limit of detection of the system, it should be excluded from this calculation (although you will see that **POS_F** counts are significantly higher than the negative control counts in most cases). </div><div class='img'><img src='render-3.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Limit of Detection 
-#&gt; 
-#&gt; The limit of detection is determined by measuring the ability to detect **POS_E**, the `0.5 fM` positive control probe, which corresponds to about 10,000 copies of this target within each sample tube.
-#&gt; On a **FLEX**/**MAX** system, the standard input of `100 ng` of total RNA will roughly correspond to about 10,000 cell equivalents (assuming one cell contains `10 pg` total RNA on average).
-#&gt; An nCounter assay run on the **FLEX**/**MAX** system should thus conservatively be able to detect roughly one transcript copy per cell for each target (or 10,000 total transcript copies).
-#&gt; In most assays, you will observe that even the **POS_F** probe (equivalent to 0.25 copies per cell) is detectable above background.
-#&gt; 
-#&gt; 
-#&gt; To determine whether **POS_E** is detectable, it can be compared to the counts for the negative control probes.
-#&gt; Every nCounter Gene Expression assay is manufactured with eight negative control probes that should not hybridize to any targets within the sample.
-#&gt; Counts from these will approximate general non-specific binding of probes within the samples being run.
-#&gt; The counts of **POS_E** should be higher than two times the standard deviation above the mean of the negative control. </div><div class='img'><img src='render-4.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; # Control Genes
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Positive 
-#&gt; </div><div class='img'><img src='render-5.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Negative 
-#&gt; </div><div class='img'><img src='render-6.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Housekeeping 
-#&gt; </div><div class='img'><img src='render-7.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Control Probe Expression
-#&gt; </div><div class='output co'>#&gt; <span class='warning'>Warning: Transformation introduced infinite values in continuous y-axis</span></div><div class='img'><img src='render-8.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; # QC Visuals
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Average Count vs. Binding Density
-#&gt; </div><div class='img'><img src='render-9.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Average Count vs. Median Count
-#&gt; </div><div class='img'><img src='render-10.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Principal Component
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ### PC1 vs. PC2
-#&gt; </div><div class='img'><img src='render-11.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ### Factorial planes
-#&gt; </div><div class='img'><img src='render-12.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ### Inertia
-#&gt; </div><div class='img'><img src='render-13.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; # Normalisation Factors
-#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Positive Factor vs. Background Threshold
-#&gt; </div><div class='img'><img src='render-14.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Housekeeping Factor
-#&gt; </div><div class='img'><img src='render-15.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; 
-#&gt; 
-#&gt; 
-#&gt; ## Normalisation Result
-#&gt; </div><div class='img'><img src='render-16.png' alt='' width='700' height='433' /></div><div class='output co'>#&gt; </div><div class='input'>
+<span class='fu'>render</span>(<span class='no'>GSE74821</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Transformation introduced infinite values in continuous y-axis</span></div><div class='output co'>#&gt; <span class='error'>Error: pandoc document conversion failed with error 1</span></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

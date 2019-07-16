@@ -115,9 +115,11 @@
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
 <li>
-<code><a href="../reference/render.html">render()</a></code> render figures from <code><a href="../reference/visualise.html">visualise()</a></code> in a HTML friendly output.</li>
+<code><a href="../reference/autoplot.html">autoplot()</a></code> allows to plot a chosen QC plot available in the shiny app (<code><a href="../reference/visualise.html">visualise()</a></code>) and/or in the HTML report (<code><a href="../reference/render.html">render()</a></code>).</li>
 <li>
-<code><a href="../reference/plot.html">plot()</a></code> allows to plot a chosen QC plot available in the shiny app (<code><a href="../reference/visualise.html">visualise()</a></code>) and/or in the HTML report (<code><a href="../reference/render.html">render()</a></code>).</li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> allows to print text and figures formatted using markdown (mainly to be used in a Rmakrdown chunk).</li>
+<li>
+<code><a href="../reference/render.html">render()</a></code> render figures from <code><a href="../reference/visualise.html">visualise()</a></code> in a HTML friendly output.</li>
 </ul>
 </div>
 <div id="minor-improvements-and-fixes" class="section level2">
@@ -125,6 +127,8 @@
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>, fix issue (<a href='https://github.com/mcanouil/NACHO/issues/1'>#1</a>) when PlexSet RCC files could not be read.</li>
+<li>In <code>R/summarise.R</code>, object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
+<li>In <code>R/normalise.R</code>, object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
 </ul>
 </div>
 </div>
