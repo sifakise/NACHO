@@ -99,19 +99,24 @@
 <div id="overview" class="section level1">
 <h1 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h1>
-<p><em>NACHO</em> (NAnostring quality Control dasHbOard) is developed for NanoString nCounter data.<br>
-NanoString nCounter data is a mRNA or miRNA expression assay and works with fluorescent barcodes <span class="citation">(Geiss et al. <a href="#ref-geiss_direct_2008">2008</a>)</span>.<br>
+<p><em>NACHO</em> (<strong>NA</strong>nostring quality <strong>C</strong>ontrol das<strong>H</strong>b<strong>O</strong>ard) is developed for NanoString nCounter data.<br>
+NanoString nCounter data is a messenger-RNA/micro-RNA (mRNA/miRNA) expression assay and works with fluorescent barcodes.<br>
 Each barcode is assigned a mRNA/miRNA, which can be counted after bonding with its target.<br>
 As a result each count of a specific barcode represents the presence of its target mRNA/miRNA.</p>
 <p><em>NACHO</em> is able to load, visualise and normalise the exported NanoString nCounter data and facilitates the user in performing a quality control.<br><em>NACHO</em> does this by visualising quality control metrics, expression of control genes, principal components and sample specific size factors in an interactive web application.</p>
 <p>With the use of two functions, RCC files are summarised and visualised, namely: <code><a href="../reference/summarise.html">summarise()</a></code> and <code><a href="../reference/visualise.html">visualise()</a></code>.</p>
 <ul>
 <li>The <code><a href="../reference/summarise.html">summarise()</a></code> function is used to preprocess the data.</li>
-<li>The <code><a href="../reference/visualise.html">visualise()</a></code> function initiates a RStudio Shiny-based dashboard that visualises all relevant QC plots.</li>
+<li>The <code><a href="../reference/visualise.html">visualise()</a></code> function initiates a <a href="https://shiny.rstudio.com/">Shiny-based dashboard</a> that visualises all relevant QC plots.</li>
 </ul>
-<p><em>NACHO</em> also includes a function <code><a href="../reference/normalise.html">normalise()</a></code>, which calculates sample specific size factors and normalises the data.</p>
+<p><em>NACHO</em> also includes a function <code><a href="../reference/normalise.html">normalise()</a></code>, which (re)calculates sample specific size factors and normalises the data.</p>
 <ul>
 <li>The <code><a href="../reference/normalise.html">normalise()</a></code> function creates a list in which your settings, the raw counts and normalised counts are stored.</li>
+</ul>
+<p>In addition (since v0.6.0) <em>NACHO</em> includes two (three) additional functions:</p>
+<ul>
+<li>The <code><a href="../reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="../reference/summarise.html">summarise()</a></code> or <code><a href="../reference/normalise.html">normalise()</a></code> (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> in a Rmarkdown chunk).</li>
+<li>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="../reference/visualise.html">visualise()</a></code> and <code><a href="../reference/render.html">render()</a></code>.</li>
 </ul>
 </div>
 <div id="an-example" class="section level1">
@@ -259,6 +264,76 @@ In this example <code>"GLM"</code> is used.</p>
 <a class="sourceLine" id="cb8-33" data-line-number="33">##   $ normalised_counts   : data.frame</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/summarise.html">summarise()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
+<div id="the-autoplot-function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-autoplot-function" class="anchor"></a>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function</h2>
+<p>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function provides an easy way to plot any quality-control from the <code><a href="../reference/visualise.html">visualise()</a></code> function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">)</a></code></pre></div>
+<p>The possible metrics (<code>x</code>) are:</p>
+<ul>
+<li>
+<code>"BD"</code> (Binding Density)</li>
+<li>
+<code>"FoV"</code> (Imaging)</li>
+<li>
+<code>"PC"</code> (Positive Control Linearity)</li>
+<li>
+<code>"LoD"</code> (Limit of Detection)</li>
+<li>
+<code>"Positive"</code> (Positive Controls)</li>
+<li>
+<code>"Negative"</code> (Negative Controls)</li>
+<li>
+<code>"Housekeeping"</code> (Housekeeping Genes)</li>
+<li>
+<code>"PN"</code> (Positive Controls vs. Negative Controls)</li>
+<li>
+<code>"ACBD"</code> (Average Counts vs. Binding Density)</li>
+<li>
+<code>"ACMC"</code> (Average Counts vs. Median Counts)</li>
+<li>
+<code>"PCA12"</code> (Principal Component 1 vs. 2)</li>
+<li>
+<code>"PCAi"</code> (Principal Component scree plot)</li>
+<li>
+<code>"PCA"</code> (Principal Components planes)</li>
+<li>
+<code>"PFNF"</code> (Positive Factor vs. Negative Factor)</li>
+<li>
+<code>"HF"</code> (Housekeeping Factor)</li>
+<li>
+<code>"NORM"</code> (Normalisation Factor)</li>
+</ul>
+</div>
+<div id="the-render-function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-render-function" class="anchor"></a>The <code><a href="../reference/render.html">render()</a></code> function</h2>
+<p>The <code><a href="../reference/render.html">render()</a></code> function renders (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print(..., echo = TRUE)</a></code> a comprehensive HTML report which includes all quality-control metrics and description of those metrics.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  x, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">FALSE</span>, </a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">## Error in print(x, colour = "CartridgeID", size = 0.5, show_legend = TRUE, : object 'x' not found</a></code></pre></div>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
@@ -269,9 +344,6 @@ In this example <code>"GLM"</code> is used.</p>
 </div>
 <div id="ref-bruce_identification_2015">
 <p>Bruce, Jeff P., Angela B. Y. Hui, Wei Shi, Bayardo Perez-Ordonez, Ilan Weinreb, Wei Xu, Benjamin Haibe-Kains, et al. 2015. “Identification of a microRNA Signature Associated with Risk of Distant Metastasis in Nasopharyngeal Carcinoma.” <em>Oncotarget</em> 6 (6): 4537–50. <a href="https://doi.org/10.18632/oncotarget.3005" class="uri">https://doi.org/10.18632/oncotarget.3005</a>.</p>
-</div>
-<div id="ref-geiss_direct_2008">
-<p>Geiss, Gary K., Roger E. Bumgarner, Brian Birditt, Timothy Dahl, Naeem Dowidar, Dwayne L. Dunaway, H. Perry Fell, et al. 2008. “Direct Multiplexed Measurement of Gene Expression with Color-Coded Probe Pairs.” <em>Nature Biotechnology</em> 26 (3): 317–25. <a href="https://doi.org/10.1038/nbt1385" class="uri">https://doi.org/10.1038/nbt1385</a>.</p>
 </div>
 <div id="ref-liu_pam50_2016">
 <p>Liu, Minetta C., Brandelyn N. Pitcher, Elaine R. Mardis, Sherri R. Davies, Paula N. Friedman, Jacqueline E. Snider, Tammi L. Vickery, et al. 2016. “PAM50 Gene Signatures and Breast Cancer Prognosis with Adjuvant Anthracycline- and Taxane-Based Chemotherapy: Correlative Analysis of C9741 (Alliance).” <em>Npj Breast Cancer</em> 2 (January): 15023. <a href="https://doi.org/10.1038/npjbcancer.2015.23" class="uri">https://doi.org/10.1038/npjbcancer.2015.23</a>.</p>
@@ -293,6 +365,8 @@ In this example <code>"GLM"</code> is used.</p>
       <li><a href="#the-summarise-function">The <code><a href="--/reference/summarise-html">summarise()</a></code> function</a></li>
       <li><a href="#the-visualise-function">The <code><a href="--/reference/visualise-html">visualise()</a></code> function</a></li>
       <li><a href="#the-normalise-function">The <code><a href="--/reference/normalise-html">normalise()</a></code> function</a></li>
+      <li><a href="#the-autoplot-function">The <code><a href="--/reference/autoplot-html">autoplot()</a></code> function</a></li>
+      <li><a href="#the-render-function">The <code><a href="--/reference/render-html">render()</a></code> function</a></li>
       </ul>
 </li>
       <li><a href="#references">References</a></li>
