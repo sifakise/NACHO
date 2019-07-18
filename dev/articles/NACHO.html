@@ -76,7 +76,7 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">July 17, 2019</h4>
+            <h4 class="date">July 18, 2019</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -338,7 +338,6 @@ In this example <code>"GLM"</code> is used.</p>
 <div id="negative-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#negative-controls" class="anchor"></a>Negative Controls</h3>
-<pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
 <p><img src="NACHO_files/figure-html/unnamed-chunk-5-6.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="housekeeping-genes" class="section level3">
@@ -349,7 +348,6 @@ In this example <code>"GLM"</code> is used.</p>
 <div id="positive-controls-vs-negative-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#positive-controls-vs-negative-controls" class="anchor"></a>Positive Controls vs. Negative Controls</h3>
-<pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
 <p><img src="NACHO_files/figure-html/unnamed-chunk-5-8.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="average-counts-vs-binding-density" class="section level3">
@@ -397,24 +395,24 @@ In this example <code>"GLM"</code> is used.</p>
 <h2 class="hasAnchor">
 <a href="#the-render-function" class="anchor"></a>The <code><a href="../reference/render.html">render()</a></code> function</h2>
 <p>The <code><a href="../reference/render.html">render()</a></code> function renders (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print(..., echo = TRUE)</a></code> a comprehensive HTML report which includes all quality-control metrics and description of those metrics.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">)</a></code></pre></div>
 <p>The underneath function <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code>can be used directly within any Rmakrdown chunk, setting the parameter <code>echo = TRUE</code>.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">)</a></code></pre></div>
 <div id="rcc-summary" class="section level3">
 <h3 class="hasAnchor">
 <a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
@@ -508,7 +506,6 @@ In this example <code>"GLM"</code> is used.</p>
 <div id="control-probe-expression" class="section level4">
 <h4 class="hasAnchor">
 <a href="#control-probe-expression" class="anchor"></a>Control Probe Expression</h4>
-<pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
 <p><img src="NACHO_files/figure-html/unnamed-chunk-7-8.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>
