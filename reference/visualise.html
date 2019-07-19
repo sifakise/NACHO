@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>visualise — visualise • NACHO</title>
+<title>Visualise quality-control metrics using a shiny app — visualise • NACHO</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,11 @@
 
 
 
-<meta property="og:title" content="visualise — visualise" />
+<meta property="og:title" content="Visualise quality-control metrics using a shiny app — visualise" />
 
-<meta property="og:description" content="visualise" />
+<meta property="og:description" content="This function allows to visualise several quality-control metrics
+in an interactive shiny application, in which thresholds can be customised
+and exported to the global environment." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +65,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.7.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -87,7 +89,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mcanouil/NACHO">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -100,14 +107,16 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>visualise</h1>
-    
+    <h1>Visualise quality-control metrics using a shiny app</h1>
+    <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/visualise.R'><code>R/visualise.R</code></a></small>
     <div class="hidden name"><code>visualise.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>visualise</p>
+    <p>This function allows to visualise several quality-control metrics
+in an interactive shiny application, in which thresholds can be customised
+and exported to the global environment.</p>
     
     </div>
 
@@ -118,7 +127,7 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>nacho_object</th>
-      <td><p>[list] List obtained from <code><a href='summarise.html'>summarise</a></code> or <code><a href='normalise.html'>normalise</a></code>.</p></td>
+      <td><p>[<a href='https://www.rdocumentation.org/packages/base/topics/list'>list</a>] List obtained from <a href='summarise.html'>summarise</a> or <a href='normalise.html'>normalise</a>.</p></td>
     </tr>
     </table>
     
@@ -190,7 +199,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Mickaël Canouil, Roderick Slieker, Gerard Bouland.</p>
+  <p>Developed by <a href='http://mickael.canouil.fr'>Mickaël Canouil</a>, Roderick Slieker, Gerard Bouland.</p>
 </div>
 
 <div class="pkgdown">

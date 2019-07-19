@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.7.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -59,7 +59,14 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/mcanouil/NACHO">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -88,8 +95,8 @@
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"NACHO"</span>)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Or the the development version from GitHub:</span></a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"mcanouil/NACHO"</span>)</a></code></pre></div>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("remotes")</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">remotes<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/remotes/topics/install_github">install_github</a></span>(<span class="st">"mcanouil/NACHO"</span>)</a></code></pre></div>
 </div>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
@@ -102,13 +109,18 @@ As a result each count of a specific barcode represents the presence of its targ
 <p>With the use of two functions, RCC files are summarised and visualised, namely: <code><a href="reference/summarise.html">summarise()</a></code> and <code><a href="reference/visualise.html">visualise()</a></code>.</p>
 <ul>
 <li>The <code><a href="reference/summarise.html">summarise()</a></code> function is used to preprocess the data.</li>
-<li>The <code><a href="reference/visualise.html">visualise()</a></code> function initiates a RStudio Shiny-based dashboard that visualises all relevant QC plots.</li>
+<li>The <code><a href="reference/visualise.html">visualise()</a></code> function initiates a <a href="https://shiny.rstudio.com/">Shiny-based dashboard</a> that visualises all relevant QC plots.</li>
 </ul>
-<p><em>NACHO</em> also includes a function <code><a href="reference/normalise.html">normalise()</a></code>, which calculates sample specific size factors and normalises the data.</p>
+<p><em>NACHO</em> also includes a function <code><a href="reference/normalise.html">normalise()</a></code>, which (re)calculates sample specific size factors and normalises the data.</p>
 <ul>
 <li>The <code><a href="reference/normalise.html">normalise()</a></code> function creates a list in which your settings, the raw counts and normalised counts are stored.</li>
 </ul>
-<p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code></p>
+<p>In addition (since v0.6.0) <em>NACHO</em> includes two (three) additional functions:</p>
+<ul>
+<li>The <code><a href="reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="reference/summarise.html">summarise()</a></code> or <code><a href="reference/normalise.html">normalise()</a></code> (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> in a Rmarkdown chunk).</li>
+<li>The <code><a href="reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="reference/visualise.html">visualise()</a></code> and <code><a href="reference/render.html">render()</a></code>.</li>
+</ul>
+<p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code>.</p>
 </div>
 <div id="getting-help" class="section level2">
 <h2 class="hasAnchor">
@@ -128,6 +140,8 @@ By participating in this project you agree to abide by its terms.</p>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=NACHO">https://​cloud.r-project.org/​package=NACHO</a>
 </li>
+<li>Browse source code at <br><a href="https://github.com/mcanouil/NACHO">https://​github.com/​mcanouil/​NACHO</a>
+</li>
 <li>Report a bug at <br><a href="https://github.com/mcanouil/NACHO/issues">https://​github.com/​mcanouil/​NACHO/​issues</a>
 </li>
 </ul>
@@ -143,7 +157,8 @@ By participating in this project you agree to abide by its terms.</p>
 <div class="developers">
 <h2>Developers</h2>
 <ul class="list-unstyled">
-<li>Mickaël Canouil <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-3396-4549" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
+<li>
+<a href="http://mickael.canouil.fr">Mickaël Canouil</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-3396-4549" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
 <li>Roderick Slieker <br><small class="roles"> Author </small> <a href="https://orcid.org/0000-0003-0961-9152" target="orcid.widget"><img src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" class="orcid" alt="ORCID" height="16"></a> </li>
 <li>Gerard Bouland <br><small class="roles"> Author </small>  </li>
 </ul>
@@ -169,7 +184,7 @@ By participating in this project you agree to abide by its terms.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Mickaël Canouil, Roderick Slieker, Gerard Bouland.</p>
+  <p>Developed by <a href="http://mickael.canouil.fr">Mickaël Canouil</a>, Roderick Slieker, Gerard Bouland.</p>
 </div>
 
 <div class="pkgdown">

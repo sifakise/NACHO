@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.7.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -84,7 +84,12 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/mcanouil/NACHO">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -98,18 +103,33 @@
   <div class="col-md-9 contents">
     <div class="page-header">
       <h1>Changelog <small></small></h1>
-      
+      <small>Source: <a href='https://github.com/mcanouil/NACHO/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="nacho-0-5-7" class="section level1">
+    <div id="nacho-0-6-0" class="section level1">
 <h1 class="page-header">
-<a href="#nacho-0-5-7" class="anchor"></a>NACHO 0.5.7<small> Unreleased </small>
+<a href="#nacho-0-6-0" class="anchor"></a>NACHO 0.6.0<small> Unreleased </small>
 </h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>
+<code><a href="../reference/autoplot.html">autoplot()</a></code> allows to plot a chosen QC plot available in the shiny app (<code><a href="../reference/visualise.html">visualise()</a></code>) and/or in the HTML report (<code><a href="../reference/render.html">render()</a></code>).</li>
+<li>
+<code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> allows to print the structure or to print text and figures formatted using markdown (mainly to be used in a Rmakrdown chunk).</li>
+<li>
+<code><a href="../reference/render.html">render()</a></code> render figures from <code><a href="../reference/visualise.html">visualise()</a></code> in a HTML friendly output.</li>
+</ul>
+</div>
 <div id="minor-improvements-and-fixes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
-<li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>, fix issue (#1) when PlexSet RCC files could not be read.</li>
+<li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>, fix issue (<a href='https://github.com/mcanouil/NACHO/issues/1'>#1</a>) when PlexSet RCC files could not be read.</li>
+<li>In <code>R/summarise.R</code>, object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
+<li>In <code>R/normalise.R</code>, object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
+<li>In <code>R/visualise.R</code>, minor code changes.</li>
 </ul>
 </div>
 </div>
@@ -198,9 +218,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-0" class="anchor"></a>NACHO 0.5.0<small> Unreleased </small>
 </h1>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New features</h2>
+<a href="#new-features-1" class="anchor"></a>New features</h2>
 <ul>
 <li>
 <code><a href="../reference/summarise.html">summarise()</a></code> imports and pre-process RCC files.</li>
@@ -288,7 +308,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-        <li><a href="#nacho-0-5-7">0.5.7</a></li>
+        <li><a href="#nacho-0-6-0">0.6.0</a></li>
         <li><a href="#nacho-0-5-6">0.5.6</a></li>
         <li><a href="#nacho-0-5-5">0.5.5</a></li>
         <li><a href="#nacho-0-5-4">0.5.4</a></li>
@@ -311,7 +331,7 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Mickaël Canouil, Roderick Slieker, Gerard Bouland.</p>
+  <p>Developed by <a href='http://mickael.canouil.fr'>Mickaël Canouil</a>, Roderick Slieker, Gerard Bouland.</p>
 </div>
 
 <div class="pkgdown">

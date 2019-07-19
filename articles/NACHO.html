@@ -30,7 +30,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.5.7.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.0</span>
       </span>
     </div>
 
@@ -52,7 +52,14 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/mcanouil/NACHO">
+    <span class="fa fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -68,9 +75,9 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">July 02, 2019</h4>
+            <h4 class="date">July 19, 2019</h4>
       
-      
+      <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
 
     </div>
@@ -91,19 +98,24 @@
 <div id="overview" class="section level1">
 <h1 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h1>
-<p><em>NACHO</em> (NAnostring quality Control dasHbOard) is developed for NanoString nCounter data.<br>
-NanoString nCounter data is a mRNA or miRNA expression assay and works with fluorescent barcodes <span class="citation">(Geiss et al. <a href="#ref-geiss_direct_2008">2008</a>)</span>.<br>
+<p><em>NACHO</em> (<strong>NA</strong>nostring quality <strong>C</strong>ontrol das<strong>H</strong>b<strong>O</strong>ard) is developed for NanoString nCounter data.<br>
+NanoString nCounter data is a messenger-RNA/micro-RNA (mRNA/miRNA) expression assay and works with fluorescent barcodes.<br>
 Each barcode is assigned a mRNA/miRNA, which can be counted after bonding with its target.<br>
 As a result each count of a specific barcode represents the presence of its target mRNA/miRNA.</p>
 <p><em>NACHO</em> is able to load, visualise and normalise the exported NanoString nCounter data and facilitates the user in performing a quality control.<br><em>NACHO</em> does this by visualising quality control metrics, expression of control genes, principal components and sample specific size factors in an interactive web application.</p>
 <p>With the use of two functions, RCC files are summarised and visualised, namely: <code><a href="../reference/summarise.html">summarise()</a></code> and <code><a href="../reference/visualise.html">visualise()</a></code>.</p>
 <ul>
 <li>The <code><a href="../reference/summarise.html">summarise()</a></code> function is used to preprocess the data.</li>
-<li>The <code><a href="../reference/visualise.html">visualise()</a></code> function initiates a RStudio Shiny-based dashboard that visualises all relevant QC plots.</li>
+<li>The <code><a href="../reference/visualise.html">visualise()</a></code> function initiates a <a href="https://shiny.rstudio.com/">Shiny-based dashboard</a> that visualises all relevant QC plots.</li>
 </ul>
-<p><em>NACHO</em> also includes a function <code><a href="../reference/normalise.html">normalise()</a></code>, which calculates sample specific size factors and normalises the data.</p>
+<p><em>NACHO</em> also includes a function <code><a href="../reference/normalise.html">normalise()</a></code>, which (re)calculates sample specific size factors and normalises the data.</p>
 <ul>
 <li>The <code><a href="../reference/normalise.html">normalise()</a></code> function creates a list in which your settings, the raw counts and normalised counts are stored.</li>
+</ul>
+<p>In addition (since v0.6.0) <em>NACHO</em> includes two (three) additional functions:</p>
+<ul>
+<li>The <code><a href="../reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="../reference/summarise.html">summarise()</a></code> or <code><a href="../reference/normalise.html">normalise()</a></code> (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code> in a Rmarkdown chunk).</li>
+<li>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="../reference/visualise.html">visualise()</a></code> and <code><a href="../reference/render.html">render()</a></code>.</li>
 </ul>
 </div>
 <div id="an-example" class="section level1">
@@ -251,6 +263,304 @@ In this example <code>"GLM"</code> is used.</p>
 <a class="sourceLine" id="cb8-33" data-line-number="33">##   $ normalised_counts   : data.frame</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/summarise.html">summarise()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
+<div id="the-autoplot-function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-autoplot-function" class="anchor"></a>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function</h2>
+<p>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function provides an easy way to plot any quality-control from the <code><a href="../reference/visualise.html">visualise()</a></code> function.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb9-7" data-line-number="7">)</a></code></pre></div>
+<p>The possible metrics (<code>x</code>) are:</p>
+<ul>
+<li>
+<code>"BD"</code> (Binding Density)</li>
+<li>
+<code>"FoV"</code> (Imaging)</li>
+<li>
+<code>"PC"</code> (Positive Control Linearity)</li>
+<li>
+<code>"LoD"</code> (Limit of Detection)</li>
+<li>
+<code>"Positive"</code> (Positive Controls)</li>
+<li>
+<code>"Negative"</code> (Negative Controls)</li>
+<li>
+<code>"Housekeeping"</code> (Housekeeping Genes)</li>
+<li>
+<code>"PN"</code> (Positive Controls vs. Negative Controls)</li>
+<li>
+<code>"ACBD"</code> (Average Counts vs. Binding Density)</li>
+<li>
+<code>"ACMC"</code> (Average Counts vs. Median Counts)</li>
+<li>
+<code>"PCA12"</code> (Principal Component 1 vs. 2)</li>
+<li>
+<code>"PCAi"</code> (Principal Component scree plot)</li>
+<li>
+<code>"PCA"</code> (Principal Components planes)</li>
+<li>
+<code>"PFNF"</code> (Positive Factor vs. Negative Factor)</li>
+<li>
+<code>"HF"</code> (Housekeeping Factor)</li>
+<li>
+<code>"NORM"</code> (Normalisation Factor)</li>
+</ul>
+<div id="binding-density" class="section level3">
+<h3 class="hasAnchor">
+<a href="#binding-density" class="anchor"></a>Binding Density</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-1.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="imaging" class="section level3">
+<h3 class="hasAnchor">
+<a href="#imaging" class="anchor"></a>Imaging</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-2.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="positive-control-linearity" class="section level3">
+<h3 class="hasAnchor">
+<a href="#positive-control-linearity" class="anchor"></a>Positive Control Linearity</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-3.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="limit-of-detection" class="section level3">
+<h3 class="hasAnchor">
+<a href="#limit-of-detection" class="anchor"></a>Limit of Detection</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-4.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="positive-controls" class="section level3">
+<h3 class="hasAnchor">
+<a href="#positive-controls" class="anchor"></a>Positive Controls</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-5.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="negative-controls" class="section level3">
+<h3 class="hasAnchor">
+<a href="#negative-controls" class="anchor"></a>Negative Controls</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-6.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="housekeeping-genes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#housekeeping-genes" class="anchor"></a>Housekeeping Genes</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-7.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="positive-controls-vs-negative-controls" class="section level3">
+<h3 class="hasAnchor">
+<a href="#positive-controls-vs-negative-controls" class="anchor"></a>Positive Controls vs. Negative Controls</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-8.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="average-counts-vs-binding-density" class="section level3">
+<h3 class="hasAnchor">
+<a href="#average-counts-vs-binding-density" class="anchor"></a>Average Counts vs. Binding Density</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-9.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="average-counts-vs-median-counts" class="section level3">
+<h3 class="hasAnchor">
+<a href="#average-counts-vs-median-counts" class="anchor"></a>Average Counts vs. Median Counts</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-10.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="principal-component-1-vs-2" class="section level3">
+<h3 class="hasAnchor">
+<a href="#principal-component-1-vs-2" class="anchor"></a>Principal Component 1 vs. 2</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-11.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="principal-component-scree-plot" class="section level3">
+<h3 class="hasAnchor">
+<a href="#principal-component-scree-plot" class="anchor"></a>Principal Component scree plot</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-12.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="principal-components-planes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#principal-components-planes" class="anchor"></a>Principal Components planes</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-13.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="positive-factor-vs-negative-factor" class="section level3">
+<h3 class="hasAnchor">
+<a href="#positive-factor-vs-negative-factor" class="anchor"></a>Positive Factor vs. Negative Factor</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-14.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="housekeeping-factor" class="section level3">
+<h3 class="hasAnchor">
+<a href="#housekeeping-factor" class="anchor"></a>Housekeeping Factor</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-15.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="normalisation-factor" class="section level3">
+<h3 class="hasAnchor">
+<a href="#normalisation-factor" class="anchor"></a>Normalisation Factor</h3>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-5-16.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+</div>
+<div id="the-render-function" class="section level2">
+<h2 class="hasAnchor">
+<a href="#the-render-function" class="anchor"></a>The <code><a href="../reference/render.html">render()</a></code> function</h2>
+<p>The <code><a href="../reference/render.html">render()</a></code> function renders (using <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print(..., echo = TRUE)</a></code> a comprehensive HTML report which includes all quality-control metrics and description of those metrics.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">)</a></code></pre></div>
+<p>The underneath function <code><a href="https://www.rdocumentation.org/packages/base/topics/print">print()</a></code>can be used directly within any Rmakrdown chunk, setting the parameter <code>echo = TRUE</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/print">print</a></span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">)</a></code></pre></div>
+<div id="rcc-summary" class="section level3">
+<h3 class="hasAnchor">
+<a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
+<ul>
+<li>Samples: 20</li>
+<li>Endogenous: 50</li>
+<li>Housekeeping: 8</li>
+<li>Negative: 8</li>
+<li>Positive: 6</li>
+</ul>
+</div>
+<div id="settings" class="section level3">
+<h3 class="hasAnchor">
+<a href="#settings" class="anchor"></a>Settings</h3>
+<ul>
+<li>Predict housekeeping genes: FALSE</li>
+<li>Normalise using housekeeping genes: TRUE</li>
+<li>Housekeeping genes available: MRPL19, PSMC4, SF3A1, RPLP0, PUM1, ACTB, TFRC and GUSB</li>
+<li>Normalise using: GLM</li>
+<li>Principal components to compute: 10</li>
+<li>
+<p>Remove outliers: FALSE</p>
+<ul>
+<li>Binding Density (BD) &lt; 0.1</li>
+<li>Binding Density (BD) &gt; 2.25</li>
+<li>Imaging (FoV) &lt; 75</li>
+<li>Positive Control Linearity (PC) &lt; 0.95</li>
+<li>Limit of Detection (LoD) &lt; 2</li>
+<li>Positive normalisation factor (Positive_factor) &lt; 0.25</li>
+<li>Positive normalisation factor (Positive_factor) &gt; 4</li>
+<li>Housekeeping normalisation factor (house_factor) &lt; 0.091</li>
+<li>Housekeeping normalisation factor (house_factor) &gt; 11</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="qc-metrics" class="section level3">
+<h3 class="hasAnchor">
+<a href="#qc-metrics" class="anchor"></a>QC Metrics</h3>
+<div id="binding-density-1" class="section level4">
+<h4 class="hasAnchor">
+<a href="#binding-density-1" class="anchor"></a>Binding Density</h4>
+<p>The imaging unit only counts the codes that are unambiguously distinguishable. It simply will not count codes that overlap within an image. This provides increased confidence that the molecular counts you receive are from truly recognisable codes. Under most conditions, forgoing the few barcodes that do overlap will not impact your data. Too many overlapping codes in the image, however, will create a condition called image saturation in which significant data loss could occur (critical data loss from saturation is uncommon).</p>
+<p>To determine the level of image saturation, the nCounter instrument calculates the number of optical features per square micron for each lane as it processes the images. This is called the <strong>Binding Density</strong>. The <strong>Binding Density</strong> is useful for determining whether data collection has been compromised due to image saturation. The acceptable range for <strong>Binding Density</strong> is:</p>
+<ul>
+<li>
+<code>0.1 - 2.25</code> for <strong>MAX</strong>/<strong>FLEX</strong> instruments</li>
+<li>
+<code>0.1 - 1.8</code> for <strong>SPRINT</strong> instruments</li>
+</ul>
+<p>Within these ranges, relatively few reporters on the slide surface will overlap, enabling the instrument to accurately tabulate counts for each reporter species. A <strong>Binding Density</strong> significantly greater than the upper limit in either range is indicative of overlapping reporters on the slide surface. The counts observed in lanes with a <strong>Binding Density</strong> at this level may have had significant numbers of codes ignored, which could potentially affect quantification and linearity of the assay. Some of the factors that may contribute to increased <strong>Binding Density</strong> are listed in the Factors affecting <strong>Binding Density</strong> box. <img src="NACHO_files/figure-html/unnamed-chunk-7-1.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="field-of-view-imaging" class="section level4">
+<h4 class="hasAnchor">
+<a href="#field-of-view-imaging" class="anchor"></a>Field of View (Imaging)</h4>
+<p>Each individual lane scanned on an nCounter system is divided into a few hundred imaging sections, called Fields of View (<strong>FOV</strong>), the exact number of which will depend on the system being used (<em>i.e.</em>, <strong>MAX/FLEX</strong> or <strong>SPRINT</strong>), and the scanner settings selected by the user. The system images these FOVs separately, and sums the barcode counts of all <strong>FOV</strong>s from a single lane to form the final raw data count for each unique barcode target. Finally, the system reports the number of <strong>FOV</strong>s successfully imaged as FOV Counted.</p>
+<p>Significant discrepancy between the number of <strong>FOV</strong> for which imaging was attempted (<strong>FOV Count</strong>) and for which imaging was successful (<strong>FOV Counted</strong>) may indicate an issue with imaging performance. Recommended percentage of registered FOVs (<em>i.e.</em>, <strong>FOV Counted</strong> over <strong>FOV Count</strong>) is <code>75 %</code>. Lanes will be flagged if this percentage is lower. <img src="NACHO_files/figure-html/unnamed-chunk-7-2.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="positive-control-linearity-1" class="section level4">
+<h4 class="hasAnchor">
+<a href="#positive-control-linearity-1" class="anchor"></a>Positive Control linearity</h4>
+<p>Six synthetic DNA control targets are included with every nCounter Gene Expression assay. Their concentrations range linearly from <code>128 fM</code> to <code>0.125 fM</code>, and they are referred to as <strong>POS_A</strong> to <strong>POS_F</strong>, respectively. These <strong>Positive Controls</strong> are typically used to measure the efficiency of the hybridization reaction, and their step-wise concentrations also make them useful in checking the linearity performance of the assay. An R2 value is calculated from the regression between the known concentration of each of the <strong>Positive Controls</strong> and the resulting counts from them (this calculation is performed using log2-transformed values).</p>
+<p>Since the known concentrations of the <strong>Positive Controls</strong> increase in a linear fashion, the resulting counts should, as well. Therefore, R2 values should be higher than <code>0.95</code>.</p>
+<p>Note that because POS_F has a known concentration of <code>0.125 fM</code>, which is considered below the limit of detection of the system, it should be excluded from this calculation (although you will see that <strong>POS_F</strong> counts are significantly higher than the negative control counts in most cases). <img src="NACHO_files/figure-html/unnamed-chunk-7-3.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="limit-of-detection-1" class="section level4">
+<h4 class="hasAnchor">
+<a href="#limit-of-detection-1" class="anchor"></a>Limit of Detection</h4>
+<p>The limit of detection is determined by measuring the ability to detect <strong>POS_E</strong>, the <code>0.5 fM</code> positive control probe, which corresponds to about 10,000 copies of this target within each sample tube. On a <strong>FLEX</strong>/<strong>MAX</strong> system, the standard input of <code>100 ng</code> of total RNA will roughly correspond to about 10,000 cell equivalents (assuming one cell contains <code>10 pg</code> total RNA on average). An nCounter assay run on the <strong>FLEX</strong>/<strong>MAX</strong> system should thus conservatively be able to detect roughly one transcript copy per cell for each target (or 10,000 total transcript copies). In most assays, you will observe that even the <strong>POS_F</strong> probe (equivalent to 0.25 copies per cell) is detectable above background.</p>
+<p>To determine whether <strong>POS_E</strong> is detectable, it can be compared to the counts for the negative control probes. Every nCounter Gene Expression assay is manufactured with eight negative control probes that should not hybridize to any targets within the sample. Counts from these will approximate general non-specific binding of probes within the samples being run. The counts of <strong>POS_E</strong> should be higher than two times the standard deviation above the mean of the negative control. <img src="NACHO_files/figure-html/unnamed-chunk-7-4.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+</div>
+<div id="control-genes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#control-genes" class="anchor"></a>Control Genes</h3>
+<div id="positive" class="section level4">
+<h4 class="hasAnchor">
+<a href="#positive" class="anchor"></a>Positive</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-5.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="negative" class="section level4">
+<h4 class="hasAnchor">
+<a href="#negative" class="anchor"></a>Negative</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-6.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="housekeeping" class="section level4">
+<h4 class="hasAnchor">
+<a href="#housekeeping" class="anchor"></a>Housekeeping</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-7.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="control-probe-expression" class="section level4">
+<h4 class="hasAnchor">
+<a href="#control-probe-expression" class="anchor"></a>Control Probe Expression</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-8.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+</div>
+<div id="qc-visuals" class="section level3">
+<h3 class="hasAnchor">
+<a href="#qc-visuals" class="anchor"></a>QC Visuals</h3>
+<div id="average-count-vs-binding-density" class="section level4">
+<h4 class="hasAnchor">
+<a href="#average-count-vs-binding-density" class="anchor"></a>Average Count vs. Binding Density</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-9.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="average-count-vs-median-count" class="section level4">
+<h4 class="hasAnchor">
+<a href="#average-count-vs-median-count" class="anchor"></a>Average Count vs. Median Count</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-10.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="principal-component" class="section level4">
+<h4 class="hasAnchor">
+<a href="#principal-component" class="anchor"></a>Principal Component</h4>
+<div id="pc1-vs-pc2" class="section level5">
+<h5 class="hasAnchor">
+<a href="#pc1-vs-pc2" class="anchor"></a>PC1 vs. PC2</h5>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-11.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="factorial-planes" class="section level5">
+<h5 class="hasAnchor">
+<a href="#factorial-planes" class="anchor"></a>Factorial planes</h5>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-12.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="inertia" class="section level5">
+<h5 class="hasAnchor">
+<a href="#inertia" class="anchor"></a>Inertia</h5>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-13.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+</div>
+</div>
+<div id="normalisation-factors" class="section level3">
+<h3 class="hasAnchor">
+<a href="#normalisation-factors" class="anchor"></a>Normalisation Factors</h3>
+<div id="positive-factor-vs-background-threshold" class="section level4">
+<h4 class="hasAnchor">
+<a href="#positive-factor-vs-background-threshold" class="anchor"></a>Positive Factor vs. Background Threshold</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-14.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="housekeeping-factor-1" class="section level4">
+<h4 class="hasAnchor">
+<a href="#housekeeping-factor-1" class="anchor"></a>Housekeeping Factor</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-15.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="normalisation-result" class="section level4">
+<h4 class="hasAnchor">
+<a href="#normalisation-result" class="anchor"></a>Normalisation Result</h4>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-7-16.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+</div>
+</div>
 </div>
 <div id="references" class="section level1 unnumbered">
 <h1 class="hasAnchor">
@@ -261,9 +571,6 @@ In this example <code>"GLM"</code> is used.</p>
 </div>
 <div id="ref-bruce_identification_2015">
 <p>Bruce, Jeff P., Angela B. Y. Hui, Wei Shi, Bayardo Perez-Ordonez, Ilan Weinreb, Wei Xu, Benjamin Haibe-Kains, et al. 2015. “Identification of a microRNA Signature Associated with Risk of Distant Metastasis in Nasopharyngeal Carcinoma.” <em>Oncotarget</em> 6 (6): 4537–50. <a href="https://doi.org/10.18632/oncotarget.3005" class="uri">https://doi.org/10.18632/oncotarget.3005</a>.</p>
-</div>
-<div id="ref-geiss_direct_2008">
-<p>Geiss, Gary K., Roger E. Bumgarner, Brian Birditt, Timothy Dahl, Naeem Dowidar, Dwayne L. Dunaway, H. Perry Fell, et al. 2008. “Direct Multiplexed Measurement of Gene Expression with Color-Coded Probe Pairs.” <em>Nature Biotechnology</em> 26 (3): 317–25. <a href="https://doi.org/10.1038/nbt1385" class="uri">https://doi.org/10.1038/nbt1385</a>.</p>
 </div>
 <div id="ref-liu_pam50_2016">
 <p>Liu, Minetta C., Brandelyn N. Pitcher, Elaine R. Mardis, Sherri R. Davies, Paula N. Friedman, Jacqueline E. Snider, Tammi L. Vickery, et al. 2016. “PAM50 Gene Signatures and Breast Cancer Prognosis with Adjuvant Anthracycline- and Taxane-Based Chemotherapy: Correlative Analysis of C9741 (Alliance).” <em>Npj Breast Cancer</em> 2 (January): 15023. <a href="https://doi.org/10.1038/npjbcancer.2015.23" class="uri">https://doi.org/10.1038/npjbcancer.2015.23</a>.</p>
@@ -285,6 +592,8 @@ In this example <code>"GLM"</code> is used.</p>
       <li><a href="#the-summarise-function">The <code><a href="--/reference/summarise-html">summarise()</a></code> function</a></li>
       <li><a href="#the-visualise-function">The <code><a href="--/reference/visualise-html">visualise()</a></code> function</a></li>
       <li><a href="#the-normalise-function">The <code><a href="--/reference/normalise-html">normalise()</a></code> function</a></li>
+      <li><a href="#the-autoplot-function">The <code><a href="--/reference/autoplot-html">autoplot()</a></code> function</a></li>
+      <li><a href="#the-render-function">The <code><a href="--/reference/render-html">render()</a></code> function</a></li>
       </ul>
 </li>
       <li><a href="#references">References</a></li>
@@ -296,7 +605,7 @@ In this example <code>"GLM"</code> is used.</p>
 
 
       <footer><div class="copyright">
-  <p>Developed by Mickaël Canouil, Roderick Slieker, Gerard Bouland.</p>
+  <p>Developed by <a href="http://mickael.canouil.fr">Mickaël Canouil</a>, Roderick Slieker, Gerard Bouland.</p>
 </div>
 
 <div class="pkgdown">
