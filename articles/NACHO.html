@@ -222,13 +222,15 @@ The <code>housekeeping_genes</code> and <code>normalisation_method</code> argume
 <h2 class="hasAnchor">
 <a href="#the-normalise-function" class="anchor"></a>The <code>normalise()</code> function</h2>
 <p><em>NACHO</em> is allows the discovery of housekeeping genes within your own dataset. <em>NACHO</em> finds the five best suitable housekeeping genes, however, it is possible that one of these five genes might not be suitable, which is why a subset of these discovered housekeeping genes might work better in some cases. For this example, we use the <strong>GSE70970</strong> dataset from the previous example. The discovered housekeeping genes are saved in the result object as <strong>predicted_housekeeping</strong>.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a></code></pre></div>
-<p>[1] “hsa-miR-103” “hsa-let-7e”<br>
-[3] “hsa-miR-1260” “hsa-miR-500+hsa-miR-501-5p” [5] “hsa-miR-1274b”</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">## [1] "hsa-miR-103"                "hsa-let-7e"                </a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">## [3] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">## [5] "hsa-miR-1274b"</a></code></pre></div>
 <p>Let’s say <em>hsa-miR-103</em> and <em>hsa-let-7e</em> are not suitable, therefore, you want to exclude these genes from the normalisation process.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a></code></pre></div>
-<p>[1] “hsa-miR-1260” “hsa-miR-500+hsa-miR-501-5p” [3] “hsa-miR-1274b”</p>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">## [1] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">## [3] "hsa-miR-1274b"</a></code></pre></div>
 <p>The next step is the actual normalisation. The first argument requires the summary which is created with the <code><a href="../reference/summarise.html">summarise()</a></code> function. The second argument requires a vector of gene names. In this case, it is a subset of the discovered housekeeping genes we just made. With the third argument the user has the choice to remove the outliers. Lastly, the normalisation method can be choosed.<br>
 Here, the user has a choice between <code>"GLM"</code> or <code>"GEO"</code>. The differences between normalisation methods are nuanced, however, a preference for either method are use case specific.<br>
 In this example, <code>"GLM"</code> is used.</p>
