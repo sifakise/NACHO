@@ -121,7 +121,7 @@
 <h2 class="hasAnchor">
 <a href="#citation" class="anchor"></a>Citation</h2>
 <ul>
-<li>Add citation.</li>
+<li>Add citation (<a href='https://github.com/mcanouil/NACHO/issues/8'>#8</a>).</li>
 </ul>
 </div>
 <div id="new-features" class="section level2">
@@ -140,8 +140,18 @@
 <h2 class="hasAnchor">
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
-<li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>, fix issue (<a href='https://github.com/mcanouil/NACHO/issues/1'>#1</a>) when PlexSet RCC files could not be read.</li>
-<li>In <code>R/summarise.R</code>, object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
+<li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>,
+<ul>
+<li>fix issue (<a href='https://github.com/mcanouil/NACHO/issues/1'>#1</a>) when PlexSet RCC files could not be read.</li>
+<li>update code to use <code>tidyr</code> 1.0.0 (<a href='https://github.com/mcanouil/NACHO/issues/9'>#9</a>).</li>
+</ul>
+</li>
+<li>In <code>R/summarise.R</code>,
+<ul>
+<li>object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
+<li>update code to use <code>tidyr</code> 1.0.0 (<a href='https://github.com/mcanouil/NACHO/issues/9'>#9</a>).</li>
+</ul>
+</li>
 <li>In <code>R/normalise.R</code>,
 <ul>
 <li>object returned is of S3 class “nacho” for ease of use of <code><a href="../reference/autoplot.html">autoplot()</a></code>.</li>
@@ -157,9 +167,9 @@
 <li>In <code>vignettes/NACHO.Rmd</code>,
 <ul>
 <li>fix several typos.</li>
-<li>add sections for <code><a href="../reference/autoplot.html">autoplot()</a></code>, <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> and <code><a href="../reference/render.html">render()</a></code>.</li>
+<li>add sections for <code><a href="../reference/autoplot.html">autoplot()</a></code>, <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> and <code><a href="../reference/render.html">render()</a></code> (<a href='https://github.com/mcanouil/NACHO/issues/7'>#7</a>).</li>
 <li>fix chunk output (<em>i.e.</em>, remove default <code>results = "asis"</code>).</li>
-<li>fix <code><a href="../reference/normalise.html">normalise()</a></code> call with custom housekeeping genes (<em>i.e.</em>, set <code>housekeeping_predict = FALSE</code>).</li>
+<li>fix <code><a href="../reference/normalise.html">normalise()</a></code> call with custom housekeeping genes (<em>i.e.</em>, set <code>housekeeping_predict = FALSE</code>) (<a href='https://github.com/mcanouil/NACHO/issues/10'>#10</a>).</li>
 </ul>
 </li>
 </ul>
