@@ -77,7 +77,7 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">September 18, 2019</h4>
+            <h4 class="date">October 03, 2019</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -1032,37 +1032,31 @@ In this example, <code>"GLM"</code> is used.</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">GSE70970_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/normalise.html">normalise</a></span>(</a>
 <a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE70970_sum,</a>
 <a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="dt">housekeeping_genes =</span> my_housekeeping,</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7">)</a>
-<a class="sourceLine" id="cb8-8" data-line-number="8">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">##   - housekeeping_genes = TRUE</a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">##   - remove_outliers = TRUE</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb8-17" data-line-number="17">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb8-18" data-line-number="18">##   - hsa-miR-16</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">##   $ access              : character</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb8-26" data-line-number="26">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb8-28" data-line-number="28">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb8-29" data-line-number="29">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb8-30" data-line-number="30">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb8-31" data-line-number="31">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb8-32" data-line-number="32">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb8-33" data-line-number="33">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb8-34" data-line-number="34">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="dt">housekeeping_predict =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">##   - housekeeping_genes = TRUE</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">##   - housekeeping_predict = TRUE</a>
+<a class="sourceLine" id="cb8-12" data-line-number="12">##   - remove_outliers = TRUE</a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb8-15" data-line-number="15">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb8-16" data-line-number="16">##   $ access              : character</a>
+<a class="sourceLine" id="cb8-17" data-line-number="17">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb8-18" data-line-number="18">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb8-19" data-line-number="19">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb8-20" data-line-number="20">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb8-21" data-line-number="21">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb8-22" data-line-number="22">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb8-23" data-line-number="23">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb8-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb8-25" data-line-number="25">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb8-26" data-line-number="26">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb8-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb8-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/summarise.html">summarise()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 <div id="the-autoplot-function" class="section level2">
