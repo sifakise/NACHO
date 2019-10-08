@@ -120,11 +120,21 @@
 <div id="minor-improvements-and-fixes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<ul>
+<li>In <code>DESCRIPTION</code>, add <code>"SystemRequirements: pandoc (&gt;= 1.12.3) - http://pandoc.org"</code>.</li>
+<li>In <code>R/render.R</code>,
+<ul>
+<li>explicit import for <code>opts_chunk::knitr</code> in roxygen documentation.</li>
+<li>explicit import for <code><a href="https://rdrr.io/pkg/sessioninfo/man/session_info.html">sessioninfo::session_info</a></code> in roxygen documentation.</li>
+</ul>
+</li>
+<li>In <code>tests/testthat/test-render.R</code>, now checks if pandoc is available.</li>
+</ul>
 </div>
 </div>
     <div id="nacho-0-6-0" class="section level1">
 <h1 class="page-header">
-<a href="#nacho-0-6-0" class="anchor"></a>NACHO 0.6.0<small> Unreleased </small>
+<a href="#nacho-0-6-0" class="anchor"></a>NACHO 0.6.0<small> 2019-10-07 </small>
 </h1>
 <div id="citation" class="section level2">
 <h2 class="hasAnchor">
