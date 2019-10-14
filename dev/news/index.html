@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.0.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.1.9000</span>
       </span>
     </div>
 
@@ -117,11 +117,16 @@
 <h1 class="page-header">
 <a href="#nacho-development-version" class="anchor"></a>NACHO (development version)<small> Unreleased </small>
 </h1>
+</div>
+    <div id="nacho-0-6-1" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-0-6-1" class="anchor"></a>NACHO 0.6.1<small> 2019-10-12 </small>
+</h1>
 <div id="minor-improvements-and-fixes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
-<li>In <code>DESCRIPTION</code>, add <code>"SystemRequirements: pandoc (&gt;= 1.12.3) - http://pandoc.org"</code>.</li>
+<li>In <code>DESCRIPTION</code>, add <code>"SystemRequirements: pandoc (&gt;= 1.12.3) - http://pandoc.org, pandoc-citeproc"</code>.</li>
 <li>In <code>R/render.R</code>,
 <ul>
 <li>explicit import for <code>opts_chunk::knitr</code> in roxygen documentation.</li>
@@ -129,6 +134,7 @@
 </ul>
 </li>
 <li>In <code>tests/testthat/test-render.R</code>, now checks if pandoc is available.</li>
+<li>In <code>tests/testthat/test-summarise.R</code>, fix tests when connection to GEO is alternatively up/down between two tests.</li>
 </ul>
 </div>
 </div>
@@ -370,6 +376,7 @@
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#nacho-development-version">development version</a></li>
+        <li><a href="#nacho-0-6-1">0.6.1</a></li>
         <li><a href="#nacho-0-6-0">0.6.0</a></li>
         <li><a href="#nacho-0-5-6">0.5.6</a></li>
         <li><a href="#nacho-0-5-5">0.5.5</a></li>
