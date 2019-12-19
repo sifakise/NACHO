@@ -6,13 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Visualise quality-control metrics using a shiny app — visualise • NACHO</title>
+<title>Visualise quality-control metrics of a <code>"nacho"</code> object — visualise • NACHO</title>
 
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -35,10 +35,10 @@
 
 
 
-<meta property="og:title" content="Visualise quality-control metrics using a shiny app — visualise" />
-<meta property="og:description" content="This function allows to visualise several quality-control metrics
-in an interactive shiny application, in which thresholds can be customised
-and exported to the global environment." />
+<meta property="og:title" content="Visualise quality-control metrics of a <code>"nacho"</code> object — visualise" />
+<meta property="og:description" content="This function allows to visualise results from load_rcc() or normalise()
+several quality-control metrics in an interactive shiny application,
+in which thresholds can be customised and exported." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -71,7 +71,7 @@ and exported to the global environment." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -113,15 +113,15 @@ and exported to the global environment." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Visualise quality-control metrics using a shiny app</h1>
+    <h1>Visualise quality-control metrics of a <code>"nacho"</code> object</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/visualise.R'><code>R/visualise.R</code></a></small>
     <div class="hidden name"><code>visualise.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function allows to visualise several quality-control metrics
-in an interactive shiny application, in which thresholds can be customised
-and exported to the global environment.</p>
+    <p>This function allows to visualise results from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='normalise.html'>normalise()</a></code>
+several quality-control metrics in an interactive shiny application,
+in which thresholds can be customised and exported.</p>
     </div>
 
     <pre class="usage"><span class='fu'>visualise</span>(<span class='no'>nacho_object</span>)</pre>
@@ -131,7 +131,8 @@ and exported to the global environment.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>nacho_object</th>
-      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='summarise.html'>summarise</a> or <a href='normalise.html'>normalise</a>.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list object of class <code>"nacho"</code> obtained
+from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='normalise.html'>normalise()</a></code>.</p></td>
     </tr>
     </table>
 
@@ -167,7 +168,7 @@ and exported to the global environment.</p>
   )
 
   <span class='co'># Read RCC files and format</span>
-  <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='summarise.html'>summarise</a></span>(
+  <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_rcc.html'>load_rcc</a></span>(
     <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>),
     <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/Samplesheet.csv"</span>),
     <span class='kw'>id_colname</span> <span class='kw'>=</span> <span class='st'>"IDFILE"</span>

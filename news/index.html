@@ -12,7 +12,7 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.6.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
       </span>
     </div>
 
@@ -113,13 +113,77 @@
       <small>Source: <a href='https://github.com/mcanouil/NACHO/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="nacho-1-0-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-1-0-0" class="anchor"></a>NACHO 1.0.0<small> Unreleased </small>
+</h1>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li>In <code>R/conflicts.R</code>,
+<ul>
+<li>conflicts are now printed when attaching <code>NACHO</code>.</li>
+<li>
+<code><a href="../reference/nacho_conflicts.html">nacho_conflicts()</a></code> can be used to print conflicts.</li>
+</ul>
+</li>
+<li>New Shiny app in <code>inst/app/</code>, (<a href='https://github.com/mcanouil/NACHO/issues/4'>#4</a>, <a href='https://github.com/mcanouil/NACHO/issues/5'>#5</a> &amp; <a href='https://github.com/mcanouil/NACHO/issues/14'>#14</a>)
+<ul>
+<li>as a regular app, to load directly RCC files individually or within zip archive.</li>
+<li>within <code><a href="../reference/visualise.html">visualise()</a></code>, to load <code>"nacho"</code> object from <code><a href="../reference/load_rcc.html">load_rcc()</a></code> (previous <code>summarise()</code>) or from <code><a href="../reference/normalise.html">normalise()</a></code>.</li>
+</ul>
+</li>
+<li>New <code><a href="../reference/deploy.html">deploy()</a></code> (<code>R/deploy.R</code>) function to easily deploy (copy) the shiny app.</li>
+<li>New raw RCC files (multiplexed) available in <code>inst/extdata/</code>.</li>
+<li>In <code>DESCRIPTION</code>,
+<ul>
+<li>Order packages in alphabetical order.</li>
+<li>Add packages’ version.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="breaking-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#breaking-changes" class="anchor"></a>Breaking changes</h2>
+<ul>
+<li>
+<code>summarise()</code> and <code><a href="../reference/load_rcc.html">summarize()</a></code> have been deprecated and replaced with <code><a href="../reference/load_rcc.html">load_rcc()</a></code>. (<a href='https://github.com/mcanouil/NACHO/issues/12'>#12</a> &amp; <a href='https://github.com/mcanouil/NACHO/issues/15'>#15</a>)</li>
+<li>
+<code><a href="../reference/visualise.html">visualise()</a></code>, now uses a new shiny app (<code>inst/app/</code>).</li>
+</ul>
+</div>
+<div id="minor-improvements-and-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<ul>
+<li>In <code>R/visualise.R</code>, <code>R/render.R</code>, <code><a href="https://rdrr.io/r/base/print.html">print()</a></code>, <code>R/load_rcc.R</code> and <code>R/normalise.R</code>,
+<ul>
+<li>replace function to check for outliers, now uses <code><a href="../reference/check_outliers.html">check_outliers()</a></code>.</li>
+</ul>
+</li>
+<li>In <code>R/visualise.R</code>, replace datatable (render and output) with classical table. (<a href='https://github.com/mcanouil/NACHO/issues/13'>#13</a>)</li>
+<li>In <code>R/autoplot.R</code>,
+<ul>
+<li>add <code>show_outliers</code> to show outliers differently on plots (<em>i.e.</em>, in red).</li>
+<li>add <code>outliers_factor</code> to highligth outliers with different point size.</li>
+<li>add <code>outliers_labels</code> to print labels on top of outliers.</li>
+<li>now uses tidyeval via import.</li>
+</ul>
+</li>
+<li>In <code>R/print.R</code>, now print a table with outliers if any (with <code>echo = TRUE</code>).</li>
+<li>In <code>R/GSE74821.R</code>, dataset is up to date according to NACHO functions.</li>
+</ul>
+</div>
+</div>
     <div id="nacho-0-6-1" class="section level1">
 <h1 class="page-header">
 <a href="#nacho-0-6-1" class="anchor"></a>NACHO 0.6.1<small> 2019-10-12 </small>
 </h1>
-<div id="minor-improvements-and-fixes" class="section level2">
+<div id="minor-improvements-and-fixes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-1" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>DESCRIPTION</code>, add <code>"SystemRequirements: pandoc (&gt;= 1.12.3) - http://pandoc.org, pandoc-citeproc"</code>.</li>
 <li>In <code>R/render.R</code>,
@@ -144,9 +208,9 @@
 <li>Add citation (<a href='https://github.com/mcanouil/NACHO/issues/8'>#8</a>).</li>
 </ul>
 </div>
-<div id="new-features" class="section level2">
+<div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features" class="anchor"></a>New features</h2>
+<a href="#new-features-1" class="anchor"></a>New features</h2>
 <ul>
 <li>
 <code><a href="../reference/autoplot.html">autoplot()</a></code> allows to plot a chosen QC plot available in the shiny app (<code><a href="../reference/visualise.html">visualise()</a></code>) and/or in the HTML report (<code><a href="../reference/render.html">render()</a></code>).</li>
@@ -156,9 +220,9 @@
 <code><a href="../reference/render.html">render()</a></code> render figures from <code><a href="../reference/visualise.html">visualise()</a></code> in a HTML friendly output.</li>
 </ul>
 </div>
-<div id="minor-improvements-and-fixes-1" class="section level2">
+<div id="minor-improvements-and-fixes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-1" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-2" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>R/read_rcc.R</code>, <code>R/summarise.R</code>,
 <ul>
@@ -199,9 +263,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-6" class="anchor"></a>NACHO 0.5.6<small> 2019-04-29 </small>
 </h1>
-<div id="minor-improvements-and-fixes-2" class="section level2">
+<div id="minor-improvements-and-fixes-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-2" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-3" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>tests/testthat/test-summarise.R</code>, add condition to handle when <code>GEOQuery</code> is down and cannot retrieve online data.</li>
 <li>In <code>vignettes/NACHO.Rmd</code>, add condition to handle when <code>GEOQuery</code> is down and cannot retrieve online data.</li>
@@ -212,9 +276,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-5" class="anchor"></a>NACHO 0.5.5<small> 2019-04-28 </small>
 </h1>
-<div id="minor-improvements-and-fixes-3" class="section level2">
+<div id="minor-improvements-and-fixes-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-3" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-4" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>R/summarise.R</code>, put example in <code>if (interactive()) {...}</code> instead of <code>\dontrun{...}</code>.</li>
 <li>In <code>R/normalise.R</code>, put example in <code>if (interactive()) {...}</code> instead of <code>\dontrun{...}</code>.</li>
@@ -227,9 +291,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-4" class="anchor"></a>NACHO 0.5.4<small> Unreleased </small>
 </h1>
-<div id="minor-improvements-and-fixes-4" class="section level2">
+<div id="minor-improvements-and-fixes-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-4" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-5" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>R/normalise.R</code>, add short running example for <code><a href="../reference/normalise.html">normalise()</a></code>.</li>
 <li>In <code>R/visualise.R</code>, add short running example for <code><a href="../reference/visualise.html">visualise()</a></code>.</li>
@@ -241,9 +305,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-3" class="anchor"></a>NACHO 0.5.3<small> Unreleased </small>
 </h1>
-<div id="minor-improvements-and-fixes-5" class="section level2">
+<div id="minor-improvements-and-fixes-6" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-5" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-6" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>Bold letters for <strong>NACHO</strong> in title.</li>
 <li>In <code>DESCRIPTION</code>, title and description updated for CRAN.</li>
@@ -255,9 +319,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-2" class="anchor"></a>NACHO 0.5.2<small> Unreleased </small>
 </h1>
-<div id="minor-improvements-and-fixes-6" class="section level2">
+<div id="minor-improvements-and-fixes-7" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-6" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-7" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>In <code>DESCRIPTION</code>, title and description updated for CRAN.</li>
 </ul>
@@ -267,9 +331,9 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-1" class="anchor"></a>NACHO 0.5.1<small> Unreleased </small>
 </h1>
-<div id="minor-improvements-and-fixes-7" class="section level2">
+<div id="minor-improvements-and-fixes-8" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-7" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-8" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>Vignette uses bib file for references.</li>
 <li>Update URL in DESCRIPTION.</li>
@@ -280,26 +344,26 @@
 <h1 class="page-header">
 <a href="#nacho-0-5-0" class="anchor"></a>NACHO 0.5.0<small> Unreleased </small>
 </h1>
-<div id="new-features-1" class="section level2">
+<div id="new-features-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-features-1" class="anchor"></a>New features</h2>
+<a href="#new-features-2" class="anchor"></a>New features</h2>
 <ul>
 <li>
-<code><a href="../reference/summarise.html">summarise()</a></code> imports and pre-process RCC files.</li>
+<code>summarise()</code> imports and pre-process RCC files.</li>
 <li>
-<code><a href="../reference/normalise.html">normalise()</a></code> allows to change settings used in <code><a href="../reference/summarise.html">summarise()</a></code> and exclude outliers.</li>
+<code><a href="../reference/normalise.html">normalise()</a></code> allows to change settings used in <code>summarise()</code> and exclude outliers.</li>
 <li>
 <code><a href="../reference/visualise.html">visualise()</a></code> allows customisation of the quality thresholds.</li>
 <li>Minor changes</li>
 </ul>
 </div>
-<div id="minor-improvements-and-fixes-8" class="section level2">
+<div id="minor-improvements-and-fixes-9" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-improvements-and-fixes-8" class="anchor"></a>Minor improvements and fixes</h2>
+<a href="#minor-improvements-and-fixes-9" class="anchor"></a>Minor improvements and fixes</h2>
 <ul>
 <li>Add a README.</li>
 <li>Add logo.</li>
-<li>In <code><a href="../reference/summarise.html">summarise()</a></code>, <code>ssheet_csv</code> can take a data.frame or a csv file.</li>
+<li>In <code>summarise()</code>, <code>ssheet_csv</code> can take a data.frame or a csv file.</li>
 <li>Change in package title with capital letters corresponding to NACHO.</li>
 <li>Add tests using testthat.</li>
 </ul>
@@ -352,7 +416,7 @@
 <a href="#nacho-0-2-0" class="anchor"></a>NACHO 0.2.0<small> Unreleased </small>
 </h1>
 <ul>
-<li>Complete rewrite of <code><a href="../reference/summarise.html">summarise()</a></code> and <code><a href="../reference/normalise.html">normalise()</a></code> (and all internal functions).</li>
+<li>Complete rewrite of <code>summarise()</code> and <code><a href="../reference/normalise.html">normalise()</a></code> (and all internal functions).</li>
 <li>Add S4 class object.</li>
 </ul>
 </div>
@@ -370,6 +434,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#nacho-1-0-0">1.0.0</a></li>
         <li><a href="#nacho-0-6-1">0.6.1</a></li>
         <li><a href="#nacho-0-6-0">0.6.0</a></li>
         <li><a href="#nacho-0-5-6">0.5.6</a></li>
