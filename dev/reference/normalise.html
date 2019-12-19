@@ -6,13 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>(re)Normalise a dataset read from <a href='summarise.html'>summarise</a> — normalise • NACHO</title>
+<title>(re)Normalise a dataset read from <a href='load_rcc.html'>load_rcc</a>. — normalise • NACHO</title>
 
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/united/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="(re)Normalise a dataset read from <a href='summarise.html'>summarise</a> — normalise" />
+<meta property="og:title" content="(re)Normalise a dataset read from <a href='load_rcc.html'>load_rcc</a>. — normalise" />
 <meta property="og:description" content="This function creates a list in which your settings, the raw counts and normalised counts are stored,
-using the result from a call to summarise." />
+using the result from a call to load_rcc." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,14 +112,14 @@ using the result from a call to summarise." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>(re)Normalise a dataset read from <a href='summarise.html'>summarise</a></h1>
+    <h1>(re)Normalise a dataset read from <a href='load_rcc.html'>load_rcc</a>.</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/normalise.R'><code>R/normalise.R</code></a></small>
     <div class="hidden name"><code>normalise.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function creates a list in which your settings, the raw counts and normalised counts are stored,
-using the result from a call to <a href='summarise.html'>summarise</a>.</p>
+using the result from a call to <a href='load_rcc.html'>load_rcc</a>.</p>
     </div>
 
     <pre class="usage"><span class='fu'>normalise</span>(<span class='no'>nacho_object</span>,
@@ -136,7 +136,7 @@ using the result from a call to <a href='summarise.html'>summarise</a>.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>nacho_object</th>
-      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='summarise.html'>summarise</a> or normalise.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='load_rcc.html'>load_rcc</a> or normalise.</p></td>
     </tr>
     <tr>
       <th>housekeeping_genes</th>
@@ -177,14 +177,14 @@ Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list containing parameters and data.</p><dl class='dl-horizontal'>
-<dt><code>access</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='summarise.html'>summarise</a> in <code>id_colname</code>.</p></dd>
-<dt><code>housekeeping_genes</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='summarise.html'>summarise</a> or normalise.</p></dd>
-<dt><code>housekeeping_predict</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <a href='summarise.html'>summarise</a>.</p></dd>
-<dt><code>housekeeping_norm</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <a href='summarise.html'>summarise</a> or normalise.</p></dd>
-<dt><code>normalisation_method</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='summarise.html'>summarise</a> or normalise.</p></dd>
+<dt><code>access</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='load_rcc.html'>load_rcc</a> in <code>id_colname</code>.</p></dd>
+<dt><code>housekeeping_genes</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='load_rcc.html'>load_rcc</a> or normalise.</p></dd>
+<dt><code>housekeeping_predict</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <a href='load_rcc.html'>load_rcc</a>.</p></dd>
+<dt><code>housekeeping_norm</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <a href='load_rcc.html'>load_rcc</a> or normalise.</p></dd>
+<dt><code>normalisation_method</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='load_rcc.html'>load_rcc</a> or normalise.</p></dd>
 <dt><code>remove_outliers</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to normalise.</p></dd>
-<dt><code>n_comp</code></dt><dd><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] Value passed to <a href='summarise.html'>summarise</a>.</p></dd>
-<dt><code>data_directory</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='summarise.html'>summarise</a>.</p></dd>
+<dt><code>n_comp</code></dt><dd><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] Value passed to <a href='load_rcc.html'>load_rcc</a>.</p></dd>
+<dt><code>data_directory</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <a href='load_rcc.html'>load_rcc</a>.</p></dd>
 <dt><code>pc_sum</code></dt><dd><p>[<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] A <code>data.frame</code> with <code>n_comp</code> rows and four columns:
 "Standard deviation", "Proportion of Variance", "Cumulative Proportion" and "PC".</p></dd>
 <dt><code>nacho</code></dt><dd><p>[<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] A <code>data.frame</code> with all columns from the sample sheet <code>ssheet_csv</code>
@@ -204,8 +204,8 @@ With <code>"CodeClass"</code> (first column)), the type of the probes and
     <p>Outliers definition (<code>remove_outliers</code>):</p><ul>
 <li><p>Binding Density (<code>BD</code>) &lt; 0.1</p></li>
 <li><p>Binding Density (<code>BD</code>) &gt; 2.25</p></li>
-<li><p>Imaging (<code>FoV</code>) &lt; 75</p></li>
-<li><p>Positive Control Linearity (<code>PC</code>) &lt; 0.95</p></li>
+<li><p>Field of View (<code>FoV</code>) &lt; 75</p></li>
+<li><p>Positive Control Linearity (<code>PCL</code>) &lt; 0.95</p></li>
 <li><p>Limit of Detection (<code>LoD</code>) &lt; 2</p></li>
 <li><p>Positive normalisation factor (<code>Positive_factor</code>) &lt; 0.25</p></li>
 <li><p>Positive normalisation factor (<code>Positive_factor</code>) &gt; 4</p></li>
@@ -261,7 +261,7 @@ With <code>"CodeClass"</code> (first column)), the type of the probes and
   )
 
   <span class='co'># Read RCC files and format</span>
-  <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='summarise.html'>summarise</a></span>(
+  <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_rcc.html'>load_rcc</a></span>(
     <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>),
     <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/Samplesheet.csv"</span>),
     <span class='kw'>id_colname</span> <span class='kw'>=</span> <span class='st'>"IDFILE"</span>
