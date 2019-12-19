@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot quality-control metrics and thresholds. — autoplot.nacho • NACHO</title>
+<title>Plot quality-control metrics and thresholds of a <code>"nacho"</code> object — autoplot.nacho • NACHO</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="Plot quality-control metrics and thresholds. — autoplot.nacho" />
+<meta property="og:title" content="Plot quality-control metrics and thresholds of a <code>"nacho"</code> object — autoplot.nacho" />
 <meta property="og:description" content="This function allows to plot any qualit-control figures available
-within the shiny app using visualise or in the HTML report from render." />
+within the shiny app using visualise() or in the HTML report from render()." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -112,14 +112,14 @@ within the shiny app using visualise or in the HTML report from render." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Plot quality-control metrics and thresholds.</h1>
+    <h1>Plot quality-control metrics and thresholds of a <code>"nacho"</code> object</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/autoplot.R'><code>R/autoplot.R</code></a></small>
     <div class="hidden name"><code>autoplot.nacho.Rd</code></div>
     </div>
 
     <div class="ref-description">
     <p>This function allows to plot any qualit-control figures available
-within the shiny app using <a href='visualise.html'>visualise</a> or in the HTML report from <a href='render.html'>render</a>.</p>
+within the shiny app using <code><a href='visualise.html'>visualise()</a></code> or in the HTML report from <code><a href='render.html'>render()</a></code>.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for nacho</span>
@@ -132,7 +132,7 @@ within the shiny app using <a href='visualise.html'>visualise</a> or in the HTML
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>object</th>
-      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='normalise.html'>normalise()</a></code>.</p></td>
     </tr>
     <tr>
       <th>x</th>
@@ -163,8 +163,9 @@ or more generally in <code>nacho_object$nacho</code> to be used as grouping colo
     </tr>
     <tr>
       <th>size</th>
-      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A <code>numeric</code> controlling point size (geom_point or geom_beeswarm)
-or line size (geom_line).</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A numeric controlling point size
+(<code><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>ggplot2::geom_point()</a></code> or #' <code><a href='https://rdrr.io/pkg/ggbeeswarm/man/geom_beeswarm.html'>ggbeeswarm::geom_beeswarm()</a></code>)
+or line size (<code><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>ggplot2::geom_line()</a></code>).</p></td>
     </tr>
     <tr>
       <th>show_legend</th>

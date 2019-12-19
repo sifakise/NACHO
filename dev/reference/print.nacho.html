@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Print method for nacho object. — print.nacho • NACHO</title>
+<title>Print method for <code>"nacho"</code> object — print.nacho • NACHO</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="Print method for nacho object. — print.nacho" />
-<meta property="og:description" content="This function allows to print text and figures from the results of a call to load_rcc
-or normalise.
+<meta property="og:title" content="Print method for <code>"nacho"</code> object — print.nacho" />
+<meta property="og:description" content="This function allows to print text and figures from the results of a call to load_rcc()
+or normalise().
 It is intended to be used in a Rmarkdown chunk." />
 <meta name="twitter:card" content="summary" />
 
@@ -113,15 +113,15 @@ It is intended to be used in a Rmarkdown chunk." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Print method for nacho object.</h1>
+    <h1>Print method for <code>"nacho"</code> object</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/print.R'><code>R/print.R</code></a></small>
     <div class="hidden name"><code>print.nacho.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function allows to print text and figures from the results of a call to <a href='load_rcc.html'>load_rcc</a>
-or <a href='normalise.html'>normalise</a>.
-It is intended to be used in a <code>Rmarkdown</code> chunk.</p>
+    <p>This function allows to print text and figures from the results of a call to <code><a href='load_rcc.html'>load_rcc()</a></code>
+or <code><a href='normalise.html'>normalise()</a></code>.
+It is intended to be used in a Rmarkdown chunk.</p>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for nacho</span>
@@ -134,7 +134,7 @@ It is intended to be used in a <code>Rmarkdown</code> chunk.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list object of class <code>"nacho"</code> obtained from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='normalise.html'>normalise()</a></code>.</p></td>
     </tr>
     <tr>
       <th>colour</th>
@@ -143,8 +143,9 @@ or more generally in <code>nacho_object$nacho</code> to be used as grouping colo
     </tr>
     <tr>
       <th>size</th>
-      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A <code>numeric</code> controlling point size (geom_point or geom_beeswarm)
-or line size (geom_line).</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A numeric controlling point size
+(<code><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>ggplot2::geom_point()</a></code> or #' <code><a href='https://rdrr.io/pkg/ggbeeswarm/man/geom_beeswarm.html'>ggbeeswarm::geom_beeswarm()</a></code>)
+or line size (<code><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>ggplot2::geom_line()</a></code>).</p></td>
     </tr>
     <tr>
       <th>show_legend</th>
@@ -173,11 +174,11 @@ Mainly for use within a Rmarkdown chunk.</p></td>
     <tr>
       <th>title_level</th>
       <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A numeric to indicate the title level to start with, using markdown style,
-<em>i.e.</em>, the number of "#".</p></td>
+<em>i.e.</em>, the number of <code>"#"</code>.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Other arguments (Not used).</p></td>
+      <td><p>Other arguments (<em>Not used</em>).</p></td>
     </tr>
     </table>
 

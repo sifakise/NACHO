@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Summarise data from RCC NanoString files (and normalise them). — load_rcc • NACHO</title>
+<title>Produce a <code>"nacho"</code> object from RCC NanoString files — load_rcc • NACHO</title>
 
 
 <!-- jquery -->
@@ -35,7 +35,7 @@
 
 
 
-<meta property="og:title" content="Summarise data from RCC NanoString files (and normalise them). — load_rcc" />
+<meta property="og:title" content="Produce a <code>"nacho"</code> object from RCC NanoString files — load_rcc" />
 <meta property="og:description" content="This function is used to preprocess the data from NanoString nCounter." />
 <meta name="twitter:card" content="summary" />
 
@@ -111,7 +111,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Summarise data from RCC NanoString files (and normalise them).</h1>
+    <h1>Produce a <code>"nacho"</code> object from RCC NanoString files</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/load_rcc.R'><code>R/load_rcc.R</code></a></small>
     <div class="hidden name"><code>load_rcc.Rd</code></div>
     </div>
@@ -134,8 +134,8 @@
     </tr>
     <tr>
       <th>ssheet_csv</th>
-      <td><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] or [<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] Either a string with the name of the CSV of the samplesheet
-or the samplesheet as a <code>data.frame</code>.
+      <td><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] or [<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] Either a string with the name of the CSV
+of the samplesheet or the samplesheet as a <code>data.frame</code>.
 Should contain a column that matches the file names in the folder.</p></td>
     </tr>
     <tr>
@@ -155,8 +155,8 @@ should be predicted (<code>TRUE</code>) or not (<code>FALSE</code>). Default is 
     </tr>
     <tr>
       <th>housekeeping_norm</th>
-      <td><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Boolean to indicate whether the housekeeping normalisation should be performed.
-Default is <code>TRUE</code>.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Boolean to indicate whether the housekeeping normalisation
+should be performed. Default is <code>TRUE</code>.</p></td>
     </tr>
     <tr>
       <th>normalisation_method</th>
@@ -173,15 +173,15 @@ Cannot be more than n-1 samples. Default is <code>10</code>.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list containing parameters and data:</p><dl class='dl-horizontal'>
-<dt><code>access</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to load_rcc in <code>id_colname</code>.</p></dd>
-<dt><code>housekeeping_genes</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to load_rcc.</p></dd>
-<dt><code>housekeeping_predict</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to load_rcc.</p></dd>
-<dt><code>housekeeping_norm</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to load_rcc.</p></dd>
-<dt><code>normalisation_method</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to load_rcc.</p></dd>
+    <p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list object of class <code>"nacho"</code>:</p><dl class='dl-horizontal'>
+<dt><code>access</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <code>load_rcc()</code> in <code>id_colname</code>.</p></dd>
+<dt><code>housekeeping_genes</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <code>load_rcc()</code>.</p></dd>
+<dt><code>housekeeping_predict</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <code>load_rcc()</code>.</p></dd>
+<dt><code>housekeeping_norm</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] Value passed to <code>load_rcc()</code>.</p></dd>
+<dt><code>normalisation_method</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <code>load_rcc()</code>.</p></dd>
 <dt><code>remove_outliers</code></dt><dd><p>[<a href='https://rdrr.io/r/base/logical.html'>logical</a>] <code>FALSE</code>.</p></dd>
-<dt><code>n_comp</code></dt><dd><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] Value passed to load_rcc.</p></dd>
-<dt><code>data_directory</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to load_rcc.</p></dd>
+<dt><code>n_comp</code></dt><dd><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] Value passed to <code>load_rcc()</code>.</p></dd>
+<dt><code>data_directory</code></dt><dd><p>[<a href='https://rdrr.io/r/base/character.html'>character</a>] Value passed to <code>load_rcc()</code>.</p></dd>
 <dt><code>pc_sum</code></dt><dd><p>[<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] A <code>data.frame</code> with <code>n_comp</code> rows and four columns:
 "Standard deviation", "Proportion of Variance", "Cumulative Proportion" and "PC".</p></dd>
 <dt><code>nacho</code></dt><dd><p>[<a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a>] A <code>data.frame</code> with all columns from the sample sheet <code>ssheet_csv</code>
@@ -225,26 +225,6 @@ With <code>"CodeClass"</code> (first column)), the type of the probes and
   <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'>load_rcc</span>(
     <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>),
     <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/Samplesheet.csv"</span>),
-    <span class='kw'>id_colname</span> <span class='kw'>=</span> <span class='st'>"IDFILE"</span>
-  )
-}
-
-<span class='co'># Multiplex data (e.g., "plexset")</span>
-<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
-  <span class='no'>rcc_files_directory</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"extdata"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"NACHO"</span>)
-
-  <span class='no'>targets</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>stringsAsFactors</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-    <span class='kw'>name</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span>(<span class='no'>rcc_files_directory</span>),
-    <span class='kw'>datapath</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span>(<span class='no'>rcc_files_directory</span>, <span class='kw'>full.names</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-  )
-
-  <span class='no'>targets</span>$<span class='no'>IDFILE</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/basename.html'>basename</a></span>(<span class='no'>targets</span>$<span class='no'>datapath</span>)
-  <span class='no'>targets</span>$<span class='no'>plexset_id</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='st'>"S"</span>, <span class='fl'>1</span>:<span class='fl'>8</span>)), <span class='kw'>each</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/nrow.html'>nrow</a></span>(<span class='no'>targets</span>))
-  <span class='no'>targets_tidy</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span>(<span class='kw pkg'>tidyr</span><span class='kw ns'>::</span><span class='fu'><a href='https://tidyr.tidyverse.org/reference/nest.html'>unnest</a></span>(<span class='no'>targets</span>, <span class='st'>"plexset_id"</span>))
-
-  <span class='no'>salmon</span> <span class='kw'>&lt;-</span> <span class='fu'>load_rcc</span>(
-    <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='no'>rcc_files_directory</span>,
-    <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='no'>targets_tidy</span>,
     <span class='kw'>id_colname</span> <span class='kw'>=</span> <span class='st'>"IDFILE"</span>
   )
 }</div></pre>

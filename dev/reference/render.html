@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Render a HTML report from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>. — render • NACHO</title>
+<title>Render a HTML report of a <code>"nacho"</code> object — render • NACHO</title>
 
 
 <!-- jquery -->
@@ -35,9 +35,9 @@
 
 
 
-<meta property="og:title" content="Render a HTML report from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>. — render" />
+<meta property="og:title" content="Render a HTML report of a <code>"nacho"</code> object — render" />
 <meta property="og:description" content="This function create a Rmarkdown script and render it as a HTML document.
-The HTML document is a quality-control report using all the metrics from visualise
+The HTML document is a quality-control report using all the metrics from visualise()
 based on recommendations from NanoString." />
 <meta name="twitter:card" content="summary" />
 
@@ -113,14 +113,14 @@ based on recommendations from NanoString." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Render a HTML report from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>.</h1>
+    <h1>Render a HTML report of a <code>"nacho"</code> object</h1>
     <small class="dont-index">Source: <a href='https://github.com/mcanouil/NACHO/blob/master/R/render.R'><code>R/render.R</code></a></small>
     <div class="hidden name"><code>render.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This function create a <code>Rmarkdown</code> script and render it as a HTML document.
-The HTML document is a quality-control report using all the metrics from <a href='visualise.html'>visualise</a>
+    <p>This function create a Rmarkdown script and render it as a HTML document.
+The HTML document is a quality-control report using all the metrics from <code><a href='visualise.html'>visualise()</a></code>
 based on recommendations from NanoString.</p>
     </div>
 
@@ -134,7 +134,8 @@ based on recommendations from NanoString.</p>
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>nacho_object</th>
-      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] List obtained from <a href='load_rcc.html'>load_rcc</a> or <a href='normalise.html'>normalise</a>.</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/list.html'>list</a>] A list object of class <code>"nacho"</code> obtained
+from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='normalise.html'>normalise()</a></code>.</p></td>
     </tr>
     <tr>
       <th>colour</th>
@@ -155,8 +156,9 @@ Please note that any directory path provided will create any necessary directori
     </tr>
     <tr>
       <th>size</th>
-      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A <code>numeric</code> controlling point size (geom_point or geom_beeswarm)
-or line size (geom_line).</p></td>
+      <td><p>[<a href='https://rdrr.io/r/base/numeric.html'>numeric</a>] A numeric controlling point size
+(<code><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>ggplot2::geom_point()</a></code> or #' <code><a href='https://rdrr.io/pkg/ggbeeswarm/man/geom_beeswarm.html'>ggbeeswarm::geom_beeswarm()</a></code>)
+or line size (<code><a href='https://ggplot2.tidyverse.org/reference/geom_path.html'>ggplot2::geom_line()</a></code>).</p></td>
     </tr>
     <tr>
       <th>show_legend</th>
