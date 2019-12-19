@@ -87,7 +87,7 @@
 
     
     
-<p><img src="nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
+<p><img src="../../../../R/Library/NACHO/help/figures/nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
@@ -156,25 +156,27 @@ The raw data used is from a study of <span class="citation">Liu et al. (<a href=
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(GSE74821)</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span>(<span class="dt">path =</span> <span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"help"</span>, <span class="st">"figures"</span>, <span class="st">"README-visualise.png"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
+<p><img src="../../../../R/Library/NACHO/help/figures/README-visualise.png" style="display: block; margin: auto;"></p>
 </div>
 <div id="raw-data-from-geo" class="section level3">
 <h3 class="hasAnchor">
 <a href="#raw-data-from-geo" class="anchor"></a>Raw data from GEO</h3>
 <p>Numerous NanoString nCounter datasets are available from GEO <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.<br>
 In this example, we use a mRNA dataset from the study of <span class="citation">Bruce et al. (<a href="#ref-bruce_identification_2015">2015</a>)</span> with the GEO accession number: <strong>GSE70970</strong>. The data is extracted and prepared using the following code.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(GEOquery)</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="co"># Download data</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">gse &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/GEOquery/man/getGEO.html">getGEO</a></span>(<span class="st">"GSE70970"</span>)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="co"># Get phenotypes</span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">targets &lt;-<span class="st"> </span><span class="kw">pData</span>(<span class="kw">phenoData</span>(gse[[<span class="dv">1</span>]]))</a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/pkg/GEOquery/man/getGEOSuppFiles.html">getGEOSuppFiles</a></span>(<span class="dt">GEO =</span> <span class="st">"GSE70970"</span>, <span class="dt">baseDir =</span> <span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="co"># Unzip data</span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/utils/untar.html">untar</a></span>(</a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">  <span class="dt">tarfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/GSE70970_RAW.tar"</span>), </a>
-<a class="sourceLine" id="cb4-10" data-line-number="10">  <span class="dt">exdir =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>)</a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">)</a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="co"># Add IDs</span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">targets<span class="op">$</span>IDFILE &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(GEOquery)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co"># Download data</span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">gse &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/GEOquery/man/getGEO.html">getGEO</a></span>(<span class="st">"GSE70970"</span>)</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co"># Get phenotypes</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5">targets &lt;-<span class="st"> </span><span class="kw">pData</span>(<span class="kw">phenoData</span>(gse[[<span class="dv">1</span>]]))</a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/pkg/GEOquery/man/getGEOSuppFiles.html">getGEOSuppFiles</a></span>(<span class="dt">GEO =</span> <span class="st">"GSE70970"</span>, <span class="dt">baseDir =</span> <span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># Unzip data</span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/utils/untar.html">untar</a></span>(</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="dt">tarfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/GSE70970_RAW.tar"</span>), </a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dt">exdir =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>)</a>
+<a class="sourceLine" id="cb5-11" data-line-number="11">)</a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># Add IDs</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13">targets<span class="op">$</span>IDFILE &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>))</a></code></pre></div>
 <p>After we extracted the dataset to the <code><a href="https://rdrr.io/r/base/paste.html">paste0(tempdir(), "/GSE70970/Data")</a></code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
@@ -183,115 +185,115 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 <a href="#the-load_rcc-function" class="anchor"></a>The <code>load_rcc()</code> function</h2>
 <p>The first argument requires the path to the directory containing the RCC files, the second argument is the location of samplesheet followed by third argument with the column name containing the exact names of the files.<br>
 The <code>housekeeping_genes</code> and <code>normalisation_method</code> arguments respectively indicate which housekeeping genes and normalisation method should be used.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">## ── Conflicts ────────────────────────────────────────────── nacho_conflicts() ──</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">## ✖ NACHO::normalize() masks BiocGenerics::normalize()</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">## </a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">## Attaching package: 'NACHO'</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">## The following object is masked from 'package:BiocGenerics':</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">## </a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">##     normalize</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_rcc.html">load_rcc</a></span>(</a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">)</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18">## [NACHO] Importing RCC files.</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19">## [NACHO] Performing QC and formatting data.</a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb5-22" data-line-number="22">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb5-23" data-line-number="23">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb5-24" data-line-number="24">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb5-25" data-line-number="25">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb5-26" data-line-number="26">##   - hsa-miR-500+hsa-miR-501-5p</a>
-<a class="sourceLine" id="cb5-27" data-line-number="27">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb5-28" data-line-number="28">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb5-29" data-line-number="29">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb5-30" data-line-number="30">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
-<a class="sourceLine" id="cb5-31" data-line-number="31">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb5-32" data-line-number="32">##   $ access              : character</a>
-<a class="sourceLine" id="cb5-33" data-line-number="33">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb5-34" data-line-number="34">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb5-35" data-line-number="35">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb5-36" data-line-number="36">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb5-37" data-line-number="37">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb5-38" data-line-number="38">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb5-39" data-line-number="39">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb5-40" data-line-number="40">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb5-41" data-line-number="41">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb5-42" data-line-number="42">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb5-43" data-line-number="43">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb5-44" data-line-number="44">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
+<a class="sourceLine" id="cb6-2" data-line-number="2">## ── Conflicts ────────────────────────────────────────────── nacho_conflicts() ──</a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">## ✖ NACHO::normalize() masks BiocGenerics::normalize()</a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">## </a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">## Attaching package: 'NACHO'</a>
+<a class="sourceLine" id="cb6-6" data-line-number="6">## The following object is masked from 'package:BiocGenerics':</a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">## </a>
+<a class="sourceLine" id="cb6-8" data-line-number="8">##     normalize</a>
+<a class="sourceLine" id="cb6-9" data-line-number="9">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_rcc.html">load_rcc</a></span>(</a>
+<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
+<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
+<a class="sourceLine" id="cb6-12" data-line-number="12">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
+<a class="sourceLine" id="cb6-14" data-line-number="14">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
+<a class="sourceLine" id="cb6-15" data-line-number="15">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
+<a class="sourceLine" id="cb6-16" data-line-number="16">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
+<a class="sourceLine" id="cb6-17" data-line-number="17">)</a>
+<a class="sourceLine" id="cb6-18" data-line-number="18">## [NACHO] Importing RCC files.</a>
+<a class="sourceLine" id="cb6-19" data-line-number="19">## [NACHO] Performing QC and formatting data.</a>
+<a class="sourceLine" id="cb6-20" data-line-number="20">## [NACHO] Searching for the best housekeeping genes.</a>
+<a class="sourceLine" id="cb6-21" data-line-number="21">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
+<a class="sourceLine" id="cb6-22" data-line-number="22">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
+<a class="sourceLine" id="cb6-23" data-line-number="23">##   - hsa-miR-103</a>
+<a class="sourceLine" id="cb6-24" data-line-number="24">##   - hsa-let-7e</a>
+<a class="sourceLine" id="cb6-25" data-line-number="25">##   - hsa-miR-1260</a>
+<a class="sourceLine" id="cb6-26" data-line-number="26">##   - hsa-miR-500+hsa-miR-501-5p</a>
+<a class="sourceLine" id="cb6-27" data-line-number="27">##   - hsa-miR-1274b</a>
+<a class="sourceLine" id="cb6-28" data-line-number="28">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb6-29" data-line-number="29">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb6-30" data-line-number="30">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
+<a class="sourceLine" id="cb6-31" data-line-number="31">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb6-32" data-line-number="32">##   $ access              : character</a>
+<a class="sourceLine" id="cb6-33" data-line-number="33">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb6-34" data-line-number="34">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb6-35" data-line-number="35">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb6-36" data-line-number="36">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb6-37" data-line-number="37">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb6-38" data-line-number="38">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb6-39" data-line-number="39">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb6-40" data-line-number="40">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb6-41" data-line-number="41">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb6-42" data-line-number="42">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb6-43" data-line-number="43">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb6-44" data-line-number="44">##   $ normalised_counts   : data.frame</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-visualise-function" class="anchor"></a>The <code>visualise()</code> function</h2>
 <p>When the summarisation is done, the summarised (or normalised) data can be visualised using the <code><a href="../reference/visualise.html">visualise()</a></code> function as can be seen in the following chunk of code.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE70970_sum)</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE70970_sum)</a></code></pre></div>
 <p>On the left, there are widgets that control the interactive plotting area. These widgets differ dependent on which main tab is chosen. The second layer of tabs is also interactive and changes based on which main tab is chosen. Each sample in the plots can be coloured based on either technical specifications which are included in the RCC files or based on specifications of your own choosing, though these specifications need to be included in the samplesheet.</p>
 </div>
 <div id="the-normalise-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-normalise-function" class="anchor"></a>The <code>normalise()</code> function</h2>
 <p><em>NACHO</em> allows the discovery of housekeeping genes within your own dataset. <em>NACHO</em> finds the five best suitable housekeeping genes, however, it is possible that one of these five genes might not be suitable, which is why a subset of these discovered housekeeping genes might work better in some cases. For this example, we use the <strong>GSE70970</strong> dataset from the previous example. The discovered housekeeping genes are saved in the result object as <strong>predicted_housekeeping</strong>.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">## [1] "hsa-miR-103"                "hsa-let-7e"                </a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">## [3] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">## [5] "hsa-miR-1274b"</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a>
+<a class="sourceLine" id="cb8-2" data-line-number="2">## [1] "hsa-miR-103"                "hsa-let-7e"                </a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">## [3] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">## [5] "hsa-miR-1274b"</a></code></pre></div>
 <p>Let’s say <em>hsa-miR-103</em> and <em>hsa-let-7e</em> are not suitable, therefore, you want to exclude these genes from the normalisation process.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">## [1] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">## [3] "hsa-miR-1274b"</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">## [1] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">## [3] "hsa-miR-1274b"</a></code></pre></div>
 <p>The next step is the actual normalisation. The first argument requires the summary which is created with the <code><a href="../reference/load_rcc.html">load_rcc()</a></code> function. The second argument requires a vector of gene names. In this case, it is a subset of the discovered housekeeping genes we just made. With the third argument the user has the choice to remove the outliers. Lastly, the normalisation method can be choosed.<br>
 Here, the user has a choice between <code>"GLM"</code> or <code>"GEO"</code>. The differences between normalisation methods are nuanced, however, a preference for either method are use case specific.<br>
 In this example, <code>"GLM"</code> is used.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">GSE70970_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/normalise.html">normalise</a></span>(</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE70970_sum,</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">  <span class="dt">housekeeping_genes =</span> my_housekeeping,</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">  <span class="dt">housekeeping_predict =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
-<a class="sourceLine" id="cb9-7" data-line-number="7">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb9-9" data-line-number="9">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
-<a class="sourceLine" id="cb9-10" data-line-number="10">##   - housekeeping_genes = TRUE</a>
-<a class="sourceLine" id="cb9-11" data-line-number="11">##   - housekeeping_predict = TRUE</a>
-<a class="sourceLine" id="cb9-12" data-line-number="12">##   - remove_outliers = TRUE</a>
-<a class="sourceLine" id="cb9-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb9-14" data-line-number="14">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb9-15" data-line-number="15">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb9-16" data-line-number="16">##   $ access              : character</a>
-<a class="sourceLine" id="cb9-17" data-line-number="17">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb9-18" data-line-number="18">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb9-19" data-line-number="19">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb9-20" data-line-number="20">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb9-21" data-line-number="21">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb9-22" data-line-number="22">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb9-23" data-line-number="23">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb9-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb9-25" data-line-number="25">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb9-26" data-line-number="26">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb9-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb9-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">GSE70970_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/normalise.html">normalise</a></span>(</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE70970_sum,</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">housekeeping_genes =</span> my_housekeeping,</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">housekeeping_predict =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
+<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb10-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb10-9" data-line-number="9">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
+<a class="sourceLine" id="cb10-10" data-line-number="10">##   - housekeeping_genes = TRUE</a>
+<a class="sourceLine" id="cb10-11" data-line-number="11">##   - housekeeping_predict = TRUE</a>
+<a class="sourceLine" id="cb10-12" data-line-number="12">##   - remove_outliers = TRUE</a>
+<a class="sourceLine" id="cb10-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb10-14" data-line-number="14">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb10-15" data-line-number="15">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb10-16" data-line-number="16">##   $ access              : character</a>
+<a class="sourceLine" id="cb10-17" data-line-number="17">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb10-18" data-line-number="18">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb10-19" data-line-number="19">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb10-20" data-line-number="20">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb10-21" data-line-number="21">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb10-22" data-line-number="22">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb10-23" data-line-number="23">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb10-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb10-25" data-line-number="25">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb10-26" data-line-number="26">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb10-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb10-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/load_rcc.html">load_rcc()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 <div id="the-autoplot-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-autoplot-function" class="anchor"></a>The <code>autoplot()</code> function</h2>
 <p>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function provides an easy way to plot any quality-control from the <code><a href="../reference/visualise.html">visualise()</a></code> function.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">)</a></code></pre></div>
 <p>The possible metrics (<code>x</code>) are:</p>
 <ul>
 <li>
@@ -418,24 +420,24 @@ In this example, <code>"GLM"</code> is used.</p>
 <h2 class="hasAnchor">
 <a href="#the-render-function" class="anchor"></a>The <code>render()</code> function</h2>
 <p>The <code><a href="../reference/render.html">render()</a></code> function renders (using <code><a href="https://rdrr.io/r/base/print.html">print(..., echo = TRUE)</a></code> a comprehensive HTML report which includes all quality-control metrics and description of those metrics.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
+<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
+<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
+<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
+<a class="sourceLine" id="cb14-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb14-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb14-9" data-line-number="9">)</a></code></pre></div>
 <p>The underneath function <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> can be used directly within any Rmarkdown chunk, setting the parameter <code>echo = TRUE</code>.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">)</a></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(</a>
+<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
+<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb15-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb15-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb15-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb15-8" data-line-number="8">)</a></code></pre></div>
 <div id="rcc-summary" class="section level3">
 <h3 class="hasAnchor">
 <a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
