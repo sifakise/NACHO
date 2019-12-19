@@ -86,7 +86,7 @@
 
     
     
-<p><img src="figures/nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
+<p><img src="nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
@@ -157,7 +157,7 @@ The raw data used is from a study of <span class="citation">Liu et al. (<a href=
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(GSE74821)</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
-<p><img src="figures/README-visualise.png" width="650px" style="display: block; margin: auto;"></p>
+<p><img src="README-visualise.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="raw-data-from-geo" class="section level3">
 <h3 class="hasAnchor">
@@ -217,7 +217,7 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 ## #   `local.regional.time:ch1` &lt;chr&gt;, `local.time:ch1` &lt;chr&gt;, `n:ch1` &lt;chr&gt;,
 ## #   `nodal.event:ch1` &lt;chr&gt;, `nodal.time:ch1` &lt;chr&gt;,
 ## #   `survival.event:ch1` &lt;chr&gt;, `survival.time:ch1` &lt;chr&gt;, `t:ch1` &lt;chr&gt;</code></pre>
-<p>After we extracted the dataset to the <code>/tmp/Rtmp3WUAM0/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
+<p>After we extracted the dataset to the <code>/tmp/RtmpST4YWZ/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
 <div id="the-load_rcc-function" class="section level2">
@@ -455,7 +455,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/deploy.html">deploy</a></span>(<span class="dt">directory =</span> <span class="st">"/srv/shiny-server"</span>, <span class="dt">app_name =</span> <span class="st">"NACHO"</span>)</a></code></pre></div>
 <p>The app can also be run directly, without manually summarising and normalising RCC files:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"app"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
-<p><img src="figures/README-app.png" width="650px" style="display: block; margin: auto;"></p>
+<p><img src="README-app.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="the-render-function" class="section level2">
 <h2 class="hasAnchor">
