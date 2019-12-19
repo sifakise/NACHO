@@ -97,6 +97,8 @@
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co"># Or the the development version from GitHub:</span></a>
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># install.packages("remotes")</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">remotes<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/remotes/man/install_github.html">install_github</a></span>(<span class="st">"mcanouil/NACHO"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Load NACHO</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a></code></pre></div>
 </div>
 <div id="overview" class="section level1">
 <h1 class="hasAnchor">
@@ -153,11 +155,10 @@ While calling <code><a href="../reference/normalise.html">normalise()</a></code>
 </h3>
 <p>This example shows how to use summarised data to call the interactive web application.<br>
 The raw data used is from a study of <span class="citation">Liu et al. (<a href="#ref-liu_pam50_2016">2016</a>)</span> and was acquired from the NCBI GEO public database <span class="citation">(Barrett et al. <a href="#ref-barrett_ncbi_2013">2013</a>)</span>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(GSE74821)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">knitr<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/knitr/man/include_graphics.html">include_graphics</a></span>(<span class="dt">path =</span> <span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"help"</span>, <span class="st">"figures"</span>, <span class="st">"README-visualise.png"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
-<p><img src="../../../../R/Library/NACHO/help/figures/README-visualise.png" style="display: block; margin: auto;"></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(GSE74821)</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
+<p><img src="../../../../R/Library/NACHO/help/figures/README-visualise.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="raw-data-from-geo" class="section level3">
 <h3 class="hasAnchor">
@@ -177,7 +178,47 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 <a class="sourceLine" id="cb5-11" data-line-number="11">)</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># Add IDs</span></a>
 <a class="sourceLine" id="cb5-13" data-line-number="13">targets<span class="op">$</span>IDFILE &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>))</a></code></pre></div>
-<p>After we extracted the dataset to the <code><a href="https://rdrr.io/r/base/paste.html">paste0(tempdir(), "/GSE70970/Data")</a></code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
+<pre><code>## # A tibble: 263 x 71
+##    IDFILE title geo_accession status submission_date last_update_date type 
+##    &lt;chr&gt;  &lt;fct&gt; &lt;chr&gt;         &lt;fct&gt;  &lt;fct&gt;           &lt;fct&gt;            &lt;fct&gt;
+##  1 GSM18… NPC-… GSM1824143    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  2 GSM18… NPC-… GSM1824144    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  3 GSM18… NPC-… GSM1824145    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  4 GSM18… NPC-… GSM1824146    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  5 GSM18… NPC-… GSM1824147    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  6 GSM18… NPC-… GSM1824148    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  7 GSM18… NPC-… GSM1824149    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  8 GSM18… NPC-… GSM1824150    Publi… Jul 15 2015     Jul 20 2015      RNA  
+##  9 GSM18… NPC-… GSM1824151    Publi… Jul 15 2015     Jul 20 2015      RNA  
+## 10 GSM18… NPC-… GSM1824152    Publi… Jul 15 2015     Jul 20 2015      RNA  
+## # … with 253 more rows, and 64 more variables: channel_count &lt;fct&gt;,
+## #   source_name_ch1 &lt;fct&gt;, organism_ch1 &lt;fct&gt;, characteristics_ch1 &lt;fct&gt;,
+## #   characteristics_ch1.1 &lt;fct&gt;, characteristics_ch1.2 &lt;fct&gt;,
+## #   characteristics_ch1.3 &lt;fct&gt;, characteristics_ch1.4 &lt;fct&gt;,
+## #   characteristics_ch1.5 &lt;fct&gt;, characteristics_ch1.6 &lt;fct&gt;,
+## #   characteristics_ch1.7 &lt;fct&gt;, characteristics_ch1.8 &lt;fct&gt;,
+## #   characteristics_ch1.9 &lt;fct&gt;, characteristics_ch1.10 &lt;fct&gt;,
+## #   characteristics_ch1.11 &lt;fct&gt;, characteristics_ch1.12 &lt;fct&gt;,
+## #   characteristics_ch1.13 &lt;fct&gt;, characteristics_ch1.14 &lt;fct&gt;,
+## #   characteristics_ch1.15 &lt;fct&gt;, characteristics_ch1.16 &lt;fct&gt;,
+## #   characteristics_ch1.17 &lt;fct&gt;, characteristics_ch1.18 &lt;fct&gt;,
+## #   characteristics_ch1.19 &lt;fct&gt;, treatment_protocol_ch1 &lt;fct&gt;,
+## #   growth_protocol_ch1 &lt;fct&gt;, molecule_ch1 &lt;fct&gt;, extract_protocol_ch1 &lt;fct&gt;,
+## #   label_ch1 &lt;fct&gt;, label_protocol_ch1 &lt;fct&gt;, taxid_ch1 &lt;fct&gt;,
+## #   hyb_protocol &lt;fct&gt;, scan_protocol &lt;fct&gt;, data_processing &lt;fct&gt;,
+## #   platform_id &lt;fct&gt;, contact_name &lt;fct&gt;, contact_email &lt;fct&gt;,
+## #   contact_institute &lt;fct&gt;, contact_address &lt;fct&gt;, contact_city &lt;fct&gt;,
+## #   contact_state &lt;fct&gt;, `contact_zip/postal_code` &lt;fct&gt;,
+## #   contact_country &lt;fct&gt;, supplementary_file &lt;fct&gt;, data_row_count &lt;fct&gt;,
+## #   `age:ch1` &lt;chr&gt;, `bin.t:ch1` &lt;chr&gt;, `chemo:ch1` &lt;chr&gt;,
+## #   `disease.event:ch1` &lt;chr&gt;, `disease.spec.event:ch1` &lt;chr&gt;,
+## #   `disease.spec.time:ch1` &lt;chr&gt;, `disease.time:ch1` &lt;chr&gt;,
+## #   `distant.event:ch1` &lt;chr&gt;, `distant.time:ch1` &lt;chr&gt;, `gender:ch1` &lt;chr&gt;,
+## #   `local.event:ch1` &lt;chr&gt;, `local.regional.event:ch1` &lt;chr&gt;,
+## #   `local.regional.time:ch1` &lt;chr&gt;, `local.time:ch1` &lt;chr&gt;, `n:ch1` &lt;chr&gt;,
+## #   `nodal.event:ch1` &lt;chr&gt;, `nodal.time:ch1` &lt;chr&gt;,
+## #   `survival.event:ch1` &lt;chr&gt;, `survival.time:ch1` &lt;chr&gt;, `t:ch1` &lt;chr&gt;</code></pre>
+<p>After we extracted the dataset to the <code>/tmp/Rtmp9TrLsR/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
 <div id="the-load_rcc-function" class="section level2">
@@ -185,115 +226,107 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 <a href="#the-load_rcc-function" class="anchor"></a>The <code>load_rcc()</code> function</h2>
 <p>The first argument requires the path to the directory containing the RCC files, the second argument is the location of samplesheet followed by third argument with the column name containing the exact names of the files.<br>
 The <code>housekeeping_genes</code> and <code>normalisation_method</code> arguments respectively indicate which housekeeping genes and normalisation method should be used.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">## ── Conflicts ────────────────────────────────────────────── nacho_conflicts() ──</a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">## ✖ NACHO::normalize() masks BiocGenerics::normalize()</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">## </a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">## Attaching package: 'NACHO'</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">## The following object is masked from 'package:BiocGenerics':</a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">## </a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">##     normalize</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_rcc.html">load_rcc</a></span>(</a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the identfiers</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Predict the housekeeping genes based on the data?</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating the number of principal components to compute. </span></a>
-<a class="sourceLine" id="cb6-17" data-line-number="17">)</a>
-<a class="sourceLine" id="cb6-18" data-line-number="18">## [NACHO] Importing RCC files.</a>
-<a class="sourceLine" id="cb6-19" data-line-number="19">## [NACHO] Performing QC and formatting data.</a>
-<a class="sourceLine" id="cb6-20" data-line-number="20">## [NACHO] Searching for the best housekeeping genes.</a>
-<a class="sourceLine" id="cb6-21" data-line-number="21">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
-<a class="sourceLine" id="cb6-22" data-line-number="22">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
-<a class="sourceLine" id="cb6-23" data-line-number="23">##   - hsa-miR-103</a>
-<a class="sourceLine" id="cb6-24" data-line-number="24">##   - hsa-let-7e</a>
-<a class="sourceLine" id="cb6-25" data-line-number="25">##   - hsa-miR-1260</a>
-<a class="sourceLine" id="cb6-26" data-line-number="26">##   - hsa-miR-500+hsa-miR-501-5p</a>
-<a class="sourceLine" id="cb6-27" data-line-number="27">##   - hsa-miR-1274b</a>
-<a class="sourceLine" id="cb6-28" data-line-number="28">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb6-29" data-line-number="29">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb6-30" data-line-number="30">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
-<a class="sourceLine" id="cb6-31" data-line-number="31">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb6-32" data-line-number="32">##   $ access              : character</a>
-<a class="sourceLine" id="cb6-33" data-line-number="33">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb6-34" data-line-number="34">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb6-35" data-line-number="35">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb6-36" data-line-number="36">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb6-37" data-line-number="37">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb6-38" data-line-number="38">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb6-39" data-line-number="39">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb6-40" data-line-number="40">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb6-41" data-line-number="41">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb6-42" data-line-number="42">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb6-43" data-line-number="43">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb6-44" data-line-number="44">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_rcc.html">load_rcc</a></span>(</a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the unique identfiers</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>
+<a class="sourceLine" id="cb7-6" data-line-number="6">  <span class="dt">housekeeping_predict =</span> <span class="ot">TRUE</span>, <span class="co"># Whether or not to predict the housekeeping genes</span></a>
+<a class="sourceLine" id="cb7-7" data-line-number="7">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, <span class="co"># Geometric mean or GLM</span></a>
+<a class="sourceLine" id="cb7-8" data-line-number="8">  <span class="dt">n_comp =</span> <span class="dv">5</span> <span class="co"># Number indicating how many principal components should be computed. </span></a>
+<a class="sourceLine" id="cb7-9" data-line-number="9">)</a>
+<a class="sourceLine" id="cb7-10" data-line-number="10">## [NACHO] Importing RCC files.</a>
+<a class="sourceLine" id="cb7-11" data-line-number="11">## [NACHO] Performing QC and formatting data.</a>
+<a class="sourceLine" id="cb7-12" data-line-number="12">## [NACHO] Searching for the best housekeeping genes.</a>
+<a class="sourceLine" id="cb7-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method for housekeeping genes prediction.</a>
+<a class="sourceLine" id="cb7-14" data-line-number="14">## [NACHO] The following predicted housekeeping genes will be used for normalisation:</a>
+<a class="sourceLine" id="cb7-15" data-line-number="15">##   - hsa-miR-103</a>
+<a class="sourceLine" id="cb7-16" data-line-number="16">##   - hsa-let-7e</a>
+<a class="sourceLine" id="cb7-17" data-line-number="17">##   - hsa-miR-1260</a>
+<a class="sourceLine" id="cb7-18" data-line-number="18">##   - hsa-miR-500+hsa-miR-501-5p</a>
+<a class="sourceLine" id="cb7-19" data-line-number="19">##   - hsa-miR-1274b</a>
+<a class="sourceLine" id="cb7-20" data-line-number="20">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb7-21" data-line-number="21">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb7-22" data-line-number="22">## [NACHO] Normalising data using "GEO" method with housekeeping genes.</a>
+<a class="sourceLine" id="cb7-23" data-line-number="23">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb7-24" data-line-number="24">##   $ access              : character</a>
+<a class="sourceLine" id="cb7-25" data-line-number="25">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb7-26" data-line-number="26">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb7-27" data-line-number="27">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb7-28" data-line-number="28">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb7-29" data-line-number="29">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb7-30" data-line-number="30">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb7-31" data-line-number="31">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb7-32" data-line-number="32">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb7-33" data-line-number="33">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb7-34" data-line-number="34">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb7-35" data-line-number="35">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb7-36" data-line-number="36">##   $ normalised_counts   : data.frame</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-visualise-function" class="anchor"></a>The <code>visualise()</code> function</h2>
 <p>When the summarisation is done, the summarised (or normalised) data can be visualised using the <code><a href="../reference/visualise.html">visualise()</a></code> function as can be seen in the following chunk of code.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE70970_sum)</a></code></pre></div>
-<p>On the left, there are widgets that control the interactive plotting area. These widgets differ dependent on which main tab is chosen. The second layer of tabs is also interactive and changes based on which main tab is chosen. Each sample in the plots can be coloured based on either technical specifications which are included in the RCC files or based on specifications of your own choosing, though these specifications need to be included in the samplesheet.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE70970_sum)</a></code></pre></div>
+<p>The sidebar includes widgets to control quality-control thresholds. These widgets differ according to the selected tab. Each sample in the plots can be coloured based on either technical specifications which are included in the RCC files or based on specifications of your own choosing, though these specifications need to be included in the samplesheet.</p>
 </div>
 <div id="the-normalise-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-normalise-function" class="anchor"></a>The <code>normalise()</code> function</h2>
 <p><em>NACHO</em> allows the discovery of housekeeping genes within your own dataset. <em>NACHO</em> finds the five best suitable housekeeping genes, however, it is possible that one of these five genes might not be suitable, which is why a subset of these discovered housekeeping genes might work better in some cases. For this example, we use the <strong>GSE70970</strong> dataset from the previous example. The discovered housekeeping genes are saved in the result object as <strong>predicted_housekeeping</strong>.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">## [1] "hsa-miR-103"                "hsa-let-7e"                </a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">## [3] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">## [5] "hsa-miR-1274b"</a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]])</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2">## [1] "hsa-miR-103"                "hsa-let-7e"                </a>
+<a class="sourceLine" id="cb9-3" data-line-number="3">## [3] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb9-4" data-line-number="4">## [5] "hsa-miR-1274b"</a></code></pre></div>
 <p>Let’s say <em>hsa-miR-103</em> and <em>hsa-let-7e</em> are not suitable, therefore, you want to exclude these genes from the normalisation process.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3">## [1] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">## [3] "hsa-miR-1274b"</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">my_housekeeping &lt;-<span class="st"> </span>GSE70970_sum[[<span class="st">"housekeeping_genes"</span>]][<span class="op">-</span><span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="dv">1</span>, <span class="dv">2</span>)]</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(my_housekeeping)</a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">## [1] "hsa-miR-1260"               "hsa-miR-500+hsa-miR-501-5p"</a>
+<a class="sourceLine" id="cb10-4" data-line-number="4">## [3] "hsa-miR-1274b"</a></code></pre></div>
 <p>The next step is the actual normalisation. The first argument requires the summary which is created with the <code><a href="../reference/load_rcc.html">load_rcc()</a></code> function. The second argument requires a vector of gene names. In this case, it is a subset of the discovered housekeeping genes we just made. With the third argument the user has the choice to remove the outliers. Lastly, the normalisation method can be choosed.<br>
 Here, the user has a choice between <code>"GLM"</code> or <code>"GEO"</code>. The differences between normalisation methods are nuanced, however, a preference for either method are use case specific.<br>
 In this example, <code>"GLM"</code> is used.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">GSE70970_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/normalise.html">normalise</a></span>(</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE70970_sum,</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="dt">housekeeping_genes =</span> my_housekeeping,</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="dt">housekeeping_predict =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
-<a class="sourceLine" id="cb10-7" data-line-number="7">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb10-8" data-line-number="8">)</a>
-<a class="sourceLine" id="cb10-9" data-line-number="9">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
-<a class="sourceLine" id="cb10-10" data-line-number="10">##   - housekeeping_genes = TRUE</a>
-<a class="sourceLine" id="cb10-11" data-line-number="11">##   - housekeeping_predict = TRUE</a>
-<a class="sourceLine" id="cb10-12" data-line-number="12">##   - remove_outliers = TRUE</a>
-<a class="sourceLine" id="cb10-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method.</a>
-<a class="sourceLine" id="cb10-14" data-line-number="14">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
-<a class="sourceLine" id="cb10-15" data-line-number="15">## [NACHO] Returning a list.</a>
-<a class="sourceLine" id="cb10-16" data-line-number="16">##   $ access              : character</a>
-<a class="sourceLine" id="cb10-17" data-line-number="17">##   $ housekeeping_genes  : character</a>
-<a class="sourceLine" id="cb10-18" data-line-number="18">##   $ housekeeping_predict: logical</a>
-<a class="sourceLine" id="cb10-19" data-line-number="19">##   $ housekeeping_norm   : logical</a>
-<a class="sourceLine" id="cb10-20" data-line-number="20">##   $ normalisation_method: character</a>
-<a class="sourceLine" id="cb10-21" data-line-number="21">##   $ remove_outliers     : logical</a>
-<a class="sourceLine" id="cb10-22" data-line-number="22">##   $ n_comp              : numeric</a>
-<a class="sourceLine" id="cb10-23" data-line-number="23">##   $ data_directory      : character</a>
-<a class="sourceLine" id="cb10-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
-<a class="sourceLine" id="cb10-25" data-line-number="25">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb10-26" data-line-number="26">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb10-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb10-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">GSE70970_norm &lt;-<span class="st"> </span><span class="kw"><a href="../reference/normalise.html">normalise</a></span>(</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE70970_sum,</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">housekeeping_genes =</span> my_housekeeping,</a>
+<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">housekeeping_predict =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">housekeeping_norm =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">normalisation_method =</span> <span class="st">"GEO"</span>, </a>
+<a class="sourceLine" id="cb11-7" data-line-number="7">  <span class="dt">remove_outliers =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb11-8" data-line-number="8">)</a>
+<a class="sourceLine" id="cb11-9" data-line-number="9">## [NACHO] Normalising "GSE70970_sum" with new value for parameters:</a>
+<a class="sourceLine" id="cb11-10" data-line-number="10">##   - housekeeping_genes = TRUE</a>
+<a class="sourceLine" id="cb11-11" data-line-number="11">##   - housekeeping_predict = TRUE</a>
+<a class="sourceLine" id="cb11-12" data-line-number="12">##   - remove_outliers = TRUE</a>
+<a class="sourceLine" id="cb11-13" data-line-number="13">## [NACHO] Computing normalisation factors using "GEO" method.</a>
+<a class="sourceLine" id="cb11-14" data-line-number="14">## [NACHO] Missing values have been replaced with zeros for PCA.</a>
+<a class="sourceLine" id="cb11-15" data-line-number="15">## [NACHO] Returning a list.</a>
+<a class="sourceLine" id="cb11-16" data-line-number="16">##   $ access              : character</a>
+<a class="sourceLine" id="cb11-17" data-line-number="17">##   $ housekeeping_genes  : character</a>
+<a class="sourceLine" id="cb11-18" data-line-number="18">##   $ housekeeping_predict: logical</a>
+<a class="sourceLine" id="cb11-19" data-line-number="19">##   $ housekeeping_norm   : logical</a>
+<a class="sourceLine" id="cb11-20" data-line-number="20">##   $ normalisation_method: character</a>
+<a class="sourceLine" id="cb11-21" data-line-number="21">##   $ remove_outliers     : logical</a>
+<a class="sourceLine" id="cb11-22" data-line-number="22">##   $ n_comp              : numeric</a>
+<a class="sourceLine" id="cb11-23" data-line-number="23">##   $ data_directory      : character</a>
+<a class="sourceLine" id="cb11-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
+<a class="sourceLine" id="cb11-25" data-line-number="25">##   $ nacho               : data.frame</a>
+<a class="sourceLine" id="cb11-26" data-line-number="26">##   $ outliers_thresholds : list</a>
+<a class="sourceLine" id="cb11-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
+<a class="sourceLine" id="cb11-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/load_rcc.html">load_rcc()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 <div id="the-autoplot-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-autoplot-function" class="anchor"></a>The <code>autoplot()</code> function</h2>
 <p>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function provides an easy way to plot any quality-control from the <code><a href="../reference/visualise.html">visualise()</a></code> function.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
-<a class="sourceLine" id="cb11-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb11-7" data-line-number="7">)</a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="../reference/autoplot.html">autoplot</a></span>(</a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">  <span class="dt">object =</span> GSE74821, </a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">  <span class="dt">x =</span> <span class="st">"BD"</span>,</a>
+<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb12-5" data-line-number="5">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb12-6" data-line-number="6">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb12-7" data-line-number="7">)</a></code></pre></div>
 <p>The possible metrics (<code>x</code>) are:</p>
 <ul>
 <li>
@@ -332,73 +365,73 @@ In this example, <code>"GLM"</code> is used.</p>
 <div id="binding-density" class="section level3">
 <h3 class="hasAnchor">
 <a href="#binding-density" class="anchor"></a>Binding Density</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-1.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="imaging" class="section level3">
 <h3 class="hasAnchor">
 <a href="#imaging" class="anchor"></a>Imaging</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-2.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-2.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-control-linearity" class="section level3">
 <h3 class="hasAnchor">
 <a href="#positive-control-linearity" class="anchor"></a>Positive Control Linearity</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-3.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-3.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="limit-of-detection" class="section level3">
 <h3 class="hasAnchor">
 <a href="#limit-of-detection" class="anchor"></a>Limit of Detection</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-4.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-4.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#positive-controls" class="anchor"></a>Positive Controls</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-5.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-5.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="negative-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#negative-controls" class="anchor"></a>Negative Controls</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-6.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-6.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="housekeeping-genes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#housekeeping-genes" class="anchor"></a>Housekeeping Genes</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-7.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-7.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-controls-vs-negative-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#positive-controls-vs-negative-controls" class="anchor"></a>Positive Controls vs. Negative Controls</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-8.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-8.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="average-counts-vs-binding-density" class="section level3">
 <h3 class="hasAnchor">
 <a href="#average-counts-vs-binding-density" class="anchor"></a>Average Counts vs. Binding Density</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-9.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-9.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="average-counts-vs-median-counts" class="section level3">
 <h3 class="hasAnchor">
 <a href="#average-counts-vs-median-counts" class="anchor"></a>Average Counts vs. Median Counts</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-10.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-10.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="principal-component-1-vs-2" class="section level3">
 <h3 class="hasAnchor">
 <a href="#principal-component-1-vs-2" class="anchor"></a>Principal Component 1 vs. 2</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-11.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-11.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="principal-component-scree-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#principal-component-scree-plot" class="anchor"></a>Principal Component scree plot</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-12.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-12.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="principal-components-planes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#principal-components-planes" class="anchor"></a>Principal Components planes</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-13.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-13.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-factor-vs-negative-factor" class="section level3">
 <h3 class="hasAnchor">
 <a href="#positive-factor-vs-negative-factor" class="anchor"></a>Positive Factor vs. Negative Factor</h3>
 <pre><code>## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-14.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-14.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="housekeeping-factor" class="section level3">
 <h3 class="hasAnchor">
@@ -408,36 +441,45 @@ In this example, <code>"GLM"</code> is used.</p>
 ## Warning: Transformation introduced infinite values in continuous y-axis
 
 ## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-15.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-15.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="normalisation-factor" class="section level3">
 <h3 class="hasAnchor">
 <a href="#normalisation-factor" class="anchor"></a>Normalisation Factor</h3>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-8-16.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/unnamed-chunk-10-16.png" width="700" style="display: block; margin: auto;"></p>
 </div>
+</div>
+<div id="nacho-as-a-standalone-app" class="section level2">
+<h2 class="hasAnchor">
+<a href="#nacho-as-a-standalone-app" class="anchor"></a>NACHO as a standalone app</h2>
+<p><em>NACHO</em> is also available as a standalone app to be used in a shiny server configuration. A convenience function <code><a href="../reference/deploy.html">deploy()</a></code> is available to directly copy the <em>NACHO</em> app to the default directory of a shiny server.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/deploy.html">deploy</a></span>(<span class="dt">directory =</span> <span class="st">"/srv/shiny-server"</span>, <span class="dt">app_name =</span> <span class="st">"NACHO"</span>)</a></code></pre></div>
+<p>The app can also be run directly, without manually summarising and normalising RCC files:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"app"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
+<p><img src="../../../../R/Library/NACHO/help/figures/README-app.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="the-render-function" class="section level2">
 <h2 class="hasAnchor">
 <a href="#the-render-function" class="anchor"></a>The <code>render()</code> function</h2>
 <p>The <code><a href="../reference/render.html">render()</a></code> function renders (using <code><a href="https://rdrr.io/r/base/print.html">print(..., echo = TRUE)</a></code> a comprehensive HTML report which includes all quality-control metrics and description of those metrics.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
-<a class="sourceLine" id="cb14-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb14-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9">)</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="kw"><a href="../reference/render.html">render</a></span>(</a>
+<a class="sourceLine" id="cb17-2" data-line-number="2">  <span class="dt">nacho_object =</span> GSE74821,</a>
+<a class="sourceLine" id="cb17-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>,</a>
+<a class="sourceLine" id="cb17-4" data-line-number="4">  <span class="dt">output_file =</span> <span class="st">"NACHO_QC.html"</span>,</a>
+<a class="sourceLine" id="cb17-5" data-line-number="5">  <span class="dt">output_dir =</span> <span class="st">"."</span>,</a>
+<a class="sourceLine" id="cb17-6" data-line-number="6">  <span class="dt">size =</span> <span class="fl">0.5</span>,</a>
+<a class="sourceLine" id="cb17-7" data-line-number="7">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb17-8" data-line-number="8">  <span class="dt">clean =</span> <span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb17-9" data-line-number="9">)</a></code></pre></div>
 <p>The underneath function <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> can be used directly within any Rmarkdown chunk, setting the parameter <code>echo = TRUE</code>.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
-<a class="sourceLine" id="cb15-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb15-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
-<a class="sourceLine" id="cb15-8" data-line-number="8">)</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2">  <span class="dt">x =</span> GSE74821, </a>
+<a class="sourceLine" id="cb18-3" data-line-number="3">  <span class="dt">colour =</span> <span class="st">"CartridgeID"</span>, </a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">  <span class="dt">size =</span> <span class="fl">0.5</span>, </a>
+<a class="sourceLine" id="cb18-5" data-line-number="5">  <span class="dt">show_legend =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb18-6" data-line-number="6">  <span class="dt">echo =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb18-7" data-line-number="7">  <span class="dt">title_level =</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb18-8" data-line-number="8">)</a></code></pre></div>
 <div id="rcc-summary" class="section level3">
 <h3 class="hasAnchor">
 <a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
@@ -497,7 +539,8 @@ The <strong>Binding Density</strong> is useful for determining whether data coll
 <p>Within these ranges, relatively few reporters on the slide surface will overlap, enabling the instrument to accurately tabulate counts for each reporter species.<br>
 A <strong>Binding Density</strong> significantly greater than the upper limit in either range is indicative of overlapping reporters on the slide surface.<br>
 The counts observed in lanes with a <strong>Binding Density</strong> at this level may have had significant numbers of codes ignored, which could potentially affect quantification and linearity of the assay.<br>
-Some of the factors that may contribute to increased <strong>Binding Density</strong> are listed in the Factors affecting <strong>Binding Density</strong> box. <img src="NACHO_files/figure-html/unnamed-chunk-10-1.png" width="700" style="display: block; margin: auto;"></p>
+Some of the factors that may contribute to increased <strong>Binding Density</strong> are listed in the Factors affecting <strong>Binding Density</strong> box.</p>
+<p><img src="NACHO_files/figure-html/print-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="field-of-view-imaging" class="section level4">
 <h4 class="hasAnchor">
@@ -507,7 +550,8 @@ The system images these FOVs separately, and sums the barcode counts of all <str
 Finally, the system reports the number of <strong>FOV</strong>s successfully imaged as FOV Counted.</p>
 <p>Significant discrepancy between the number of <strong>FOV</strong> for which imaging was attempted (<strong>FOV Count</strong>) and for which imaging was successful (<strong>FOV Counted</strong>) may indicate an issue with imaging performance.<br>
 Recommended percentage of registered FOVs (<em>i.e.</em>, <strong>FOV Counted</strong> over <strong>FOV Count</strong>) is <code>75 %</code>.<br>
-Lanes will be flagged if this percentage is lower. <img src="NACHO_files/figure-html/unnamed-chunk-10-2.png" width="700" style="display: block; margin: auto;"></p>
+Lanes will be flagged if this percentage is lower.</p>
+<p><img src="NACHO_files/figure-html/print-2.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-control-linearity-1" class="section level4">
 <h4 class="hasAnchor">
@@ -519,7 +563,7 @@ These <strong>Positive Controls</strong> are typically used to measure the effic
 <!--
 Note that because **POS_F** has a known concentration of `0.125 fM`, which is considered below the limit of detection of the system, it should be excluded from this calculation (although you will see that **POS_F** counts are significantly higher than the negative control counts in most cases).
 -->
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-3.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-3.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="limit-of-detection-1" class="section level4">
 <h4 class="hasAnchor">
@@ -534,7 +578,7 @@ Every nCounter Gene Expression assay is manufactured with eight negative control
 Counts from these will approximate general non-specific binding of probes within the samples being run.  
 The counts of **POS_E** should be higher than two times the standard deviation above the mean of the negative control. 
 -->
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-4.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-4.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="control-genes" class="section level3">
@@ -543,22 +587,22 @@ The counts of **POS_E** should be higher than two times the standard deviation a
 <div id="positive" class="section level4">
 <h4 class="hasAnchor">
 <a href="#positive" class="anchor"></a>Positive</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-5.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-5.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="negative" class="section level4">
 <h4 class="hasAnchor">
 <a href="#negative" class="anchor"></a>Negative</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-6.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-6.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="housekeeping" class="section level4">
 <h4 class="hasAnchor">
 <a href="#housekeeping" class="anchor"></a>Housekeeping</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-7.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-7.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="control-probe-expression" class="section level4">
 <h4 class="hasAnchor">
 <a href="#control-probe-expression" class="anchor"></a>Control Probe Expression</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-8.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-8.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>
 <div id="qc-visuals" class="section level3">
@@ -567,12 +611,12 @@ The counts of **POS_E** should be higher than two times the standard deviation a
 <div id="average-count-vs-binding-density" class="section level4">
 <h4 class="hasAnchor">
 <a href="#average-count-vs-binding-density" class="anchor"></a>Average Count vs. Binding Density</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-9.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-9.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="average-count-vs-median-count" class="section level4">
 <h4 class="hasAnchor">
 <a href="#average-count-vs-median-count" class="anchor"></a>Average Count vs. Median Count</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-10.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-10.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="principal-component" class="section level4">
 <h4 class="hasAnchor">
@@ -580,17 +624,17 @@ The counts of **POS_E** should be higher than two times the standard deviation a
 <div id="pc1-vs-pc2" class="section level5">
 <h5 class="hasAnchor">
 <a href="#pc1-vs-pc2" class="anchor"></a>PC1 vs. PC2</h5>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-11.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-11.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="factorial-planes" class="section level5">
 <h5 class="hasAnchor">
 <a href="#factorial-planes" class="anchor"></a>Factorial planes</h5>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-12.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-12.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="inertia" class="section level5">
 <h5 class="hasAnchor">
 <a href="#inertia" class="anchor"></a>Inertia</h5>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-13.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-13.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>
 </div>
@@ -600,17 +644,17 @@ The counts of **POS_E** should be higher than two times the standard deviation a
 <div id="positive-factor-vs-background-threshold" class="section level4">
 <h4 class="hasAnchor">
 <a href="#positive-factor-vs-background-threshold" class="anchor"></a>Positive Factor vs. Background Threshold</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-14.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-14.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="housekeeping-factor-1" class="section level4">
 <h4 class="hasAnchor">
 <a href="#housekeeping-factor-1" class="anchor"></a>Housekeeping Factor</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-15.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-15.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="normalisation-result" class="section level4">
 <h4 class="hasAnchor">
 <a href="#normalisation-result" class="anchor"></a>Normalisation Result</h4>
-<p><img src="NACHO_files/figure-html/unnamed-chunk-10-16.png" width="700" style="display: block; margin: auto;"></p>
+<p><img src="NACHO_files/figure-html/print-16.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>
 </div>
@@ -647,6 +691,7 @@ The counts of **POS_E** should be higher than two times the standard deviation a
       <li><a href="#the-visualise-function">The <code>visualise()</code> function</a></li>
       <li><a href="#the-normalise-function">The <code>normalise()</code> function</a></li>
       <li><a href="#the-autoplot-function">The <code>autoplot()</code> function</a></li>
+      <li><a href="#nacho-as-a-standalone-app">NACHO as a standalone app</a></li>
       <li><a href="#the-render-function">The <code>render()</code> function</a></li>
       </ul>
 </li>

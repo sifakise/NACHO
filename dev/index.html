@@ -123,6 +123,14 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="reference/visualise.html">visualise()</a></code> and <code><a href="reference/render.html">render()</a></code>.</li>
 </ul>
 <p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code>.</p>
+<div id="shiny-application" class="section level3">
+<h3 class="hasAnchor">
+<a href="#shiny-application" class="anchor"></a>Shiny Application</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"app"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
+<p><img src="reference/figures/README-app.png"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
+<p><img src="reference/figures/README-visualise.png"></p>
+</div>
 </div>
 <div id="citing-nacho" class="section level2">
 <h2 class="hasAnchor">
@@ -135,16 +143,16 @@ Canouil M, Bouland GA, Bonnefond A, Froguel P, Hart L, Slieker R (2019).
 <a href="https://doi.org/10.1093/bioinformatics/btz647">10.1093/bioinformatics/btz647</a>.
 
 </p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="op">@</span>Article{,</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  title =<span class="st"> </span>{NACHO<span class="op">:</span><span class="st"> </span>an R package <span class="cf">for</span> quality control of NanoString nCounter data},</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  author =<span class="st"> </span>{Mickaël Canouil and Gerard A. Bouland and Amélie Bonnefond and Philippe Froguel and Leen Hart and Roderick Slieker},</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">  journal =<span class="st"> </span>{Bioinformatics},</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  address =<span class="st"> </span>{Oxford, England},</a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">  year =<span class="st"> </span>{<span class="dv">2019</span>},</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">  month =<span class="st"> </span>{aug},</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">  issn =<span class="st"> </span>{<span class="dv">1367-4803</span>},</a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">  doi =<span class="st"> </span>{<span class="fl">10.1093</span><span class="op">/</span>bioinformatics<span class="op">/</span>btz647},</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">}</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">@</span>Article{,</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">  title =<span class="st"> </span>{NACHO<span class="op">:</span><span class="st"> </span>an R package <span class="cf">for</span> quality control of NanoString nCounter data},</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">  author =<span class="st"> </span>{Mickaël Canouil and Gerard A. Bouland and Amélie Bonnefond and Philippe Froguel and Leen Hart and Roderick Slieker},</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">  journal =<span class="st"> </span>{Bioinformatics},</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">  address =<span class="st"> </span>{Oxford, England},</a>
+<a class="sourceLine" id="cb4-6" data-line-number="6">  year =<span class="st"> </span>{<span class="dv">2019</span>},</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7">  month =<span class="st"> </span>{aug},</a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">  issn =<span class="st"> </span>{<span class="dv">1367-4803</span>},</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">  doi =<span class="st"> </span>{<span class="fl">10.1093</span><span class="op">/</span>bioinformatics<span class="op">/</span>btz647},</a>
+<a class="sourceLine" id="cb4-10" data-line-number="10">}</a></code></pre></div>
 </div>
 <div id="getting-help" class="section level2">
 <h2 class="hasAnchor">
