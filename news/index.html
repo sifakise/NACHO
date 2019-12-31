@@ -85,6 +85,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -136,6 +148,7 @@
 </li>
 <li>New <code><a href="../reference/deploy.html">deploy()</a></code> (<code>R/deploy.R</code>) function to easily deploy (copy) the shiny app.</li>
 <li>New raw RCC files (multiplexed) available in <code>inst/extdata/</code>.</li>
+<li>New vignette <code>NACHO-analysis</code>, which describe how to use <code>limma</code> or other model after using <strong>NACHO</strong>.</li>
 <li>In <code>DESCRIPTION</code>,
 <ul>
 <li>Order packages in alphabetical order.</li>
@@ -150,6 +163,7 @@
 <ul>
 <li>
 <code>summarise()</code> and <code><a href="../reference/load_rcc.html">summarize()</a></code> have been deprecated and replaced with <code><a href="../reference/load_rcc.html">load_rcc()</a></code>. (<a href='https://github.com/mcanouil/NACHO/issues/12'>#12</a> &amp; <a href='https://github.com/mcanouil/NACHO/issues/15'>#15</a>)</li>
+<li>Counts matrices (<code>raw_counts</code> and <code>normalised_counts</code>) are not longer directly available, <em>i.e.</em>, counts are available in a long format within the <code>nacho</code> slot of a nacho object.</li>
 <li>
 <code><a href="../reference/visualise.html">visualise()</a></code>, now uses a new shiny app (<code>inst/app/</code>).</li>
 </ul>
@@ -170,6 +184,7 @@
 <li>add <code>outliers_factor</code> to highligth outliers with different point size.</li>
 <li>add <code>outliers_labels</code> to print labels on top of outliers.</li>
 <li>now uses tidyeval via import.</li>
+<li>remove plexset ID (<code>_S*</code>) to remove duplicated QC metrics.</li>
 </ul>
 </li>
 <li>In <code>R/print.R</code>, now print a table with outliers if any (with <code>echo = TRUE</code>).</li>

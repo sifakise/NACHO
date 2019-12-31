@@ -49,6 +49,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -77,7 +89,7 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">December 23, 2019</h4>
+            <h4 class="date">December 31, 2019</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -121,7 +133,7 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="../reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="../reference/load_rcc.html">load_rcc()</a></code> or <code><a href="../reference/normalise.html">normalise()</a></code> (using <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> in a Rmarkdown chunk).</li>
 <li>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="../reference/visualise.html">visualise()</a></code> and <code><a href="../reference/render.html">render()</a></code>.</li>
 </ul>
-<p>For more <code><a href="../articles/NACHO.html">vignette("NACHO")</a></code>.</p>
+<p>For more <code><a href="../articles/NACHO.html">vignette("NACHO")</a></code> and <code><a href="../articles/NACHO-analysis.html">vignette("NACHO-analysis")</a></code>.</p>
 <p>
 Canouil M, Bouland GA, Bonnefond A, Froguel P, Hart L, Slieker R (2019). “NACHO: an R package for quality control of NanoString nCounter data.” <em>Bioinformatics</em>. ISSN 1367-4803, doi: <a href="https://doi.org/10.1093/bioinformatics/btz647">10.1093/bioinformatics/btz647</a>.
 </p>
@@ -217,7 +229,7 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 ## #   `local.regional.time:ch1` &lt;chr&gt;, `local.time:ch1` &lt;chr&gt;, `n:ch1` &lt;chr&gt;,
 ## #   `nodal.event:ch1` &lt;chr&gt;, `nodal.time:ch1` &lt;chr&gt;,
 ## #   `survival.event:ch1` &lt;chr&gt;, `survival.time:ch1` &lt;chr&gt;, `t:ch1` &lt;chr&gt;</code></pre>
-<p>After we extracted the dataset to the <code>/tmp/RtmpKEhIP2/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
+<p>After we extracted the dataset to the <code>/tmp/Rtmpf12SJ8/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
 <div id="the-load_rcc-function" class="section level2">
@@ -258,9 +270,7 @@ The <code>housekeeping_genes</code> and <code>normalisation_method</code> argume
 <a class="sourceLine" id="cb7-31" data-line-number="31">##   $ data_directory      : character</a>
 <a class="sourceLine" id="cb7-32" data-line-number="32">##   $ pc_sum              : data.frame</a>
 <a class="sourceLine" id="cb7-33" data-line-number="33">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb7-34" data-line-number="34">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb7-35" data-line-number="35">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb7-36" data-line-number="36">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb7-34" data-line-number="34">##   $ outliers_thresholds : list</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
@@ -310,9 +320,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <a class="sourceLine" id="cb11-23" data-line-number="23">##   $ data_directory      : character</a>
 <a class="sourceLine" id="cb11-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
 <a class="sourceLine" id="cb11-25" data-line-number="25">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb11-26" data-line-number="26">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb11-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb11-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb11-26" data-line-number="26">##   $ outliers_thresholds : list</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/load_rcc.html">load_rcc()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 <div id="the-autoplot-function" class="section level2">
@@ -483,7 +491,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <h3 class="hasAnchor">
 <a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
 <ul>
-<li>Samples: 20</li>
+<li>Samples: 1321</li>
 <li>Endogenous: 50</li>
 <li>Housekeeping: 8</li>
 <li>Negative: 8</li>
@@ -646,6 +654,362 @@ In most (codeset) assays, you will observe that even the <strong>POS_F</strong> 
 <h4 class="hasAnchor">
 <a href="#normalisation-result" class="anchor"></a>Normalisation Result</h4>
 <p><img src="NACHO_files/figure-html/print-16.png" width="700" style="display: block; margin: auto;"></p>
+</div>
+<div id="outliers" class="section level4">
+<h4 class="hasAnchor">
+<a href="#outliers" class="anchor"></a>Outliers</h4>
+<table class="table">
+<thead><tr class="header">
+<th align="left">IDFILE</th>
+<th align="left">CartridgeID</th>
+<th align="right">BD</th>
+<th align="right">FoV</th>
+<th align="right">PCL</th>
+<th align="right">LoD</th>
+<th align="right">MC</th>
+<th align="right">MedC</th>
+<th align="right">Positive_factor</th>
+<th align="right">House_factor</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">GSM1934735_20111103_20111103-9741-2_LGWU702315-1036416WU_01.RCC.gz</td>
+<td align="left">20111103-9741-2</td>
+<td align="right">0.09</td>
+<td align="right">99.39</td>
+<td align="right">0.99746</td>
+<td align="right">46.70</td>
+<td align="right">247.64</td>
+<td align="right">122.0</td>
+<td align="right">1.0033719</td>
+<td align="right">4.0973136</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1934799_20111108_20111108-9741-1_LGWU109033-1036511WU_11.RCC.gz</td>
+<td align="left">20111108-9741-1</td>
+<td align="right">0.09</td>
+<td align="right">93.94</td>
+<td align="right">0.99647</td>
+<td align="right">26.48</td>
+<td align="right">173.68</td>
+<td align="right">54.0</td>
+<td align="right">0.8888460</td>
+<td align="right">5.8667414</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1934802_20111108_20111108-9741-2_LGWU072137-1036528WU_09.RCC.gz</td>
+<td align="left">20111108-9741-2</td>
+<td align="right">0.08</td>
+<td align="right">99.83</td>
+<td align="right">0.99783</td>
+<td align="right">23.93</td>
+<td align="right">201.08</td>
+<td align="right">66.0</td>
+<td align="right">0.9304811</td>
+<td align="right">8.1822538</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1934881_20111111_20111109-9741-4_LGWU703243-1036603WU_08.RCC.gz</td>
+<td align="left">20111109-9741-4</td>
+<td align="right">0.09</td>
+<td align="right">99.91</td>
+<td align="right">0.99781</td>
+<td align="right">52.60</td>
+<td align="right">250.08</td>
+<td align="right">62.5</td>
+<td align="right">0.8259338</td>
+<td align="right">6.0137386</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1934892_20111111_20111110-9741-1_LGWU109185-1036623WU_12.RCC.gz</td>
+<td align="left">20111110-9741-1</td>
+<td align="right">0.09</td>
+<td align="right">98.53</td>
+<td align="right">0.99900</td>
+<td align="right">25.47</td>
+<td align="right">293.62</td>
+<td align="right">101.5</td>
+<td align="right">1.0362184</td>
+<td align="right">5.8172529</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1934953_20111114_20111111-9741-2_LGWU703253-1036677WU_06.RCC.gz</td>
+<td align="left">20111111-9741-2</td>
+<td align="right">0.09</td>
+<td align="right">99.74</td>
+<td align="right">0.99767</td>
+<td align="right">30.99</td>
+<td align="right">338.40</td>
+<td align="right">199.5</td>
+<td align="right">0.9001967</td>
+<td align="right">3.9206672</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935060_20111118_20111117-9741-1_LGWU102540-1036814WU_03.RCC.gz</td>
+<td align="left">20111117-9741-1</td>
+<td align="right">0.09</td>
+<td align="right">99.57</td>
+<td align="right">0.99750</td>
+<td align="right">30.21</td>
+<td align="right">371.38</td>
+<td align="right">122.0</td>
+<td align="right">1.0385217</td>
+<td align="right">3.8382174</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935081_20111118_20111117-9741-2_LGWU703122-1036835WU_12.RCC.gz</td>
+<td align="left">20111117-9741-2</td>
+<td align="right">0.09</td>
+<td align="right">99.91</td>
+<td align="right">0.99845</td>
+<td align="right">19.66</td>
+<td align="right">416.90</td>
+<td align="right">218.0</td>
+<td align="right">1.1527556</td>
+<td align="right">3.2510941</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935082_20111118_20111117-9741-3_LGWU102780-1036837WU_02.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.18</td>
+<td align="right">57.58</td>
+<td align="right">0.99186</td>
+<td align="right">16.52</td>
+<td align="right">362.56</td>
+<td align="right">203.0</td>
+<td align="right">2.8663814</td>
+<td align="right">0.9121094</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935083_20111118_20111117-9741-3_LGWU107358-1036840WU_05.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.21</td>
+<td align="right">66.75</td>
+<td align="right">0.99584</td>
+<td align="right">12.95</td>
+<td align="right">810.70</td>
+<td align="right">396.0</td>
+<td align="right">2.5696607</td>
+<td align="right">0.5925957</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935084_20111118_20111117-9741-3_LGWU109024-1036847WU_12.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.16</td>
+<td align="right">67.53</td>
+<td align="right">0.99451</td>
+<td align="right">14.21</td>
+<td align="right">723.60</td>
+<td align="right">175.5</td>
+<td align="right">2.3426985</td>
+<td align="right">0.7516838</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935085_20111118_20111117-9741-3_LGWU702277-1036838WU_03.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.17</td>
+<td align="right">63.64</td>
+<td align="right">0.99501</td>
+<td align="right">26.11</td>
+<td align="right">926.62</td>
+<td align="right">360.5</td>
+<td align="right">1.9994981</td>
+<td align="right">1.0419589</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935087_20111118_20111117-9741-3_LGWU702714-1036843WU_08.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.26</td>
+<td align="right">74.98</td>
+<td align="right">0.99408</td>
+<td align="right">11.06</td>
+<td align="right">1185.00</td>
+<td align="right">396.5</td>
+<td align="right">1.4839731</td>
+<td align="right">0.7318708</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935089_20111118_20111117-9741-3_LGWU703149-1036839WU_04.RCC.gz</td>
+<td align="left">20111117-9741-3</td>
+<td align="right">0.13</td>
+<td align="right">63.46</td>
+<td align="right">0.99256</td>
+<td align="right">14.62</td>
+<td align="right">282.08</td>
+<td align="right">121.5</td>
+<td align="right">2.0461554</td>
+<td align="right">2.4487010</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935288_20111206_20111206-9741-3_LGWU703135-1037072WU_03.RCC.gz</td>
+<td align="left">20111206-9741-3</td>
+<td align="right">0.09</td>
+<td align="right">100.00</td>
+<td align="right">0.99852</td>
+<td align="right">32.46</td>
+<td align="right">198.60</td>
+<td align="right">65.5</td>
+<td align="right">0.6637040</td>
+<td align="right">7.7342827</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935422_20111213_20111213-9741-3_LGWU103573-1037224WU_01.RCC.gz</td>
+<td align="left">20111213-9741-3</td>
+<td align="right">0.08</td>
+<td align="right">100.00</td>
+<td align="right">0.99759</td>
+<td align="right">36.60</td>
+<td align="right">303.22</td>
+<td align="right">124.0</td>
+<td align="right">1.5199908</td>
+<td align="right">2.1148988</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935487_20111216_20111214-9741-4_LGWU702160-1037304WU_12.RCC.gz</td>
+<td align="left">20111214-9741-4</td>
+<td align="right">0.08</td>
+<td align="right">100.00</td>
+<td align="right">0.99821</td>
+<td align="right">27.16</td>
+<td align="right">547.88</td>
+<td align="right">278.0</td>
+<td align="right">1.4351930</td>
+<td align="right">2.0132027</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935536_20111219_20111215-9741-3_LGWU702706-1037338WU_09.RCC.gz</td>
+<td align="left">20111215-9741-3</td>
+<td align="right">0.09</td>
+<td align="right">100.00</td>
+<td align="right">0.99721</td>
+<td align="right">26.95</td>
+<td align="right">248.08</td>
+<td align="right">156.0</td>
+<td align="right">0.9448283</td>
+<td align="right">4.1360385</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935565_20111221_20111221-9741-1_LGWU702195-1037390WU_06.RCC.gz</td>
+<td align="left">20111221-9741-1</td>
+<td align="right">0.08</td>
+<td align="right">99.65</td>
+<td align="right">0.99636</td>
+<td align="right">37.44</td>
+<td align="right">100.20</td>
+<td align="right">42.5</td>
+<td align="right">0.8137893</td>
+<td align="right">5.6934762</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935630_20111222_20111222-9741-3_LGWU107283-1037448WU_03.RCC.gz</td>
+<td align="left">20111222-9741-3</td>
+<td align="right">0.09</td>
+<td align="right">99.83</td>
+<td align="right">0.99116</td>
+<td align="right">14.79</td>
+<td align="right">255.18</td>
+<td align="right">90.5</td>
+<td align="right">1.3145126</td>
+<td align="right">3.4682116</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935643_20111228_20111227-9741-1-0023_LGWU702154-1037471WU_08.RCC.gz</td>
+<td align="left">20111227-9741-1-0023</td>
+<td align="right">0.08</td>
+<td align="right">99.57</td>
+<td align="right">0.99495</td>
+<td align="right">24.20</td>
+<td align="right">209.18</td>
+<td align="right">81.5</td>
+<td align="right">0.9043446</td>
+<td align="right">3.9537287</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935666_20111228_20111227-9741-3-0023_LGWU702598-1037489WU_02.RCC.gz</td>
+<td align="left">20111227-9741-3-0023</td>
+<td align="right">0.08</td>
+<td align="right">98.96</td>
+<td align="right">0.99919</td>
+<td align="right">68.02</td>
+<td align="right">352.80</td>
+<td align="right">177.5</td>
+<td align="right">1.1815481</td>
+<td align="right">3.2804710</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935746_20120104_20120103-9741-1-0023_LGWU702329-1037580WU_09.RCC.gz</td>
+<td align="left">20120103-9741-1-0023</td>
+<td align="right">0.14</td>
+<td align="right">100.00</td>
+<td align="right">0.99963</td>
+<td align="right">7.73</td>
+<td align="right">231.34</td>
+<td align="right">93.0</td>
+<td align="right">7.9353349</td>
+<td align="right">0.7826637</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935805_20120106_20120104-9741-2-0044_LGWU108947-1037632WU_01.RCC.gz</td>
+<td align="left">20120104-9741-2-0044</td>
+<td align="right">0.09</td>
+<td align="right">99.57</td>
+<td align="right">0.99923</td>
+<td align="right">55.84</td>
+<td align="right">376.04</td>
+<td align="right">101.0</td>
+<td align="right">1.1403307</td>
+<td align="right">3.6979832</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935884_20120110_20120109-9741-3-0023_LGWU702488-1037722WU_04.RCC.gz</td>
+<td align="left">20120109-9741-3-0023</td>
+<td align="right">0.08</td>
+<td align="right">99.91</td>
+<td align="right">0.99769</td>
+<td align="right">45.84</td>
+<td align="right">223.04</td>
+<td align="right">59.0</td>
+<td align="right">4.6088719</td>
+<td align="right">1.3141418</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1935906_20120111_20120110-9741-1-0023_LGWU702826-1037755WU_11.RCC.gz</td>
+<td align="left">20120110-9741-1-0023</td>
+<td align="right">0.08</td>
+<td align="right">98.87</td>
+<td align="right">0.99766</td>
+<td align="right">40.95</td>
+<td align="right">454.24</td>
+<td align="right">52.5</td>
+<td align="right">0.9360425</td>
+<td align="right">3.5434383</td>
+</tr>
+<tr class="odd">
+<td align="left">GSM1935968_20120120_20120112-9741-3-0023_LGWU102714-1037819WU_01.RCC.gz</td>
+<td align="left">20120112-9741-3-0023</td>
+<td align="right">0.07</td>
+<td align="right">98.96</td>
+<td align="right">0.99593</td>
+<td align="right">49.50</td>
+<td align="right">167.38</td>
+<td align="right">63.5</td>
+<td align="right">1.4425651</td>
+<td align="right">3.7693846</td>
+</tr>
+<tr class="even">
+<td align="left">GSM1936002_20120124_20120123-9741-2-0044-rescan_LGWU103900-1036411WU_07.RCC.gz</td>
+<td align="left">20120123-9741-2-0044-rescan</td>
+<td align="right">0.09</td>
+<td align="right">99.91</td>
+<td align="right">0.99611</td>
+<td align="right">31.51</td>
+<td align="right">345.98</td>
+<td align="right">130.0</td>
+<td align="right">0.9711728</td>
+<td align="right">4.3532902</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

@@ -89,6 +89,18 @@ using the current quality-control thresholds." />
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
@@ -144,13 +156,13 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>GSE74821</span>)
 <span class='no'>nacho_object</span> <span class='kw'>&lt;-</span> <span class='fu'>check_outliers</span>(<span class='no'>GSE74821</span>)
-<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>nacho_object</span>$<span class='no'>nacho</span>)</div><div class='output co'>#&gt;                                                               IDFILE          X
-#&gt; 1 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
-#&gt; 2 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
-#&gt; 3 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
-#&gt; 4 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
-#&gt; 5 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
-#&gt; 6 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz GSM1934697
+<span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span>(<span class='no'>nacho_object</span>$<span class='no'>nacho</span>)</div><div class='output co'>#&gt;                                                               IDFILE
+#&gt; 1 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 2 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 3 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 4 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 5 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 6 GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
 #&gt;                  title geo_accession                status submission_date
 #&gt; 1 LGWU101986-1036378WU    GSM1934697 Public on Nov 10 2015     Nov 09 2015
 #&gt; 2 LGWU101986-1036378WU    GSM1934697 Public on Nov 10 2015     Nov 09 2015
@@ -180,12 +192,12 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 5 fixative: Formalin-Fixed Paraffin Embedded Tissue                    CALGB
 #&gt; 6 fixative: Formalin-Fixed Paraffin Embedded Tissue                    CALGB
 #&gt;   treatment_protocol_ch1 growth_protocol_ch1 molecule_ch1
-#&gt; 1                     NA                 N/A    total RNA
-#&gt; 2                     NA                 N/A    total RNA
-#&gt; 3                     NA                 N/A    total RNA
-#&gt; 4                     NA                 N/A    total RNA
-#&gt; 5                     NA                 N/A    total RNA
-#&gt; 6                     NA                 N/A    total RNA
+#&gt; 1                   &lt;NA&gt;                 N/A    total RNA
+#&gt; 2                   &lt;NA&gt;                 N/A    total RNA
+#&gt; 3                   &lt;NA&gt;                 N/A    total RNA
+#&gt; 4                   &lt;NA&gt;                 N/A    total RNA
+#&gt; 5                   &lt;NA&gt;                 N/A    total RNA
+#&gt; 6                   &lt;NA&gt;                 N/A    total RNA
 #&gt;                                                          extract_protocol_ch1
 #&gt; 1 http://www.nanostring.com/media/pdf/TN_Using_nCounter_with_FFPE_Samples.pdf
 #&gt; 2 http://www.nanostring.com/media/pdf/TN_Using_nCounter_with_FFPE_Samples.pdf
@@ -194,19 +206,19 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 5 http://www.nanostring.com/media/pdf/TN_Using_nCounter_with_FFPE_Samples.pdf
 #&gt; 6 http://www.nanostring.com/media/pdf/TN_Using_nCounter_with_FFPE_Samples.pdf
 #&gt;   label_ch1 label_protocol_ch1 taxid_ch1 hyb_protocol scan_protocol
-#&gt; 1        NA                 NA      9606           NA            NA
-#&gt; 2        NA                 NA      9606           NA            NA
-#&gt; 3        NA                 NA      9606           NA            NA
-#&gt; 4        NA                 NA      9606           NA            NA
-#&gt; 5        NA                 NA      9606           NA            NA
-#&gt; 6        NA                 NA      9606           NA            NA
+#&gt; 1      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
+#&gt; 2      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
+#&gt; 3      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
+#&gt; 4      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
+#&gt; 5      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
+#&gt; 6      &lt;NA&gt;               &lt;NA&gt;      9606         &lt;NA&gt;          &lt;NA&gt;
 #&gt;   data_processing platform_id    contact_name     contact_email contact_phone
-#&gt; 1              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
-#&gt; 2              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
-#&gt; 3              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
-#&gt; 4              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
-#&gt; 5              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
-#&gt; 6              NA    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 1            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 2            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 3            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 4            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 5            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
+#&gt; 6            &lt;NA&gt;    GPL21114 Sherri,R,Davies daviess@wustl.edu    3147473073
 #&gt;       contact_institute     contact_address contact_city contact_state
 #&gt; 1 Washington University 4950 Parkview Place  Saint Louis            MO
 #&gt; 2 Washington University 4950 Parkview Place  Saint Louis            MO
@@ -214,7 +226,7 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 4 Washington University 4950 Parkview Place  Saint Louis            MO
 #&gt; 5 Washington University 4950 Parkview Place  Saint Louis            MO
 #&gt; 6 Washington University 4950 Parkview Place  Saint Louis            MO
-#&gt;   contact_zip.postal_code contact_country
+#&gt;   contact_zip/postal_code contact_country
 #&gt; 1                   63110             USA
 #&gt; 2                   63110             USA
 #&gt; 3                   63110             USA
@@ -228,14 +240,14 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 4 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1934nnn/GSM1934697/suppl/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
 #&gt; 5 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1934nnn/GSM1934697/suppl/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
 #&gt; 6 ftp://ftp.ncbi.nlm.nih.gov/geo/samples/GSM1934nnn/GSM1934697/suppl/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt;   data_row_count                            fixative.ch1 gender.ch1
+#&gt;   data_row_count                            fixative:ch1 gender:ch1
 #&gt; 1             72 Formalin-Fixed Paraffin Embedded Tissue     female
 #&gt; 2             72 Formalin-Fixed Paraffin Embedded Tissue     female
 #&gt; 3             72 Formalin-Fixed Paraffin Embedded Tissue     female
 #&gt; 4             72 Formalin-Fixed Paraffin Embedded Tissue     female
 #&gt; 5             72 Formalin-Fixed Paraffin Embedded Tissue     female
 #&gt; 6             72 Formalin-Fixed Paraffin Embedded Tissue     female
-#&gt;   tissue.type.ch1
+#&gt;   tissue type:ch1
 #&gt; 1    Breast Tumor
 #&gt; 2    Breast Tumor
 #&gt; 3    Breast Tumor
@@ -243,12 +255,12 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 5    Breast Tumor
 #&gt; 6    Breast Tumor
 #&gt;                                                                                     file_path
-#&gt; 1 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt; 2 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt; 3 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt; 4 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt; 5 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
-#&gt; 6 /tmp/RtmpEDOcNW/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 1 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 2 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 3 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 4 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 5 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
+#&gt; 6 /tmp/RtmpBiZ4l4/GSE74821/GSM1934697_20111102_20111102-9741-1_LGWU101986-1036378WU_02.RCC.gz
 #&gt;   header_FileVersion header_SoftwareVersion            sample_ID sample_Owner
 #&gt; 1                1.6             2.1.1.0005 LGWU101986-1036378WU     palldred
 #&gt; 2                1.6             2.1.1.0005 LGWU101986-1036378WU     palldred
@@ -284,27 +296,27 @@ from <code><a href='load_rcc.html'>load_rcc()</a></code> or <code><a href='norma
 #&gt; 4     NULL 20111102  2 0.3      DA26             1 20111102-9741-1 100 0.99427
 #&gt; 5     NULL 20111102  2 0.3      DA26             1 20111102-9741-1 100 0.99427
 #&gt; 6     NULL 20111102  2 0.3      DA26             1 20111102-9741-1 100 0.99427
-#&gt;     LoD      MC MedC       PC01      PC02       PC03      PC04      PC05
-#&gt; 1 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt; 2 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt; 3 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt; 4 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt; 5 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt; 6 15.46 2049.32  672 -0.2302961 0.1138858 -0.1700332 0.2553097 0.1424941
-#&gt;          PC06      PC07       PC08      PC09       PC10 Positive_factor
-#&gt; 1 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt; 2 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt; 3 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt; 4 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt; 5 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt; 6 -0.02546112 0.2214497 -0.4261823 0.0523038 -0.4518124        0.907257
-#&gt;   Negative_factor House_factor is_outlier Count_Norm
-#&gt; 1        23.73805     0.529937      FALSE       1356
-#&gt; 2        23.73805     0.529937      FALSE        175
-#&gt; 3        23.73805     0.529937      FALSE         44
-#&gt; 4        23.73805     0.529937      FALSE        316
-#&gt; 5        23.73805     0.529937      FALSE        361
-#&gt; 6        23.73805     0.529937      FALSE        153</div><div class='input'>
+#&gt;     LoD      MC MedC        PC01         PC02        PC03       PC04
+#&gt; 1 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt; 2 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt; 3 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt; 4 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt; 5 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt; 6 15.46 2049.32  672 -0.02791035 -0.004523394 -0.02557708 0.04828402
+#&gt;            PC05         PC06      PC07       PC08        PC09        PC10
+#&gt; 1 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt; 2 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt; 3 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt; 4 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt; 5 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt; 6 -0.0006422683 -0.006478663 0.0134213 0.01253137 -0.02025964 -0.01318128
+#&gt;   Positive_factor Negative_factor House_factor is_outlier Count_Norm
+#&gt; 1       0.7298322        23.73805     0.699437      FALSE       1440
+#&gt; 2       0.7298322        23.73805     0.699437      FALSE        186
+#&gt; 3       0.7298322        23.73805     0.699437      FALSE         47
+#&gt; 4       0.7298322        23.73805     0.699437      FALSE        336
+#&gt; 5       0.7298322        23.73805     0.699437      FALSE        383
+#&gt; 6       0.7298322        23.73805     0.699437      FALSE        162</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
