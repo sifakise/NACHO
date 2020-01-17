@@ -70,7 +70,7 @@ within the shiny app using visualise() or in the HTML report from render()." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -87,6 +87,18 @@ within the shiny app using visualise() or in the HTML report from render()." />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -123,9 +135,17 @@ within the shiny app using <code><a href='visualise.html'>visualise()</a></code>
     </div>
 
     <pre class="usage"><span class='co'># S3 method for nacho</span>
-<span class='fu'><a href='autoplot.html'>autoplot</a></span>(<span class='no'>object</span>, <span class='no'>x</span>, <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>, <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
-  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>show_outliers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>outliers_factor</span> <span class='kw'>=</span> <span class='fl'>1</span>,
-  <span class='kw'>outliers_labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='autoplot.html'>autoplot</a></span>(
+  <span class='no'>object</span>,
+  <span class='no'>x</span>,
+  <span class='kw'>colour</span> <span class='kw'>=</span> <span class='st'>"CartridgeID"</span>,
+  <span class='kw'>size</span> <span class='kw'>=</span> <span class='fl'>0.5</span>,
+  <span class='kw'>show_legend</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>show_outliers</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>outliers_factor</span> <span class='kw'>=</span> <span class='fl'>1</span>,
+  <span class='kw'>outliers_labels</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='no'>...</span>
+)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -196,7 +216,8 @@ should be used to be printed as the labels for outliers or not. Default is <code
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>GSE74821</span>)
-<span class='fu'><a href='autoplot.html'>autoplot</a></span>(<span class='no'>GSE74821</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"BD"</span>)</div><div class='img'><img src='autoplot.nacho-1.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='autoplot.html'>autoplot</a></span>(<span class='no'>GSE74821</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"PCA12"</span>)</div><div class='img'><img src='autoplot.nacho-2.png' alt='' width='700' height='433' /></div><div class='input'><span class='fu'><a href='autoplot.html'>autoplot</a></span>(<span class='no'>GSE74821</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"NORM"</span>)</div><div class='img'><img src='autoplot.nacho-3.png' alt='' width='700' height='433' /></div><div class='input'>
+
+<span class='fu'><a href='autoplot.html'>autoplot</a></span>(<span class='no'>GSE74821</span>, <span class='kw'>x</span> <span class='kw'>=</span> <span class='st'>"BD"</span>)</div><div class='img'><img src='autoplot.nacho-1.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">

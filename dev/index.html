@@ -43,7 +43,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">NACHO</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -60,6 +60,18 @@
 </li>
 <li>
   <a href="reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="news/index.html">Changelog</a>
@@ -86,7 +98,7 @@
   <div class="contents col-md-9">
 <div id="nanostring-quality-control-dashboard" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
-<a href="#nanostring-quality-control-dashboard" class="anchor"></a>Nanostring Quality Control Dashboard <img src="articles/figures/nacho_hex.png" align="right" width="120">
+<a href="#nanostring-quality-control-dashboard" class="anchor"></a>NAnostring quality Control dasHbOard <img src="reference/figures/nacho_hex.png" align="right" width="120">
 </h1></div>
 <!-- badges: start -->
 
@@ -122,14 +134,14 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="reference/load_rcc.html">load_rcc()</a></code> or <code><a href="reference/normalise.html">normalise()</a></code> (using <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> in a Rmarkdown chunk).</li>
 <li>The <code><a href="reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="reference/visualise.html">visualise()</a></code> and <code><a href="reference/render.html">render()</a></code>.</li>
 </ul>
-<p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code>.</p>
+<p>For more <code><a href="articles/NACHO.html">vignette("NACHO")</a></code> and <code><a href="articles/NACHO-analysis.html">vignette("NACHO-analysis")</a></code>.</p>
 <div id="shiny-application" class="section level3">
 <h3 class="hasAnchor">
 <a href="#shiny-application" class="anchor"></a>Shiny Application</h3>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"app"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
-<p><img src="articles/figures/README-app.png"></p>
+<p><img src="reference/figures/README-nacho_app.gif" width="100%"></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
-<p><img src="articles/figures/README-visualise.png"></p>
+<p><img src="reference/figures/README-visualise.png"></p>
 </div>
 </div>
 <div id="citing-nacho" class="section level2">
@@ -212,8 +224,8 @@ By participating in this project you agree to abide by its terms.</p>
   <div class="dev-status">
 <h2>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://www.tidyverse.org/lifecycle/#maturing"><img src="https://img.shields.io/badge/lifecycle-maturing-blue.svg" alt="Lifecycle: maturing"></a></li>
-<li><a href="https://github.com/mcanouil/NACHO"><img src="https://img.shields.io/github/tag/mcanouil/NACHO.svg?label=latest%20tag" alt="GitHub tag"></a></li>
+<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://github.com/mcanouil/NACHO"><img src="https://img.shields.io/github/tag/mcanouil/NACHO.svg?label=latest%20tag&amp;include_prereleases" alt="GitHub tag"></a></li>
 <li><a href="https://travis-ci.org/mcanouil/NACHO"><img src="https://travis-ci.org/mcanouil/NACHO.svg?branch=master" alt="Travis-CI Build Status"></a></li>
 <li><a href="https://ci.appveyor.com/project/mcanouil/NACHO"><img src="https://ci.appveyor.com/api/projects/status/github/mcanouil/NACHO?branch=master&amp;svg=true" alt="AppVeyor Build Status"></a></li>
 <li><a href="https://codecov.io/gh/mcanouil/NACHO"><img src="https://codecov.io/gh/mcanouil/NACHO/branch/master/graph/badge.svg" alt="Coverage Status (codecov)"></a></li>
@@ -221,6 +233,7 @@ By participating in this project you agree to abide by its terms.</p>
 <li><a href="https://cran.r-project.org/package=NACHO"><img src="https://www.r-pkg.org/badges/version-ago/NACHO" alt="CRAN_Status_Badge"></a></li>
 <li><a href="https://cran.r-project.org/web/checks/check_results_NACHO.html"><img src="https://cranchecks.info/badges/worst/NACHO" alt="cran checks_worst"></a></li>
 <li><a href="https://cran.r-project.org/package=NACHO"><img src="https://cranlogs.r-pkg.org/badges/NACHO" alt="CRAN_Download_total"></a></li>
+<li><a href="https://github.com/mcanouil/NACHO"><img src="https://github.com/mcanouil/NACHO/workflows/R-CMD-check/badge.svg" alt="R build status"></a></li>
 </ul>
 </div>
 </div>

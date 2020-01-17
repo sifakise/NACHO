@@ -109,14 +109,16 @@ plotInput <- function(id, nacho) {
           shiny::fluidRow(style = paste0("font-size: ", font_size, "%;"),
             shiny::column(6, align = "center",
               shiny::radioButtons(ns("show_levels"), shiny::tags$span("Show Levels", shiny::helpText("(Legend)")),
-                choices = c("No" = FALSE, "Yes" = TRUE),
+                choiceNames = list("No", "Yes"),
+                choiceValues = list(FALSE, TRUE),
                 selected = shiny::isolate(input$show_levels) %||% TRUE,
                 inline = TRUE
               )
             ),
             shiny::column(6, align = "center",
               shiny::radioButtons(ns("show_outliers"), shiny::tags$span("Show Outliers", shiny::helpText("(Point)")),
-                choices = c("No" = FALSE, "Yes" = TRUE),
+                choiceNames = list("No", "Yes"),
+                choiceValues = list(FALSE, TRUE),
                 selected = shiny::isolate(input$show_outliers) %||% TRUE,
                 inline = TRUE
               )
@@ -125,7 +127,8 @@ plotInput <- function(id, nacho) {
           shiny::fluidRow(style = paste0("font-size: ", font_size, "%;"),
             shiny::column(6, align = "center",
               shiny::radioButtons(ns("show_outliers_labels"), shiny::tags$span("Outliers' Label", shiny::helpText("(Text)")),
-                choices = c("No" = FALSE, "Yes" = TRUE),
+                choiceNames = list("No", "Yes"),
+                choiceValues = list(FALSE, TRUE),
                 selected = shiny::isolate(input$show_outliers_labels) %||% FALSE,
                 inline = TRUE
               )
@@ -206,7 +209,7 @@ plotInput <- function(id, nacho) {
         "nr" = "NORM"
       )
       x_metrics <- unname(autoplot_values[id])
-      NACHO::autoplot(
+      p <- NACHO::autoplot(
         x = x_metrics,
         object = nacho,
         colour = input[["group_colour"]] %||% "CartridgeID",
@@ -215,16 +218,14 @@ plotInput <- function(id, nacho) {
         show_outliers = as.logical(input[["show_outliers"]] %||% TRUE),
         outliers_factor = input[["outliers_point_size"]] %||% 2,
         outliers_labels = if (as.logical(input[["show_outliers_labels"]] %||% FALSE)) input[["outliers_labels"]] else NULL
-      ) +
+      )
+      p +
         ggplot2::theme_minimal(base_size = input[["font_size"]] %||% 16) +
-        {
-          if (x_metrics %in% c("NORM", "PN")) {
-            ggplot2::theme(
-              panel.grid.major.x = ggplot2::element_blank(),
-              panel.grid.minor.x = ggplot2::element_blank()
-            )
-          }
-        }
+        ggplot2::theme(
+          panel.grid.major.x = p$theme$panel.grid.major.x,
+          panel.grid.minor.x = p$theme$panel.grid.major.x,
+          axis.text.x = p$theme$axis.text.x
+        )
     })
 
     output$plot <- shiny::renderPlot({ plot() })

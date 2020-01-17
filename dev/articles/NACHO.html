@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -49,6 +49,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -78,7 +90,7 @@
             <h3 class="subtitle">A NAnostring quality Control dasHbOard</h3>
                         <h4 class="author">Mickaël Canouil, Ph.D., Gerard A. Bouland and Roderick C. Slieker, Ph.D.</h4>
             
-            <h4 class="date">December 19, 2019</h4>
+            <h4 class="date">January 17, 2020</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/mcanouil/NACHO/blob/master/vignettes/NACHO.Rmd"><code>vignettes/NACHO.Rmd</code></a></small>
       <div class="hidden name"><code>NACHO.Rmd</code></div>
@@ -87,7 +99,7 @@
 
     
     
-<p><img src="figures/nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
+<p><img src="nacho_hex.png" width="150px" style="display: block; margin: auto;"></p>
 <div id="installation" class="section level1">
 <h1 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h1>
@@ -122,7 +134,7 @@ As a result each count of a specific barcode represents the presence of its targ
 <li>The <code><a href="../reference/render.html">render()</a></code> function renders a full quality-control report (HTML) based on the results of a call to <code><a href="../reference/load_rcc.html">load_rcc()</a></code> or <code><a href="../reference/normalise.html">normalise()</a></code> (using <code><a href="https://rdrr.io/r/base/print.html">print()</a></code> in a Rmarkdown chunk).</li>
 <li>The <code><a href="../reference/autoplot.html">autoplot()</a></code> function draws any quality-control metrics from <code><a href="../reference/visualise.html">visualise()</a></code> and <code><a href="../reference/render.html">render()</a></code>.</li>
 </ul>
-<p>For more <code><a href="../articles/NACHO.html">vignette("NACHO")</a></code>.</p>
+<p>For more <code><a href="../articles/NACHO.html">vignette("NACHO")</a></code> and <code><a href="../articles/NACHO-analysis.html">vignette("NACHO-analysis")</a></code>.</p>
 <p>
 Canouil M, Bouland GA, Bonnefond A, Froguel P, Hart L, Slieker R (2019). “NACHO: an R package for quality control of NanoString nCounter data.” <em>Bioinformatics</em>. ISSN 1367-4803, doi: <a href="https://doi.org/10.1093/bioinformatics/btz647">10.1093/bioinformatics/btz647</a>.
 </p>
@@ -158,7 +170,7 @@ The raw data used is from a study of <span class="citation">Liu et al. (<a href=
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(NACHO)</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(GSE74821)</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw"><a href="../reference/visualise.html">visualise</a></span>(GSE74821)</a></code></pre></div>
-<p><img src="figures/README-visualise.png" width="650px" style="display: block; margin: auto;"></p>
+<p><img src="README-visualise.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="raw-data-from-geo" class="section level3">
 <h3 class="hasAnchor">
@@ -218,7 +230,7 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 ## #   `local.regional.time:ch1` &lt;chr&gt;, `local.time:ch1` &lt;chr&gt;, `n:ch1` &lt;chr&gt;,
 ## #   `nodal.event:ch1` &lt;chr&gt;, `nodal.time:ch1` &lt;chr&gt;,
 ## #   `survival.event:ch1` &lt;chr&gt;, `survival.time:ch1` &lt;chr&gt;, `t:ch1` &lt;chr&gt;</code></pre>
-<p>After we extracted the dataset to the <code>/tmp/Rtmpzy6EHU/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
+<p>After we extracted the dataset to the <code>/tmp/RtmpTplGQc/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
 <div id="the-load_rcc-function" class="section level2">
@@ -259,9 +271,7 @@ The <code>housekeeping_genes</code> and <code>normalisation_method</code> argume
 <a class="sourceLine" id="cb7-31" data-line-number="31">##   $ data_directory      : character</a>
 <a class="sourceLine" id="cb7-32" data-line-number="32">##   $ pc_sum              : data.frame</a>
 <a class="sourceLine" id="cb7-33" data-line-number="33">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb7-34" data-line-number="34">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb7-35" data-line-number="35">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb7-36" data-line-number="36">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb7-34" data-line-number="34">##   $ outliers_thresholds : list</a></code></pre></div>
 </div>
 <div id="the-visualise-function" class="section level2">
 <h2 class="hasAnchor">
@@ -311,9 +321,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <a class="sourceLine" id="cb11-23" data-line-number="23">##   $ data_directory      : character</a>
 <a class="sourceLine" id="cb11-24" data-line-number="24">##   $ pc_sum              : data.frame</a>
 <a class="sourceLine" id="cb11-25" data-line-number="25">##   $ nacho               : data.frame</a>
-<a class="sourceLine" id="cb11-26" data-line-number="26">##   $ outliers_thresholds : list</a>
-<a class="sourceLine" id="cb11-27" data-line-number="27">##   $ raw_counts          : data.frame</a>
-<a class="sourceLine" id="cb11-28" data-line-number="28">##   $ normalised_counts   : data.frame</a></code></pre></div>
+<a class="sourceLine" id="cb11-26" data-line-number="26">##   $ outliers_thresholds : list</a></code></pre></div>
 <p><code><a href="../reference/normalise.html">normalise()</a></code> returns a <code>list</code> object (same as <code><a href="../reference/load_rcc.html">load_rcc()</a></code>) with <code>raw_counts</code> and <code>normalised_counts</code> slots filled with the raw and normalised counts. Both counts are also in the <em>NACHO</em> data.frame.</p>
 </div>
 <div id="the-autoplot-function" class="section level2">
@@ -456,7 +464,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw"><a href="../reference/deploy.html">deploy</a></span>(<span class="dt">directory =</span> <span class="st">"/srv/shiny-server"</span>, <span class="dt">app_name =</span> <span class="st">"NACHO"</span>)</a></code></pre></div>
 <p>The app can also be run directly, without manually summarising and normalising RCC files:</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1">shiny<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/shiny/man/runApp.html">runApp</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"app"</span>, <span class="dt">package =</span> <span class="st">"NACHO"</span>))</a></code></pre></div>
-<p><img src="figures/README-app.png" width="650px" style="display: block; margin: auto;"></p>
+<p><img src="README-app.png" width="650px" style="display: block; margin: auto;"></p>
 </div>
 <div id="the-render-function" class="section level2">
 <h2 class="hasAnchor">
@@ -484,7 +492,7 @@ In this example, <code>"GLM"</code> is used.</p>
 <h3 class="hasAnchor">
 <a href="#rcc-summary" class="anchor"></a>RCC Summary</h3>
 <ul>
-<li>Samples: 20</li>
+<li>Samples: 48</li>
 <li>Endogenous: 50</li>
 <li>Housekeeping: 8</li>
 <li>Negative: 8</li>
@@ -538,19 +546,17 @@ The <strong>Binding Density</strong> is useful for determining whether data coll
 </ul>
 <p>Within these ranges, relatively few reporters on the slide surface will overlap, enabling the instrument to accurately tabulate counts for each reporter species.<br>
 A <strong>Binding Density</strong> significantly greater than the upper limit in either range is indicative of overlapping reporters on the slide surface.<br>
-The counts observed in lanes with a <strong>Binding Density</strong> at this level may have had significant numbers of codes ignored, which could potentially affect quantification and linearity of the assay.<br>
-Some of the factors that may contribute to increased <strong>Binding Density</strong> are listed in the Factors affecting <strong>Binding Density</strong> box.</p>
+The counts observed in lanes with a <strong>Binding Density</strong> at this level may have had significant numbers of codes ignored, which could potentially affect quantification and linearity of the assay.</p>
 <p><img src="NACHO_files/figure-html/print-1.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="field-of-view-imaging" class="section level4">
 <h4 class="hasAnchor">
 <a href="#field-of-view-imaging" class="anchor"></a>Field of View (Imaging)</h4>
 <p>Each individual lane scanned on an nCounter system is divided into a few hundred imaging sections, called Fields of View (<strong>FOV</strong>), the exact number of which will depend on the system being used (<em>i.e.</em>, <strong>MAX/FLEX</strong> or <strong>SPRINT</strong>), and the scanner settings selected by the user.<br>
-The system images these FOVs separately, and sums the barcode counts of all <strong>FOV</strong>s from a single lane to form the final raw data count for each unique barcode target.<br>
-Finally, the system reports the number of <strong>FOV</strong>s successfully imaged as FOV Counted.</p>
+The system images these <strong>FOV</strong>s separately, and sums the barcode counts of all <strong>FOV</strong>s from a single lane to form the final raw data count for each unique barcode target.<br>
+Finally, the system reports the number of <strong>FOV</strong>s successfully imaged as <strong>FOV</strong> Counted.</p>
 <p>Significant discrepancy between the number of <strong>FOV</strong> for which imaging was attempted (<strong>FOV Count</strong>) and for which imaging was successful (<strong>FOV Counted</strong>) may indicate an issue with imaging performance.<br>
-Recommended percentage of registered FOVs (<em>i.e.</em>, <strong>FOV Counted</strong> over <strong>FOV Count</strong>) is <code>75 %</code>.<br>
-Lanes will be flagged if this percentage is lower.</p>
+Recommended percentage of registered FOVs (<em>i.e.</em>, <strong>FOV Counted</strong> over <strong>FOV Count</strong>) is <code>75 %</code>.</p>
 <p><img src="NACHO_files/figure-html/print-2.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 <div id="positive-control-linearity-1" class="section level4">
@@ -571,13 +577,7 @@ Note that because **POS_F** has a known concentration of `0.125 fM`, which is co
 <p>The limit of detection (<strong>LoD</strong>) is determined by measuring the ability to detect <strong>POS_E</strong>, the <code>0.5 fM</code> positive control probe, which corresponds to about 10,000 copies of this target within each sample tube.<br>
 On a <strong>FLEX</strong>/<strong>MAX</strong> system, the standard input of <code>100 ng</code> of total RNA will roughly correspond to about 10,000 cell equivalents (assuming one cell contains <code>10 pg</code> total RNA on average).<br>
 An nCounter assay run on the <strong>FLEX</strong>/<strong>MAX</strong> system should thus conservatively be able to detect roughly one transcript copy per cell for each target (or 10,000 total transcript copies).<br>
-In most assays, you will observe that even the <strong>POS_F</strong> probe (equivalent to 0.25 copies per cell) is detectable above background.</p>
-<!--
-To determine whether **POS_E** is detectable, it can be compared to the counts for the negative control probes.  
-Every nCounter Gene Expression assay is manufactured with eight negative control probes that should not hybridize to any targets within the sample.  
-Counts from these will approximate general non-specific binding of probes within the samples being run.  
-The counts of **POS_E** should be higher than two times the standard deviation above the mean of the negative control. 
--->
+In most (codeset) assays, you will observe that even the <strong>POS_F</strong> probe (equivalent to 0.25 copies per cell) is detectable above background.</p>
 <p><img src="NACHO_files/figure-html/print-4.png" width="700" style="display: block; margin: auto;"></p>
 </div>
 </div>

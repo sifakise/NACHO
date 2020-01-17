@@ -67,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">NACHO</a>
-        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.6.1.9000</span>
+        <span class="version label label-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -84,6 +84,18 @@
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/NACHO-analysis.html">NACHO Analysis</a>
+    </li>
+  </ul>
 </li>
 <li>
   <a href="../news/index.html">Changelog</a>
@@ -117,6 +129,11 @@
 <h1 class="page-header">
 <a href="#nacho-development-version" class="anchor"></a>NACHO (development version)<small> Unreleased </small>
 </h1>
+</div>
+    <div id="nacho-1-0-0" class="section level1">
+<h1 class="page-header">
+<a href="#nacho-1-0-0" class="anchor"></a>NACHO 1.0.0<small> 2020-01-09 </small>
+</h1>
 <div id="new-features" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
@@ -136,6 +153,7 @@
 </li>
 <li>New <code><a href="../reference/deploy.html">deploy()</a></code> (<code>R/deploy.R</code>) function to easily deploy (copy) the shiny app.</li>
 <li>New raw RCC files (multiplexed) available in <code>inst/extdata/</code>.</li>
+<li>New vignette <code>NACHO-analysis</code>, which describe how to use <code>limma</code> or other model after using <strong>NACHO</strong>.</li>
 <li>In <code>DESCRIPTION</code>,
 <ul>
 <li>Order packages in alphabetical order.</li>
@@ -150,6 +168,7 @@
 <ul>
 <li>
 <code>summarise()</code> and <code><a href="../reference/load_rcc.html">summarize()</a></code> have been deprecated and replaced with <code><a href="../reference/load_rcc.html">load_rcc()</a></code>. (<a href='https://github.com/mcanouil/NACHO/issues/12'>#12</a> &amp; <a href='https://github.com/mcanouil/NACHO/issues/15'>#15</a>)</li>
+<li>Counts matrices (<code>raw_counts</code> and <code>normalised_counts</code>) are no longer (directly) available, <em>i.e.</em>, counts are available in a long format within the <code>nacho</code> slot of a nacho object.</li>
 <li>
 <code><a href="../reference/visualise.html">visualise()</a></code>, now uses a new shiny app (<code>inst/app/</code>).</li>
 </ul>
@@ -170,6 +189,7 @@
 <li>add <code>outliers_factor</code> to highligth outliers with different point size.</li>
 <li>add <code>outliers_labels</code> to print labels on top of outliers.</li>
 <li>now uses tidyeval via import.</li>
+<li>remove plexset ID (<code>_S*</code>) to remove duplicated QC metrics.</li>
 </ul>
 </li>
 <li>In <code>R/print.R</code>, now print a table with outliers if any (with <code>echo = TRUE</code>).</li>
@@ -435,6 +455,7 @@
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
         <li><a href="#nacho-development-version">development version</a></li>
+        <li><a href="#nacho-1-0-0">1.0.0</a></li>
         <li><a href="#nacho-0-6-1">0.6.1</a></li>
         <li><a href="#nacho-0-6-0">0.6.0</a></li>
         <li><a href="#nacho-0-5-6">0.5.6</a></li>

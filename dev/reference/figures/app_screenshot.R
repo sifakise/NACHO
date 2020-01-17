@@ -46,18 +46,20 @@ appshot_nacho(
   app = system.file("app", package = "NACHO"),
   file = "man/figures/README-visualise.png",
   nacho_object = GSE74821,
-  delay = 3,
+  delay = 5,
   cliprect = "viewport",
-  vwidth = 1600,
-  vheight = 1000,
-  zoom = 0.75
+  vwidth = 1280 * 1.5,
+  vheight = 640 * 1.5,
+  zoom = 1
 )
+file.copy("man/figures/README-visualise.png", "vignettes/README-visualise.png", overwrite = TRUE)
 appshot_nacho(
   app = system.file("app", package = "NACHO"),
   file = "man/figures/README-app.png",
   delay = 3,
   cliprect = "viewport",
-  vwidth = 1600,
-  vheight = 1000,
-  zoom = 0.75
+  vwidth = 1280 * 1.5,
+  vheight = 640 * 1.5,
+  zoom = 1
 )
+file.copy("man/figures/README-app.png", "vignettes/README-app.png", overwrite = TRUE)
