@@ -185,11 +185,11 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 <a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw"><a href="https://rdrr.io/pkg/GEOquery/man/getGEOSuppFiles.html">getGEOSuppFiles</a></span>(<span class="dt">GEO =</span> <span class="st">"GSE70970"</span>, <span class="dt">baseDir =</span> <span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>())</a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># Unzip data</span></a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/r/utils/untar.html">untar</a></span>(</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="dt">tarfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/GSE70970_RAW.tar"</span>), </a>
-<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dt">exdir =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>)</a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">  <span class="dt">tarfile =</span> <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"GSE70970"</span>, <span class="st">"GSE70970_RAW.tar"</span>), </a>
+<a class="sourceLine" id="cb5-10" data-line-number="10">  <span class="dt">exdir =</span> <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"GSE70970"</span>, <span class="st">"Data"</span>)</a>
 <a class="sourceLine" id="cb5-11" data-line-number="11">)</a>
 <a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co"># Add IDs</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">targets<span class="op">$</span>IDFILE &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>))</a></code></pre></div>
+<a class="sourceLine" id="cb5-13" data-line-number="13">targets<span class="op">$</span>IDFILE &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"GSE70970"</span>, <span class="st">"Data"</span>))</a></code></pre></div>
 <pre><code>## # A tibble: 263 x 71
 ##    IDFILE title geo_accession status submission_date last_update_date type 
 ##    &lt;chr&gt;  &lt;fct&gt; &lt;chr&gt;         &lt;fct&gt;  &lt;fct&gt;           &lt;fct&gt;            &lt;fct&gt;
@@ -230,7 +230,7 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 ## #   `local.regional.time:ch1` &lt;chr&gt;, `local.time:ch1` &lt;chr&gt;, `n:ch1` &lt;chr&gt;,
 ## #   `nodal.event:ch1` &lt;chr&gt;, `nodal.time:ch1` &lt;chr&gt;,
 ## #   `survival.event:ch1` &lt;chr&gt;, `survival.time:ch1` &lt;chr&gt;, `t:ch1` &lt;chr&gt;</code></pre>
-<p>After we extracted the dataset to the <code>/tmp/Rtmpn3WbNG/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
+<p>After we extracted the dataset to the <code>/tmp/RtmpnXEpK8/GSE70970/Data</code> directory, a <code>Samplesheet.csv</code> containing a column with the exact names of the files for each sample can be written or use as is.</p>
 </div>
 </div>
 <div id="the-load_rcc-function" class="section level2">
@@ -239,7 +239,7 @@ In this example, we use a mRNA dataset from the study of <span class="citation">
 <p>The first argument requires the path to the directory containing the RCC files, the second argument is the location of samplesheet followed by third argument with the column name containing the exact names of the files.<br>
 The <code>housekeeping_genes</code> and <code>normalisation_method</code> arguments respectively indicate which housekeeping genes and normalisation method should be used.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">GSE70970_sum &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_rcc.html">load_rcc</a></span>(</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"/GSE70970/Data"</span>), <span class="co"># Where the data is</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">  <span class="dt">data_directory =</span> <span class="kw"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/tempfile.html">tempdir</a></span>(), <span class="st">"GSE70970"</span>, <span class="st">"Data"</span>), <span class="co"># Where the data is</span></a>
 <a class="sourceLine" id="cb7-3" data-line-number="3">  <span class="dt">ssheet_csv =</span> targets, <span class="co"># The samplesheet</span></a>
 <a class="sourceLine" id="cb7-4" data-line-number="4">  <span class="dt">id_colname =</span> <span class="st">"IDFILE"</span>, <span class="co"># Name of the column that contains the unique identfiers</span></a>
 <a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="dt">housekeeping_genes =</span> <span class="ot">NULL</span>, <span class="co"># Custom list of housekeeping genes</span></a>

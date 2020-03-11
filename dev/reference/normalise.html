@@ -260,23 +260,23 @@ With <code>"CodeClass"</code> (first column)), the type of the probes and
   <span class='no'>targets</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>Biobase</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Biobase/man/phenoData.html'>pData</a></span>(<span class='kw pkg'>Biobase</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/Biobase/man/phenoData.html'>phenoData</a></span>(<span class='no'>gse</span><span class='kw'>[[</span><span class='fl'>1</span>]]))
   <span class='kw pkg'>GEOquery</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/GEOquery/man/getGEOSuppFiles.html'>getGEOSuppFiles</a></span>(<span class='kw'>GEO</span> <span class='kw'>=</span> <span class='st'>"GSE74821"</span>, <span class='kw'>baseDir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>())
   <span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/untar.html'>untar</a></span>(
-    <span class='kw'>tarfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/GSE74821_RAW.tar"</span>),
-    <span class='kw'>exdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>)
+    <span class='kw'>tarfile</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>, <span class='st'>"GSE74821_RAW.tar"</span>),
+    <span class='kw'>exdir</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>)
   )
   <span class='no'>targets</span>$<span class='no'>IDFILE</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/list.files.html'>list.files</a></span>(
-    <span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>),
+    <span class='kw'>path</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>),
     <span class='kw'>pattern</span> <span class='kw'>=</span> <span class='st'>".RCC.gz$"</span>
   )
   <span class='no'>targets</span>[] <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/lapply.html'>lapply</a></span>(<span class='kw'>X</span> <span class='kw'>=</span> <span class='no'>targets</span>, <span class='kw'>FUN</span> <span class='kw'>=</span> <span class='no'>iconv</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='st'>"latin1"</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='st'>"ASCII"</span>)
   <span class='kw pkg'>utils</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/r/utils/write.table.html'>write.csv</a></span>(
     <span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>targets</span>,
-    <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/Samplesheet.csv"</span>)
+    <span class='kw'>file</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>, <span class='st'>"Samplesheet.csv"</span>)
   )
 
   <span class='co'># Read RCC files and format</span>
   <span class='no'>nacho</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='load_rcc.html'>load_rcc</a></span>(
-    <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821"</span>),
-    <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"/GSE74821/Samplesheet.csv"</span>),
+    <span class='kw'>data_directory</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>),
+    <span class='kw'>ssheet_csv</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span>(), <span class='st'>"GSE74821"</span>, <span class='st'>"Samplesheet.csv"</span>),
     <span class='kw'>id_colname</span> <span class='kw'>=</span> <span class='st'>"IDFILE"</span>
   )
 
